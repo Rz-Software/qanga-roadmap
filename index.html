@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QANGA - Roadmap</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a0f;
+    color: #e0e0e8;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: auto;
+    min-height: 100vh;
+  }
+
+  .header {
+    padding: 40px 60px 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .header h1 {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    background: linear-gradient(135deg, #00d4ff, #7b2ff7, #ff2d7c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .header .subtitle {
+    font-size: 14px;
+    color: #555;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .legend {
+    padding: 10px 60px 30px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #888;
+    letter-spacing: 0.5px;
+  }
+
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .legend-dot.delivered { background: #00d4ff; }
+  .legend-dot.current { background: #7b2ff7; }
+  .legend-dot.planned { background: #ff2d7c; }
+
+  .timeline-container {
+    padding: 0 60px 60px;
+    overflow-x: auto;
+  }
+
+  .timeline {
+    display: flex;
+    gap: 0;
+    position: relative;
+    min-width: max-content;
+  }
+
+  /* The horizontal line */
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 54px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #00d4ff 0%, #00d4ff 40%, #7b2ff7 45%, #7b2ff7 50%, #ff2d7c 55%, #ff2d7c 100%);
+    z-index: 1;
+  }
+
+  .quarter {
+    min-width: 320px;
+    max-width: 360px;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .quarter-header {
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+  }
+
+  .quarter-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .delivered .quarter-label {
+    background: rgba(0, 212, 255, 0.12);
+    color: #00d4ff;
+    border: 1px solid rgba(0, 212, 255, 0.25);
+  }
+
+  .current .quarter-label {
+    background: rgba(123, 47, 247, 0.18);
+    color: #b07aff;
+    border: 1px solid rgba(123, 47, 247, 0.4);
+    box-shadow: 0 0 20px rgba(123, 47, 247, 0.2);
+  }
+
+  .planned .quarter-label {
+    background: rgba(255, 45, 124, 0.1);
+    color: #ff2d7c;
+    border: 1px solid rgba(255, 45, 124, 0.2);
+  }
+
+  .quarter-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+  }
+
+  .delivered .quarter-dot {
+    background: #00d4ff;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+  }
+
+  .current .quarter-dot {
+    background: #7b2ff7;
+    box-shadow: 0 0 15px rgba(123, 47, 247, 0.6);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  .planned .quarter-dot {
+    background: #ff2d7c;
+    box-shadow: 0 0 8px rgba(255, 45, 124, 0.3);
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 15px rgba(123, 47, 247, 0.6); transform: scale(1); }
+    50% { box-shadow: 0 0 25px rgba(123, 47, 247, 0.9); transform: scale(1.15); }
+  }
+
+  .quarter-year {
+    font-size: 11px;
+    color: #444;
+    margin-top: 8px;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+
+  .items {
+    padding: 0 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .item {
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    line-height: 1.5;
+    font-weight: 400;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    position: relative;
+  }
+
+  .item:hover {
+    transform: translateY(-1px);
+  }
+
+  .delivered .item {
+    background: rgba(0, 212, 255, 0.04);
+    border: 1px solid rgba(0, 212, 255, 0.08);
+    color: #b0b8c8;
+  }
+
+  .delivered .item:hover {
+    background: rgba(0, 212, 255, 0.08);
+    border-color: rgba(0, 212, 255, 0.15);
+  }
+
+  .current .item {
+    background: rgba(123, 47, 247, 0.06);
+    border: 1px solid rgba(123, 47, 247, 0.15);
+    color: #c8c0e0;
+  }
+
+  .current .item:hover {
+    background: rgba(123, 47, 247, 0.1);
+    border-color: rgba(123, 47, 247, 0.25);
+    box-shadow: 0 2px 12px rgba(123, 47, 247, 0.1);
+  }
+
+  .planned .item {
+    background: rgba(255, 45, 124, 0.04);
+    border: 1px solid rgba(255, 45, 124, 0.08);
+    color: #998898;
+  }
+
+  .planned .item:hover {
+    background: rgba(255, 45, 124, 0.08);
+    border-color: rgba(255, 45, 124, 0.15);
+  }
+
+  .item-title {
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 3px;
+  }
+
+  .delivered .item-title { color: #00d4ff; }
+  .current .item-title { color: #b07aff; }
+  .planned .item-title { color: #ff2d7c; }
+
+  .item-desc {
+    font-size: 11.5px;
+    line-height: 1.45;
+  }
+
+  .version-tags {
+    margin-top: 5px;
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+
+  .vtag {
+    font-size: 9px;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+
+  .delivered .vtag {
+    background: rgba(0, 212, 255, 0.1);
+    color: rgba(0, 212, 255, 0.6);
+  }
+
+  .current .vtag {
+    background: rgba(123, 47, 247, 0.12);
+    color: rgba(123, 47, 247, 0.7);
+  }
+
+  .divider {
+    width: 1px;
+    background: rgba(255,255,255,0.03);
+    flex-shrink: 0;
+  }
+
+  .footer {
+    padding: 40px 60px;
+    text-align: center;
+    color: #333;
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>QANGA</h1>
+  <div>
+    <div class="subtitle">Development Roadmap</div>
+  </div>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot delivered"></div> Delivered</div>
+  <div class="legend-item"><div class="legend-dot current"></div> In Progress</div>
+  <div class="legend-item"><div class="legend-dot planned"></div> Planned</div>
+</div>
+
+<div class="timeline-container">
+<div class="timeline">
+
+<!-- Q1 2025 -->
+<div class="quarter delivered">
+  <div class="quarter-header">
+    <div class="quarter-label">Q1 2025</div>
+    <div class="quarter-dot"></div>
+    <div class="quarter-year">Jan - Mar 2025</div>
+  </div>
+  <div class="items">
+    <div class="item">
+      <div class="item-title">Mining System</div>
+      <div class="item-desc">Systeme de Minage + outil Multitool (Iron, Lithium, Copper)</div>
+      <div class="version-tags"><span class="vtag">v0.0.12</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Sanglines & Missions</div>
+      <div class="item-desc">Nouvelles Sanglines (Gaz-sac) + Spawners + Missions (Raffinerie, IC Labs)</div>
+      <div class="version-tags"><span class="vtag">v0.0.12</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Ship Weapons</div>
+      <div class="item-desc">Customisation armes vaisseau (mitrailleuse / missiles / mining beam)</div>
+      <div class="version-tags"><span class="vtag">v0.0.12</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Custom Pathfinding</div>
+      <div class="item-desc">Pathfinding maison (multithread, octree, spherique)</div>
+      <div class="version-tags"><span class="vtag">v0.0.13a</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">HOTAS Support</div>
+      <div class="item-desc">Support HOTAS + config axes analog avance (24 axes)</div>
+      <div class="version-tags"><span class="vtag">v0.0.13a</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Vehicle Customization</div>
+      <div class="item-desc">Customisation vehicule amelioree (28+ couleurs)</div>
+      <div class="version-tags"><span class="vtag">v0.0.13a</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Lunar Base</div>
+      <div class="item-desc">Nouvelle base lunaire (Moona) + asteroides minables + starmap</div>
+      <div class="version-tags"><span class="vtag">v0.0.13a</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Player Statistics</div>
+      <div class="item-desc">Systeme de statistiques personnage (kills / distance / exploration)</div>
+      <div class="version-tags"><span class="vtag">v0.0.13a</span></div>
+    </div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- Q2 2025 -->
+<div class="quarter delivered">
+  <div class="quarter-header">
+    <div class="quarter-label">Q2 2025</div>
+    <div class="quarter-dot"></div>
+    <div class="quarter-year">Apr - Jun 2025</div>
+  </div>
+  <div class="items">
+    <div class="item">
+      <div class="item-title">Ship HUD 3D</div>
+      <div class="item-desc">Rendu world-space en first-person</div>
+      <div class="version-tags"><span class="vtag">v0.0.14</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">DLSS & Latency</div>
+      <div class="item-desc">Support DLSS + Anti-Lag AMD + Reflex Nvidia</div>
+      <div class="version-tags"><span class="vtag">v0.0.14</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Localization</div>
+      <div class="item-desc">Refonte localisation EN/FR complete</div>
+      <div class="version-tags"><span class="vtag">v0.0.14</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">New Sanglines</div>
+      <div class="item-desc">3 nouvelles Sanglines (Gaz-Sac, Flyer, Sand Digger)</div>
+      <div class="version-tags"><span class="vtag">v0.0.15</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Refinery</div>
+      <div class="item-desc">Structure Raffinerie (depot materiaux + vente avec bonus)</div>
+      <div class="version-tags"><span class="vtag">v0.0.15</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">New POIs</div>
+      <div class="item-desc">Villes en ruines explorables (Toronto / Moscow)</div>
+      <div class="version-tags"><span class="vtag">v0.0.15</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Dynamic Market</div>
+      <div class="item-desc">Prix evoluent selon stock vendeur</div>
+      <div class="version-tags"><span class="vtag">v0.0.15</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Player Trading</div>
+      <div class="item-desc">Echange d'items entre joueurs</div>
+      <div class="version-tags"><span class="vtag">v0.0.15</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Relay Tower v2</div>
+      <div class="item-desc">Layout v2 (armurerie deplacee au lobby)</div>
+      <div class="version-tags"><span class="vtag">v0.0.14</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Moon Structures</div>
+      <div class="item-desc">Landing pads + hangars en construction</div>
+      <div class="version-tags"><span class="vtag">v0.0.14</span></div>
+    </div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- Q3 2025 -->
+<div class="quarter delivered">
+  <div class="quarter-header">
+    <div class="quarter-label">Q3 2025</div>
+    <div class="quarter-dot"></div>
+    <div class="quarter-year">Jul - Sep 2025</div>
+  </div>
+  <div class="items">
+    <div class="item">
+      <div class="item-title">Vehicle Overhaul</div>
+      <div class="item-desc">Refonte complete vehicules (grav-lev, hover/drift/boost, controle aerien)</div>
+      <div class="version-tags"><span class="vtag">v0.0.16</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">New Vehicles</div>
+      <div class="item-desc">PodFury (anti-grav motorbike) + Melrose Coopay &amp; Jeelix</div>
+      <div class="version-tags"><span class="vtag">v0.0.16</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Human Infected</div>
+      <div class="item-desc">4 types (Blue / White / Yellow / Boss)</div>
+      <div class="version-tags"><span class="vtag">v0.0.16</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Gravity & Speed</div>
+      <div class="item-desc">Nouveau systeme de gravite + vaisseau 7200 km/h, illimite dans l'espace</div>
+      <div class="version-tags"><span class="vtag">v0.0.16</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Awakening Center</div>
+      <div class="item-desc">Nouveau point de depart Cyborgs</div>
+      <div class="version-tags"><span class="vtag">v0.0.17</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Djibouti City</div>
+      <div class="item-desc">Nouvelle ville de depart (commerces, armurerie, centre medical)</div>
+      <div class="version-tags"><span class="vtag">v0.0.17</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Ships & Police</div>
+      <div class="item-desc">2 vaisseaux (Lavrik + Orizaune) + variantes police</div>
+      <div class="version-tags"><span class="vtag">v0.0.17</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Construction</div>
+      <div class="item-desc">60+ pieces (collection IronDee) + mode Zoop</div>
+      <div class="version-tags"><span class="vtag">v0.0.17</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Upscaling Tech</div>
+      <div class="item-desc">FSR3/4 + DLSS FrameGen + XeSS v2 FrameGen</div>
+      <div class="version-tags"><span class="vtag">v0.0.16</span><span class="vtag">v0.0.17</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">QLevel System</div>
+      <div class="item-desc">80% niveaux convertis - nouveau format modulaire</div>
+      <div class="version-tags"><span class="vtag">v0.0.16</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Audio & Ambiance</div>
+      <div class="item-desc">Sons Cyborg + 21 musiques + radios in-world + refonte visuelle trams</div>
+      <div class="version-tags"><span class="vtag">v0.0.16</span><span class="vtag">v0.0.17</span></div>
+    </div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- Q4 2025 -->
+<div class="quarter delivered">
+  <div class="quarter-header">
+    <div class="quarter-label">Q4 2025</div>
+    <div class="quarter-dot"></div>
+    <div class="quarter-year">Oct - Dec 2025</div>
+  </div>
+  <div class="items">
+    <div class="item">
+      <div class="item-title">A New Beginning</div>
+      <div class="item-desc">Refonte Tutoriel + intro narrative avec Tona</div>
+      <div class="version-tags"><span class="vtag">v0.0.18</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Early-Game Quests</div>
+      <div class="item-desc">Premieres quetes + systeme de quetes en conditions reelles</div>
+      <div class="version-tags"><span class="vtag">v0.0.18</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Warp v2</div>
+      <div class="item-desc">Redesign complet des stations spatiales (exterieur + interieur)</div>
+      <div class="version-tags"><span class="vtag">v0.0.18</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">New Systems</div>
+      <div class="item-desc">Recovery Terminal + No-Fly Zones + interactions cables physiques</div>
+      <div class="version-tags"><span class="vtag">v0.0.18</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Police & Wanted</div>
+      <div class="item-desc">Systeme actif (Hunted, niveaux de poursuite, crime feedback)</div>
+      <div class="version-tags"><span class="vtag">v0.0.18</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Relay Towers v2</div>
+      <div class="item-desc">Signaletique, ecrans d'info, navigation amelioree</div>
+      <div class="version-tags"><span class="vtag">v0.0.18</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Rendering Overhaul</div>
+      <div class="item-desc">Optimisations rendu massives - gains FPS majeurs (Djibouti, zones denses)</div>
+      <div class="version-tags"><span class="vtag">v0.0.18</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Christmas Event</div>
+      <div class="item-desc">Decorations + cadeaux collectibles dans Relay Towers / Warps</div>
+      <div class="version-tags"><span class="vtag">v0.0.18</span></div>
+    </div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- Q1 2026 -->
+<div class="quarter current">
+  <div class="quarter-header">
+    <div class="quarter-label">Q1 2026</div>
+    <div class="quarter-dot"></div>
+    <div class="quarter-year">Jan - Mar 2026</div>
+  </div>
+  <div class="items">
+    <div class="item">
+      <div class="item-title">Main Story Introduction</div>
+      <div class="item-desc">Introduction en jeu - tuto/univers solo mode - narration - UI Mission</div>
+    </div>
+    <div class="item">
+      <div class="item-title">Procedural Missions</div>
+      <div class="item-desc">5 archetypes WIP (Extermination, Infiltration, Mining, Investigation, Defense) - generation dynamique depuis POI</div>
+      <div class="version-tags"><span class="vtag">v0.0.20a</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Main Story Extended</div>
+      <div class="item-desc">Rework complet Main Story Quests (logique, dialogues, coordonnees, prerequis)</div>
+      <div class="version-tags"><span class="vtag">v0.0.20a</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Character Rework</div>
+      <div class="item-desc">FPS/TPS animation - Ready stance hip-fire, pistols one-hand, ADS zero-drift, weapon grip</div>
+      <div class="version-tags"><span class="vtag">v0.0.20a</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">GPU WorldScape</div>
+      <div class="item-desc">Premice GPU WorldScape Convert + optimisation vertex/foliage</div>
+      <div class="version-tags"><span class="vtag">v0.0.19</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Unreal Engine 5.7.3</div>
+      <div class="item-desc">Update moteur + fix render artifacts</div>
+    </div>
+    <div class="item">
+      <div class="item-title">Quest Tracker</div>
+      <div class="item-desc">Refonte (edge tracking, fleche directionnelle, nouveaux visuels) + objectifs mining/timer</div>
+      <div class="version-tags"><span class="vtag">v0.0.20a</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Graphics Pipeline</div>
+      <div class="item-desc">Refonte (FSR framegen standalone, DLAA en AA, persistence settings)</div>
+      <div class="version-tags"><span class="vtag">v0.0.19</span></div>
+    </div>
+    <div class="item">
+      <div class="item-title">Content & Polish</div>
+      <div class="item-desc">Variante rusty Orizaune + death screen detaille + NPC dialogue spatialise + equipment slots rework</div>
+      <div class="version-tags"><span class="vtag">v0.0.20a</span></div>
+    </div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- Q2 2026 -->
+<div class="quarter planned">
+  <div class="quarter-header">
+    <div class="quarter-label">Q2 2026</div>
+    <div class="quarter-dot"></div>
+    <div class="quarter-year">Apr - Jun 2026</div>
+  </div>
+  <div class="items">
+    <div class="item">
+      <div class="item-title">Cyborg Modules</div>
+      <div class="item-desc">LES PHASES CYBORG - Talents, Competences, Dynamic Character Stats, effects, ability</div>
+    </div>
+    <div class="item">
+      <div class="item-title">Faction LE VOSS</div>
+      <div class="item-desc">Integration Story (anciennement Pirate)</div>
+    </div>
+    <div class="item">
+      <div class="item-title">Sanglines Biomes</div>
+      <div class="item-desc">Integration des "Batiments" Sanglines</div>
+    </div>
+    <div class="item">
+      <div class="item-title">Flight Combat</div>
+      <div class="item-desc">Mission flightCombat &amp; embuscade</div>
+    </div>
+    <div class="item">
+      <div class="item-title">Vehicle Rewards</div>
+      <div class="item-desc">Accessoires de base a l'achat, ameliorations haut niveau via quetes</div>
+    </div>
+    <div class="item">
+      <div class="item-title">Vehicle Modules</div>
+      <div class="item-desc">LES PHASES VEHICULE - Talents, Competences, Dynamic Stats</div>
+    </div>
+    <div class="item">
+      <div class="item-title">Weapon Rework</div>
+      <div class="item-desc">Accessoires, Inventaire UI, Phase module menu</div>
+    </div>
+    <div class="item">
+      <div class="item-title">Persistent Levels</div>
+      <div class="item-desc">Integration des points de Lagrange + rework persistance</div>
+    </div>
+    <div class="item">
+      <div class="item-title">AI System</div>
+      <div class="item-desc">Rework AI System</div>
+    </div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- Q3 2026 -->
+<div class="quarter planned">
+  <div class="quarter-header">
+    <div class="quarter-label">Q3 2026</div>
+    <div class="quarter-dot"></div>
+    <div class="quarter-year">Jul - Sep 2026</div>
+  </div>
+  <div class="items">
+    <div class="item">
+      <div class="item-title">Construction Modules</div>
+      <div class="item-desc">LES PHASES CONSTRUCTION - Talents, Competences, Dynamic Stats</div>
+    </div>
+    <div class="item">
+      <div class="item-title">Item Modules</div>
+      <div class="item-desc">LES PHASES ITEM (Module pour armes) + Rework Weapon accessoires</div>
+    </div>
+    <div class="item">
+      <div class="item-title">Construction Rewards</div>
+      <div class="item-desc">GAMEPLAY ALIGN REWARD - Les Constructions</div>
+    </div>
+    <div class="item">
+      <div class="item-title">Companion AI</div>
+      <div class="item-desc">Compagnon AI</div>
+    </div>
+    <div class="item">
+      <div class="item-title">Construction v2</div>
+      <div class="item-desc">Construction V2 System</div>
+    </div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- Q4 2026 -->
+<div class="quarter planned">
+  <div class="quarter-header">
+    <div class="quarter-label">Q4 2026</div>
+    <div class="quarter-dot"></div>
+    <div class="quarter-year">Oct - Dec 2026</div>
+  </div>
+  <div class="items">
+    <div class="item">
+      <div class="item-title">Faction MARSONE</div>
+      <div class="item-desc">Integration Story (Humain abandonne sur Mars)</div>
+    </div>
+    <div class="item">
+      <div class="item-title">Asteroid Field</div>
+      <div class="item-desc">Anneau en spirale de l'ancienne position de la lune a la position actuelle</div>
+    </div>
+    <div class="item">
+      <div class="item-title">Space v2</div>
+      <div class="item-desc">Gameplay Possibility on Space v2</div>
+    </div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- Q1 2027 -->
+<div class="quarter planned">
+  <div class="quarter-header">
+    <div class="quarter-label">Q1 2027</div>
+    <div class="quarter-dot"></div>
+    <div class="quarter-year">Jan - Mar 2027</div>
+  </div>
+  <div class="items">
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- Q2 2027 -->
+<div class="quarter planned">
+  <div class="quarter-header">
+    <div class="quarter-label">Q2 2027</div>
+    <div class="quarter-dot"></div>
+    <div class="quarter-year">Apr - Jun 2027</div>
+  </div>
+  <div class="items">
+    <div class="item">
+      <div class="item-title">Dynamic Modules</div>
+      <div class="item-desc">LES PHASES Dynamic - permettre au joueur de creer ses propres modules (stats)</div>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+
+<div class="footer">QANGA &mdash; iolaCorp Studio &mdash; Early Access Roadmap &mdash; Updated March 2026</div>
+
+</body>
+</html>
