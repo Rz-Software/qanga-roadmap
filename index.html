@@ -250,6 +250,18 @@
   .delivered .vtag { background: rgba(0, 212, 255, 0.1); color: rgba(0, 212, 255, 0.6); }
   .current .vtag { background: rgba(123, 47, 247, 0.12); color: rgba(123, 47, 247, 0.7); }
 
+  .current .item.done {
+    background: rgba(0, 212, 255, 0.04);
+    border: 1px solid rgba(0, 212, 255, 0.12);
+    color: #b0b8c8;
+  }
+  .current .item.done:hover {
+    background: rgba(0, 212, 255, 0.08);
+    border-color: rgba(0, 212, 255, 0.18);
+  }
+  .current .item.done .item-title { color: #00d4ff; }
+  .current .item.done .vtag { background: rgba(0, 212, 255, 0.1); color: rgba(0, 212, 255, 0.6); }
+
   .divider { width: 1px; background: rgba(255,255,255,0.03); flex-shrink: 0; }
 
   .footer {
@@ -368,15 +380,15 @@
     <div class="quarter-year">Jan &ndash; Mar 2026</div>
   </div>
   <div class="items">
-    <div class="item"><div class="item-title">Main Story Introduction</div><div class="item-desc">Introduction en jeu &ndash; tuto/univers solo mode &ndash; narration &ndash; UI Mission</div></div>
+    <div class="item done"><div class="item-title">Main Story Introduction</div><div class="item-desc">Introduction en jeu &ndash; tuto/univers solo mode &ndash; narration &ndash; UI Mission</div><div class="version-tags"><span class="vtag">v0.0.20a</span></div></div>
     <div class="item"><div class="item-title">Procedural Missions</div><div class="item-desc">5 archetypes WIP (Extermination, Infiltration, Mining, Investigation, Defense) &ndash; generation dynamique depuis POI</div><div class="version-tags"><span class="vtag">v0.0.20a</span></div></div>
-    <div class="item"><div class="item-title">Main Story Extended</div><div class="item-desc">Rework complet Main Story Quests (logique, dialogues, coordonnees, prerequis)</div><div class="version-tags"><span class="vtag">v0.0.20a</span></div></div>
-    <div class="item"><div class="item-title">Character Rework</div><div class="item-desc">FPS/TPS animation &ndash; Ready stance hip-fire, pistols one-hand, ADS zero-drift, weapon grip</div><div class="version-tags"><span class="vtag">v0.0.20a</span></div></div>
+    <div class="item done"><div class="item-title">Main Story Extended</div><div class="item-desc">Rework complet Main Story Quests (logique, dialogues, coordonnees, prerequis)</div><div class="version-tags"><span class="vtag">v0.0.20a</span></div></div>
+    <div class="item done"><div class="item-title">Character Rework</div><div class="item-desc">FPS/TPS animation &ndash; Ready stance hip-fire, pistols one-hand, ADS zero-drift, weapon grip</div><div class="version-tags"><span class="vtag">v0.0.20a</span></div></div>
     <div class="item"><div class="item-title">GPU WorldScape</div><div class="item-desc">Premice GPU WorldScape Convert + optimisation vertex/foliage</div><div class="version-tags"><span class="vtag">v0.0.19</span></div></div>
     <div class="item"><div class="item-title">Unreal Engine 5.7.3</div><div class="item-desc">Update moteur + fix render artifacts</div></div>
-    <div class="item"><div class="item-title">Quest Tracker</div><div class="item-desc">Refonte (edge tracking, fleche directionnelle, nouveaux visuels) + objectifs mining/timer</div><div class="version-tags"><span class="vtag">v0.0.20a</span></div></div>
-    <div class="item"><div class="item-title">Graphics Pipeline</div><div class="item-desc">Refonte (FSR framegen standalone, DLAA en AA, persistence settings)</div><div class="version-tags"><span class="vtag">v0.0.19</span></div></div>
-    <div class="item"><div class="item-title">Content &amp; Polish</div><div class="item-desc">Variante rusty Orizaune + death screen detaille + NPC dialogue spatialise + equipment slots rework</div><div class="version-tags"><span class="vtag">v0.0.20a</span></div></div>
+    <div class="item done"><div class="item-title">Quest Tracker</div><div class="item-desc">Refonte (edge tracking, fleche directionnelle, nouveaux visuels) + objectifs mining/timer</div><div class="version-tags"><span class="vtag">v0.0.20a</span></div></div>
+    <div class="item done"><div class="item-title">Graphics Pipeline</div><div class="item-desc">Refonte (FSR framegen standalone, DLAA en AA, persistence settings)</div><div class="version-tags"><span class="vtag">v0.0.19</span></div></div>
+    <div class="item done"><div class="item-title">Content &amp; Polish</div><div class="item-desc">Variante rusty Orizaune + death screen detaille + NPC dialogue spatialise + equipment slots rework</div><div class="version-tags"><span class="vtag">v0.0.20a</span></div></div>
   </div>
 </div><div class="divider"></div>
 
@@ -458,6 +470,15 @@
 </div>
 
 <div class="footer">QANGA &mdash; iolaCorp Studio &mdash; Early Access Roadmap &mdash; Updated March 2026</div>
+
+<script>
+document.querySelectorAll('.current .item, .planned .item').forEach(item => {
+  item.style.cursor = 'pointer';
+  item.addEventListener('click', () => {
+    item.classList.toggle('done');
+  });
+});
+</script>
 
 </body>
 </html>
