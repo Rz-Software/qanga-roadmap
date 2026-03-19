@@ -472,12 +472,27 @@
 <div class="footer">QANGA &mdash; iolaCorp Studio &mdash; Early Access Roadmap &mdash; Updated March 2026</div>
 
 <script>
-document.querySelectorAll('.current .item, .planned .item').forEach(item => {
-  item.style.cursor = 'pointer';
-  item.addEventListener('click', () => {
-    item.classList.toggle('done');
+(function() {
+  const KEY = 'qanga-roadmap-done';
+  const saved = JSON.parse(localStorage.getItem(KEY) || '{}');
+
+  document.querySelectorAll('.current .item, .planned .item').forEach(item => {
+    const id = item.querySelector('.item-title').textContent.trim();
+    item.style.cursor = 'pointer';
+
+    if (saved[id]) item.classList.add('done');
+
+    item.addEventListener('click', () => {
+      item.classList.toggle('done');
+      const state = {};
+      document.querySelectorAll('.item.done').forEach(d => {
+        const t = d.querySelector('.item-title');
+        if (t) state[t.textContent.trim()] = true;
+      });
+      localStorage.setItem(KEY, JSON.stringify(state));
+    });
   });
-});
+})();
 </script>
 
 </body>
