@@ -87,7 +87,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, #00d4ff 0%, #00d4ff 35%, #7b2ff7 40%, #7b2ff7 48%, #ff2d7c 53%, #ff2d7c 100%);
+    background: linear-gradient(90deg, #00d4ff 0%, #00d4ff 63%, #7b2ff7 67%, #7b2ff7 75%, #ff2d7c 79%, #ff2d7c 100%);
     z-index: 1;
   }
 
@@ -373,7 +373,7 @@
 </div><div class="divider"></div>
 
 <!-- ==================== Q1 2026 ==================== -->
-<div class="quarter current">
+<div class="quarter delivered">
   <div class="quarter-header">
     <div class="quarter-label">Q1 2026</div>
     <div class="quarter-dot"></div>
@@ -393,35 +393,38 @@
 </div><div class="divider"></div>
 
 <!-- ==================== Q2 2026 ==================== -->
-<div class="quarter planned">
+<div class="quarter delivered">
   <div class="quarter-header">
     <div class="quarter-label">Q2 2026</div>
     <div class="quarter-dot"></div>
     <div class="quarter-year">Apr &ndash; Jun 2026</div>
   </div>
   <div class="items">
-    <div class="item"><div class="item-title">Cyborg Modules</div><div class="item-desc">LES PHASES CYBORG &ndash; Talents, Competences, Dynamic Character Stats, effects, ability</div></div>
-    <div class="item"><div class="item-title">Faction LE VOSS</div><div class="item-desc">Integration Story (anciennement Pirate)</div></div>
-    <div class="item"><div class="item-title">Sanglines Biomes</div><div class="item-desc">Integration des &laquo; Batiments &raquo; Sanglines</div></div>
-    <div class="item"><div class="item-title">Flight Combat</div><div class="item-desc">Mission flightCombat &amp; embuscade</div></div>
-    <div class="item"><div class="item-title">Vehicle Rewards</div><div class="item-desc">Accessoires de base a l'achat, ameliorations haut niveau via completion de quetes</div></div>
-    <div class="item"><div class="item-title">AI System</div><div class="item-desc">Rework AI System</div></div>
-    <div class="item"><div class="item-title">Persistent Levels</div><div class="item-desc">Integration des points de Lagrange + rework persistance</div></div>
+    <div class="item"><div class="item-title">Cyborg Modules v2 (Core)</div><div class="item-desc">Le mur de modules hexagonal &ndash; 90+ modules, 8 familles, insertion de phases, editeur interne, nouvel onglet Phases</div><div class="version-tags"><span class="vtag">v0.0.21+</span></div></div>
+    <div class="item"><div class="item-title">Faction LE VOSS</div><div class="item-desc">Faction distincte (relations 8 factions, roster dedie, armes Nash V1/V2, tenue anthracite)</div><div class="version-tags"><span class="vtag">v0.0.21+</span></div></div>
+    <div class="item"><div class="item-title">AI System Rework</div><div class="item-desc">QAI data-oriented (batch SoA, SIMD, ~1024 agents) + spawns planetaires 29 especes (biomes, jour/nuit)</div><div class="version-tags"><span class="vtag">v0.0.21+</span></div></div>
+    <div class="item"><div class="item-title">QRadio Stations</div><div class="item-desc">Stations radio captees par position dans l'univers (vehicules, trains, radio portable), horloge de diffusion synchronisee</div><div class="version-tags"><span class="vtag">v0.0.21+</span></div></div>
+    <div class="item"><div class="item-title">Build Economy</div><div class="item-desc">La construction coute des mineraux (banque du builder, prix avances par piece)</div><div class="version-tags"><span class="vtag">v0.0.22+</span></div></div>
   </div>
 </div><div class="divider"></div>
 
 <!-- ==================== Q3 2026 ==================== -->
-<div class="quarter planned">
+<div class="quarter current">
   <div class="quarter-header">
     <div class="quarter-label">Q3 2026</div>
     <div class="quarter-dot"></div>
     <div class="quarter-year">Jul &ndash; Sep 2026</div>
   </div>
   <div class="items">
-    <div class="item"><div class="item-title">Construction Modules</div><div class="item-desc">LES PHASES CONSTRUCTION &ndash; Talents, Competences, Dynamic Stats + Construction V2 System</div></div>
-    <div class="item"><div class="item-title">Item Modules</div><div class="item-desc">LES PHASES ITEM &ndash; Module pour armes + Rework Weapon accessoires</div></div>
-    <div class="item"><div class="item-title">Construction Rewards</div><div class="item-desc">GAMEPLAY ALIGN REWARD &ndash; Les Constructions</div></div>
-    <div class="item"><div class="item-title">Companion AI</div><div class="item-desc">Compagnon AI (get mercenary for mission, defence construction)</div></div>
+    <div class="item done"><div class="item-title">Cyborg Gadgets</div><div class="item-desc">Roue d'atouts (nid d'abeille) : missiles dorsaux guides, salves de grenades, frappe orbitale, escouade PNJ, bouclier regenerant, caisson hermetique, coussin gravitationnel...</div></div>
+    <div class="item done"><div class="item-title">Integrated Radio</div><div class="item-desc">Module Antenne longue portee : radio integree mains-libres + portee de reception x2 (stations et signaux de mission)</div></div>
+    <div class="item done"><div class="item-title">Medical Drone</div><div class="item-desc">Premier drone compagnon : soin en zone par pulses, cout en matiere, deploiement via la roue</div></div>
+    <div class="item done"><div class="item-title">Mission Radio Beacons</div><div class="item-desc">Balises radio ephemeres pour les quetes (chasse au signal &laquo; Ghost Signal &raquo;) + outillage quetes complet</div></div>
+    <div class="item done"><div class="item-title">Ambient Music</div><div class="item-desc">Musique situationnelle non-diegetique (profils par monde, ducking radio)</div></div>
+    <div class="item done"><div class="item-title">UI Overhaul</div><div class="item-desc">StarMap redesign (icones, calques, dock) + fiche de stats cyborg</div></div>
+    <div class="item"><div class="item-title">Social Rebuild</div><div class="item-desc">Refonte du menu Social a l'echelle serveur (groupes, chat a canaux, echanges)</div></div>
+    <div class="item"><div class="item-title">Combat &amp; Utility Drones</div><div class="item-desc">Suite de la vague drones : drone de combat, tourelle sentinelle, drone spectre, leurre</div></div>
+    <div class="item"><div class="item-title">Modules Public Release</div><div class="item-desc">Activation publique des modules cyborg apres tests multijoueur</div></div>
     <div class="item"><div class="item-title">Vehicle Modules</div><div class="item-desc">LES PHASES VEHICULE &ndash; Talents, Competences, Dynamic Stats</div></div>
   </div>
 </div><div class="divider"></div>
@@ -440,6 +443,9 @@
     <div class="item"><div class="item-title">Weapon Rework</div><div class="item-desc">Accessoires &ndash; Inventaire UI &ndash; Phase module menu</div></div>
     <div class="item"><div class="item-title">RelayTower Gameplay</div><div class="item-desc">Clean / infected / Vossed Refuel dynamic &ndash; Codex collection des relays &ndash; Respawn choice &ndash; Taxe hack</div></div>
     <div class="item"><div class="item-title">Mass AI</div><div class="item-desc">AI for life for Univers &ndash; Trafic relay to relay &ndash; Life survival dummys</div></div>
+    <div class="item"><div class="item-title">Item Modules</div><div class="item-desc">LES PHASES ITEM &ndash; Module pour armes + Rework Weapon accessoires</div></div>
+    <div class="item"><div class="item-title">Construction Modules</div><div class="item-desc">LES PHASES CONSTRUCTION &ndash; Talents, Competences, Dynamic Stats + Construction V2 System</div></div>
+    <div class="item"><div class="item-title">Companion AI</div><div class="item-desc">Mercenaires recrutables pour missions et defense de constructions (l'escouade PNJ de base est en jeu)</div></div>
   </div>
 </div><div class="divider"></div>
 
@@ -451,6 +457,11 @@
     <div class="quarter-year">Jan &ndash; Mar 2027</div>
   </div>
   <div class="items">
+    <div class="item"><div class="item-title">Sanglines Biomes</div><div class="item-desc">Integration des &laquo; Batiments &raquo; Sanglines</div></div>
+    <div class="item"><div class="item-title">Flight Combat</div><div class="item-desc">Mission flightCombat &amp; embuscade</div></div>
+    <div class="item"><div class="item-title">Vehicle Rewards</div><div class="item-desc">Accessoires de base a l'achat, ameliorations haut niveau via completion de quetes</div></div>
+    <div class="item"><div class="item-title">Persistent Levels</div><div class="item-desc">Integration des points de Lagrange + rework persistance</div></div>
+    <div class="item"><div class="item-title">Construction Rewards</div><div class="item-desc">GAMEPLAY ALIGN REWARD &ndash; Les Constructions</div></div>
   </div>
 </div><div class="divider"></div>
 
@@ -469,7 +480,7 @@
 </div>
 </div>
 
-<div class="footer">QANGA &mdash; iolaCorp Studio &mdash; Early Access Roadmap &mdash; Updated March 2026</div>
+<div class="footer">QANGA &mdash; iolaCorp Studio &mdash; Early Access Roadmap &mdash; Updated July 2026</div>
 
 <script>
 (function() {
