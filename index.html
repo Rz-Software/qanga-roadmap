@@ -336,1084 +336,701 @@ footer .note{ text-transform:none; letter-spacing:.03em; color:#5E6B78; font-siz
    ========================================================================= */
 
 var UI = {
-  en: {
-    sub:"Development Roadmap",
-    hint:"Click a counter to filter",
-    kpi:{ done:"Delivered", check:"To confirm in game", wip:"In progress", todo:"Planned", bug:"Open bug", all:"Show all" },
-    tag:{ done:"Delivered", check:"To confirm", wip:"In progress", todo:"Planned", bug:"Open bug" },
-    lab:{ done:["delivered","delivered"], check:["to confirm","to confirm"], wip:["in progress","in progress"],
-          todo:["planned","planned"], bug:["bug","bugs"] },
-    task:["task","tasks"],
-    cur:"current quarter", plan:"planned",
-    archive:"Archive / delivered quarters",
-    archIntro:"Six quarters already delivered, folded away to leave room for work in progress. Click a quarter to open it.",
-    expand:"Expand all", collapse:"Collapse all",
-    navArchive:"Archive 2025 / 2026",
-    ea:"Early Access",
-    upd:"Updated 26 August 2026",
-    note:"Every task carries its real state. “To confirm in game” means built and compiled, but not yet checked controller in hand."
+  "en": {
+    "sub": "Development Roadmap",
+    "hint": "Click a counter to filter",
+    "kpi": {
+      "done": "Delivered",
+      "check": "Under review",
+      "wip": "In progress",
+      "todo": "Planned",
+      "bug": "Open bug",
+      "all": "Show all"
+    },
+    "tag": {
+      "done": "Delivered",
+      "check": "Under review",
+      "wip": "In progress",
+      "todo": "Planned",
+      "bug": "Open bug"
+    },
+    "lab": {
+      "done": [
+        "delivered",
+        "delivered"
+      ],
+      "check": [
+        "under review",
+        "under review"
+      ],
+      "wip": [
+        "in progress",
+        "in progress"
+      ],
+      "todo": [
+        "planned",
+        "planned"
+      ],
+      "bug": [
+        "bug",
+        "bugs"
+      ]
+    },
+    "task": [
+      "task",
+      "tasks"
+    ],
+    "cur": "current quarter",
+    "plan": "planned",
+    "archive": "Archive / previous releases",
+    "archIntro": "Previous releases, grouped by their publication quarter. Open a quarter to browse its milestones.",
+    "expand": "Expand all",
+    "collapse": "Collapse all",
+    "navArchive": "Archive 2025 / 2026",
+    "ea": "Early Access",
+    "upd": "Updated 15 September 2026 · v0.0.23a live",
+    "note": "Released features reflect the public updates. Work in progress and planned additions are listed separately; quarterly targets may evolve."
   },
-  fr: {
-    sub:"Feuille de route",
-    hint:"Cliquez un compteur pour filtrer",
-    kpi:{ done:"Livré", check:"À valider en jeu", wip:"En cours", todo:"Planifié", bug:"Bug ouvert", all:"Tout afficher" },
-    tag:{ done:"Livré", check:"À valider", wip:"En cours", todo:"Planifié", bug:"Bug ouvert" },
-    lab:{ done:["livré","livrés"], check:["à valider","à valider"], wip:["en cours","en cours"],
-          todo:["planifié","planifiés"], bug:["bug","bugs"] },
-    task:["tâche","tâches"],
-    cur:"trimestre en cours", plan:"planifié",
-    archive:"Archive / trimestres livrés",
-    archIntro:"Six trimestres déjà livrés, repliés pour laisser la place au travail en cours. Cliquez un trimestre pour le déplier.",
-    expand:"Tout déplier", collapse:"Tout replier",
-    navArchive:"Archive 2025 / 2026",
-    ea:"Accès anticipé",
-    upd:"Mise à jour : 26 août 2026",
-    note:"Chaque tâche porte son état réel. “À valider en jeu” signifie livré et compilé, mais pas encore confirmé manette en main."
+  "fr": {
+    "sub": "Feuille de route",
+    "hint": "Cliquez un compteur pour filtrer",
+    "kpi": {
+      "done": "Livré",
+      "check": "À vérifier",
+      "wip": "En cours",
+      "todo": "Planifié",
+      "bug": "Bug ouvert",
+      "all": "Tout afficher"
+    },
+    "tag": {
+      "done": "Livré",
+      "check": "À vérifier",
+      "wip": "En cours",
+      "todo": "Planifié",
+      "bug": "Bug ouvert"
+    },
+    "lab": {
+      "done": [
+        "livré",
+        "livrés"
+      ],
+      "check": [
+        "à vérifier",
+        "à vérifier"
+      ],
+      "wip": [
+        "en cours",
+        "en cours"
+      ],
+      "todo": [
+        "planifié",
+        "planifiés"
+      ],
+      "bug": [
+        "bug",
+        "bugs"
+      ]
+    },
+    "task": [
+      "tâche",
+      "tâches"
+    ],
+    "cur": "trimestre en cours",
+    "plan": "planifié",
+    "archive": "Archives / mises à jour précédentes",
+    "archIntro": "Les mises à jour précédentes, regroupées par trimestre de publication. Ouvrez un trimestre pour parcourir ses avancées.",
+    "expand": "Tout déplier",
+    "collapse": "Tout replier",
+    "navArchive": "Archive 2025 / 2026",
+    "ea": "Accès anticipé",
+    "upd": "Mise à jour : 15 septembre 2026 · v0.0.23a disponible",
+    "note": "Les fonctionnalités livrées correspondent aux mises à jour publiques. Les travaux en cours et les ajouts prévus restent distincts ; les objectifs trimestriels peuvent évoluer."
   },
-  es: {
-    sub:"Hoja de ruta",
-    hint:"Haz clic en un contador para filtrar",
-    kpi:{ done:"Entregado", check:"Por confirmar en juego", wip:"En curso", todo:"Planificado", bug:"Error abierto", all:"Mostrar todo" },
-    tag:{ done:"Entregado", check:"Por confirmar", wip:"En curso", todo:"Planificado", bug:"Error abierto" },
-    lab:{ done:["entregado","entregados"], check:["por confirmar","por confirmar"], wip:["en curso","en curso"],
-          todo:["planificado","planificados"], bug:["error","errores"] },
-    task:["tarea","tareas"],
-    cur:"trimestre en curso", plan:"planificado",
-    archive:"Archivo / trimestres entregados",
-    archIntro:"Seis trimestres ya entregados, plegados para dejar sitio al trabajo en curso. Haz clic en un trimestre para desplegarlo.",
-    expand:"Desplegar todo", collapse:"Plegar todo",
-    navArchive:"Archivo 2025 / 2026",
-    ea:"Acceso anticipado",
-    upd:"Actualizado: 26 de agosto de 2026",
-    note:"Cada tarea muestra su estado real. “Por confirmar en juego” significa entregado y compilado, pero aún no verificado mando en mano."
+  "es": {
+    "sub": "Hoja de ruta",
+    "hint": "Haz clic en un contador para filtrar",
+    "kpi": {
+      "done": "Entregado",
+      "check": "Por revisar",
+      "wip": "En curso",
+      "todo": "Planificado",
+      "bug": "Error abierto",
+      "all": "Mostrar todo"
+    },
+    "tag": {
+      "done": "Entregado",
+      "check": "Por revisar",
+      "wip": "En curso",
+      "todo": "Planificado",
+      "bug": "Error abierto"
+    },
+    "lab": {
+      "done": [
+        "entregado",
+        "entregados"
+      ],
+      "check": [
+        "por revisar",
+        "por revisar"
+      ],
+      "wip": [
+        "en curso",
+        "en curso"
+      ],
+      "todo": [
+        "planificado",
+        "planificados"
+      ],
+      "bug": [
+        "error",
+        "errores"
+      ]
+    },
+    "task": [
+      "tarea",
+      "tareas"
+    ],
+    "cur": "trimestre en curso",
+    "plan": "planificado",
+    "archive": "Archivo / actualizaciones anteriores",
+    "archIntro": "Actualizaciones anteriores, agrupadas por trimestre de publicación. Abre un trimestre para consultar sus avances.",
+    "expand": "Desplegar todo",
+    "collapse": "Plegar todo",
+    "navArchive": "Archivo 2025 / 2026",
+    "ea": "Acceso anticipado",
+    "upd": "Actualizado: 15 de septiembre de 2026 · v0.0.23a disponible",
+    "note": "Las funciones entregadas corresponden a las actualizaciones públicas. Los trabajos en curso y las novedades previstas se distinguen de ellas; los objetivos trimestrales pueden cambiar."
   }
 };
 
 var DATA = [
-
-/* ==================== Q3 2026 : trimestre en cours ==================== */
 { id:"q3-2026", a:"amber", state:"cur", qn:"Q3 2026",
-  when:{ en:"July / September 2026", fr:"Juillet / Septembre 2026", es:"Julio / Septiembre 2026" },
+  when:{"en":"July / September 2026","fr":"Juillet / Septembre 2026","es":"Julio / Septiembre 2026"},
   groups:[
-
-  { a:"amber", n:{ en:"Cyborg modules 2.0", fr:"Modules cyborg 2.0", es:"Módulos ciborg 2.0" }, items:[
-
-    { s:"bug", d:"25/08",
-      t:{ en:"Lost phase points", fr:"Points de phase perdus", es:"Puntos de fase perdidos" },
-      x:{ en:"Player report from 25/08 on the prelive server: a level 14 cyborg arrives with a phase balance of zero. Two point stores coexist with no bridge between them, and the old balance is no longer read by the new screen. It is most likely still in the database, not destroyed.",
-          fr:"Retour joueur du 25/08 sur le serveur prélive : un cyborg niveau 14 arrive avec un solde de phases à zéro. Deux stocks de points coexistent sans passerelle, et l'ancien solde n'est plus lu par le nouvel écran. Il est vraisemblablement toujours en base, pas détruit.",
-          es:"Informe de jugador del 25/08 en el servidor prelive: un ciborg de nivel 14 llega con un saldo de fases a cero. Coexisten dos depósitos de puntos sin puente entre ellos, y el saldo antiguo ya no lo lee la nueva pantalla. Lo más probable es que siga en la base de datos, no destruido." },
-      r:{ en:"<b>To do:</b> check the player's keys in the database, then a one-shot conversion bridge on first login, or manual compensation.",
-          fr:"<b>À faire :</b> vérifier les clefs en base pour ce joueur, puis passerelle de conversion au premier login, ou compensation manuelle.",
-          es:"<b>Por hacer:</b> revisar las claves del jugador en la base de datos, luego un puente de conversión en el primer inicio de sesión, o compensación manual." } },
-
-    { s:"wip",
-      t:{ en:"Weapon modules", fr:"Modules d'arme", es:"Módulos de arma" },
-      x:{ en:"Phases on weapons, installed at the workbench. 24 entries in the catalogue, first 3 modules wired with their items created: reinforced barrel, quick magazine, sticky grenade.",
-          fr:"Les phases sur les armes, installées à l'établi. 24 fiches au catalogue, 3 premiers modules câblés et leurs items créés : canon renforcé, chargeur rapide, grenade collante.",
-          es:"Las fases en las armas, instaladas en el banco de trabajo. 24 fichas en el catálogo, los 3 primeros módulos conectados y sus objetos creados: cañón reforzado, cargador rápido, granada adhesiva." },
-      r:{ en:"<b>Fixed order:</b> weapons, then the workbench, then the interface, then a full how-it-works pass.",
-          fr:"<b>Ordre fixé :</b> armes, puis établi, puis interface, puis passe how-it-works complète.",
-          es:"<b>Orden fijado:</b> armas, luego el banco de trabajo, luego la interfaz, y por último una pasada completa de how-it-works." } },
-
-    { s:"wip",
-      t:{ en:"Vehicle modules", fr:"Modules de véhicule", es:"Módulos de vehículo" },
-      x:{ en:"Vehicle phases: talents, skills, dynamic stats. 19 entries in the catalogue, first module wired and its item created (overclock core).",
-          fr:"Les phases véhicule : talents, compétences, stats dynamiques. 19 fiches au catalogue, premier module câblé et son item créé (noyau de surcadence).",
-          es:"Las fases de vehículo: talentos, habilidades, estadísticas dinámicas. 19 fichas en el catálogo, primer módulo conectado y su objeto creado (núcleo de sobrefrecuencia)." } },
-
-    { s:"check", d:"21/08",
-      t:{ en:"IRIS reticle", fr:"Réticule IRIS", es:"Retícula IRIS" },
-      x:{ en:"New module sight: a thin octagonal iris at screen centre, four chamfered corners whose opening carries the state, a side plate cut to the module name, and a free central pip. 15 settings tunable without recompiling.",
-          fr:"Nouveau viseur de module : iris octogonal fin au centre de l'écran, 4 coins chanfreinés dont l'ouverture porte l'état, plaque latérale taillée sur le nom du module, pip central libre. 15 réglages ajustables sans recompilation.",
-          es:"Nueva mira de módulo: iris octogonal fino en el centro de la pantalla, 4 esquinas achaflanadas cuya apertura indica el estado, placa lateral ajustada al nombre del módulo y punto central libre. 15 ajustes modificables sin recompilar." },
-      r:{ en:"<b>Left:</b> visual check in game.",
-          fr:"<b>Reste :</b> validation visuelle en jeu.",
-          es:"<b>Queda:</b> validación visual en el juego." } },
-
-    { s:"check", d:"20/08",
-      t:{ en:"Safe zone rules", fr:"Règles de zone sûre", es:"Reglas de zona segura" },
-      x:{ en:"Active modules are refused inside safe zones, with a refusal message. The construction matrix stays allowed: building inside a hub always was.",
-          fr:"Les modules actifs sont refusés dans les zones sûres, avec message de refus. La matrice de construction reste autorisée : construire dans un hub l'a toujours été.",
-          es:"Los módulos activos se rechazan dentro de las zonas seguras, con mensaje de rechazo. La matriz de construcción sigue permitida: construir dentro de un centro siempre lo estuvo." },
-      r:{ en:"<b>Left:</b> measurement in the editor, then on a dedicated server.",
-          fr:"<b>Reste :</b> mesure en PIE puis en serveur dédié.",
-          es:"<b>Queda:</b> medición en el editor y luego en servidor dedicado." } },
-
-    { s:"todo",
-      t:{ en:"Public module release", fr:"Ouverture publique des modules", es:"Apertura pública de los módulos" },
-      x:{ en:"Public activation of the cyborg modules once multiplayer testing is done.",
-          fr:"Activation publique des modules cyborg après les tests multijoueur.",
-          es:"Activación pública de los módulos ciborg tras las pruebas multijugador." },
-      r:{ en:"<b>Blocked by:</b> the Steam client rebuild, and the legacy phase balance conversion.",
-          fr:"<b>Bloqué par :</b> rebuild du client Steam, et conversion du solde de phases legacy.",
-          es:"<b>Bloqueado por:</b> la recompilación del cliente de Steam y la conversión del saldo de fases antiguo." } },
-
-    { s:"todo",
-      t:{ en:"Removal of the Phase V1 system", fr:"Retrait du système Phase V1", es:"Retirada del sistema Fase V1" },
-      x:{ en:"Deleting the old phase tree, deferred until the four steps of the module worksite are finished.",
-          fr:"Suppression de l'ancien arbre de phases, différée tant que les 4 étapes du chantier modules ne sont pas terminées.",
-          es:"Eliminación del antiguo árbol de fases, aplazada hasta que terminen las 4 etapas del proyecto de módulos." } },
-
-    { s:"done", d:"18/07", v:["v0.0.21+"],
-      t:{ en:"Modules live in game", fr:"Modules actifs en jeu", es:"Módulos activos en el juego" },
-      x:{ en:"The hexagonal module wall has been live project-wide since 18/07: 105 module entries defined, server-replicated wall, persistent phase wallet.",
-          fr:"Le mur de modules hexagonal est actif à l'échelle du projet depuis le 18/07 : 105 fiches de module définies, mur répliqué serveur, portefeuille de phases persistant.",
-          es:"El muro hexagonal de módulos está activo en todo el proyecto desde el 18/07: 105 fichas de módulo definidas, muro replicado por el servidor, cartera de fases persistente." } },
-
-    { s:"done",
-      t:{ en:"Perk wheel", fr:"Roue d'atouts", es:"Rueda de ventajas" },
-      x:{ en:"Honeycomb wheel, 10 triggerable modules wired: strike beacon, wasp nest, hornet nest, leader protocol (NPC squad), long-range antenna, medical drone, fleet recall, supply drop, transit transponder, construction matrix.",
-          fr:"Roue en nid d'abeille, 10 modules déclenchables câblés : balise de frappe, nid de guêpes, nid de frelons, protocole de meneur (escouade PNJ), antenne longue portée, drone médical, rappel de flotte, largage de ravitaillement, transpondeur de transit, matrice de construction.",
-          es:"Rueda en panal, 10 módulos activables conectados: baliza de ataque, nido de avispas, nido de avispones, protocolo de líder (escuadra de PNJ), antena de largo alcance, dron médico, llamada de flota, lanzamiento de suministros, transpondedor de tránsito, matriz de construcción." } },
-
-    { s:"done", d:"29/07",
-      t:{ en:"Designation standard", fr:"Standard de désignation", es:"Estándar de designación" },
-      x:{ en:"An area module is designated by THROWING a physical beacon: hold the key to aim, a holographic arc and impact ring show the real landing point, left click launches, right click cancels. Crosshair states: reloading, out of range, no sky. No interface marker on the ground, ever.",
-          fr:"Un module à effet de zone se désigne en LANÇANT une balise physique : maintien de la touche pour viser, arc holographique et anneau d'impact sur le vrai point de chute, clic gauche pour lancer, clic droit pour annuler. États de croix : recharge, hors portée, pas de ciel. Aucun marqueur d'interface au sol.",
-          es:"Un módulo de área se designa LANZANDO una baliza física: mantén la tecla para apuntar, un arco holográfico y un anillo de impacto muestran el punto de caída real, clic izquierdo para lanzar, clic derecho para cancelar. Estados de mira: recargando, fuera de alcance, sin cielo. Nunca un marcador de interfaz en el suelo." },
-      r:{ en:"<b>Note:</b> back-mounted ordnance is excluded by decision, those are weapons and they fire straight.",
-          fr:"<b>Note :</b> les munitions dorsales sont exclues par décision, ce sont des armes, elles tirent tout droit.",
-          es:"<b>Nota:</b> el armamento dorsal queda excluido por decisión, son armas y disparan en línea recta." } },
-
-    { s:"done",
-      t:{ en:"Integrated radio", fr:"Radio intégrée", es:"Radio integrada" },
-      x:{ en:"Long-range antenna module: hands-free integrated radio and doubled reception range, on stations as well as mission signals.",
-          fr:"Module Antenne longue portée : radio intégrée mains-libres et portée de réception doublée, sur les stations comme sur les signaux de mission.",
-          es:"Módulo de antena de largo alcance: radio integrada manos libres y alcance de recepción duplicado, tanto en emisoras como en señales de misión." } },
-
-    { s:"done",
-      t:{ en:"Medical drone", fr:"Drone médical", es:"Dron médico" },
-      x:{ en:"First companion drone: area healing in pulses, matter cost, deployed from the wheel.",
-          fr:"Premier drone compagnon : soin en zone par pulses, coût en matière, déploiement par la roue.",
-          es:"Primer dron acompañante: curación en área por pulsos, coste en materia, despliegue desde la rueda." } },
-
-    { s:"done", d:"25/08",
-      t:{ en:"Fleet recall v2", fr:"Rappel de flotte v2", es:"Llamada de flota v2" },
-      x:{ en:"Your OWNED vehicle now flies in from 3 km away instead of popping in 25 m behind you. Five replicated phases: summon, inbound, rendezvous, settle, released. What lands is the real vehicle, straight out of the garage pipeline, with ownership, persistence and duplicate protection untouched.",
-          fr:"Le véhicule POSSÉDÉ arrive en volant depuis 3 km au lieu d'apparaître 25 m derrière le joueur. 5 phases répliquées (appel, approche, rendez-vous, pose, remise). Le véhicule livré est le vrai véhicule, sorti du pipeline garage : possession, persistance et anti-doublon inchangés.",
-          es:"Tu vehículo EN PROPIEDAD llega volando desde 3 km en lugar de aparecer 25 m detrás de ti. Cinco fases replicadas: llamada, aproximación, encuentro, aterrizaje y entrega. Lo que llega es el vehículo real, salido del sistema de garaje, con la propiedad, la persistencia y la protección antiduplicado intactas." },
-      r:{ en:"<b>Validated in game by RzZz on 25/08.</b>",
-          fr:"<b>Validé en jeu par RzZz le 25/08.</b>",
-          es:"<b>Validado en el juego por RzZz el 25/08.</b>" } },
-
-    { s:"done", d:"31/07",
-      t:{ en:"Transit transponder", fr:"Transpondeur de transit", es:"Transpondedor de tránsito" },
-      x:{ en:"The planetary fast-travel network (200 stations, a real ship that comes to pick you up) moves out of the base menus and becomes a cyborg module, with its per-trip cost in Coins.",
-          fr:"Le réseau de voyage rapide planétaire (200 stations, un vrai vaisseau qui vient chercher le joueur) sort des menus de base et devient un module cyborg, avec son coût en Coins par trajet.",
-          es:"La red planetaria de viaje rápido (200 estaciones, una nave real que viene a recogerte) sale de los menús básicos y se convierte en un módulo ciborg, con su coste en Coins por trayecto." },
-      r:{ en:"<b>Left:</b> 4 finishing Blueprint edits.",
-          fr:"<b>Reste :</b> 4 éditions Blueprint de finition.",
-          es:"<b>Queda:</b> 4 ediciones de Blueprint de acabado." } },
-
-    { s:"done", d:"14/08",
-      t:{ en:"Module loot", fr:"Loot de modules", es:"Botín de módulos" },
-      x:{ en:"Modules are found out in the world: procedural placement across 5 location profiles (bunker, relay, ruins, warp, industrial), respawn on a long server cycle of 48 to 96 h, and drops from the death of certain police units (2% passive, 0.15% active). Live in the universe since 14/08.",
-          fr:"Les modules se trouvent dans le monde : placement procédural sur 5 profils de lieu (bunker, relais, ruines, warp, industriel), respawn en cycle long serveur de 48 à 96 h, et drops sur la mort de certaines unités de police (2 % passifs, 0,15 % actifs). Actif en univers depuis le 14/08.",
-          es:"Los módulos se encuentran por el mundo: colocación procedural en 5 perfiles de lugar (búnker, repetidor, ruinas, warp, industrial), reaparición en ciclo largo de servidor de 48 a 96 h, y caídas al morir ciertas unidades policiales (2 % pasivos, 0,15 % activos). Activo en el universo desde el 14/08." },
-      r:{ en:"<b>Left:</b> a balancing pass with the 31 new items.",
-          fr:"<b>Reste :</b> passe d'équilibrage avec les 31 nouveaux items.",
-          es:"<b>Queda:</b> una pasada de equilibrado con los 31 objetos nuevos." } },
-
-    { s:"done", d:"25/08",
-      t:{ en:"Module items", fr:"Items de module", es:"Objetos de módulo" },
-      x:{ en:"31 item pairs created on 25/08 (26 cyborg, transit transponder, 3 weapon, 1 vehicle). The registry goes from 17 to 48 modules carrying an item, and the module vending machine from 14 to 45 entries on sale.",
-          fr:"31 paires d'items créées le 25/08 (26 cyborg, transpondeur de transit, 3 arme, 1 véhicule). Le registre passe de 17 à 48 modules porteurs d'item, et le distributeur de modules de 14 à 45 entrées en vente.",
-          es:"31 pares de objetos creados el 25/08 (26 ciborg, transpondedor de tránsito, 3 de arma, 1 de vehículo). El registro pasa de 17 a 48 módulos con objeto, y la máquina expendedora de módulos de 14 a 45 entradas a la venta." },
-      r:{ en:"<b>Left:</b> 57 modules out of 105 still have no inventory item.",
-          fr:"<b>Reste :</b> 57 modules sur 105 n'ont toujours pas d'item d'inventaire.",
-          es:"<b>Queda:</b> 57 módulos de 105 siguen sin objeto de inventario." } },
-
-    { s:"done", d:"13/08",
-      t:{ en:"Wall feedback", fr:"Retours du mur", es:"Respuestas del muro" },
-      x:{ en:"The wall answers back: 8 configurable sounds (insert, remove, refuse, open, close), phase logos tinted by tier in the stock, localised help message. Sounds validated by ear by RzZz.",
-          fr:"Le mur répond : 8 sons configurables (insertion, retrait, refus, ouverture, fermeture), logos de phase teintés par palier dans le stock, message d'aide localisé. Sons validés à l'oreille par RzZz.",
-          es:"El muro responde: 8 sonidos configurables (insertar, retirar, rechazo, abrir, cerrar), logotipos de fase teñidos por nivel en el inventario, mensaje de ayuda traducido. Sonidos validados de oído por RzZz." } },
-
-    { s:"done", d:"18/08",
-      t:{ en:"Module audio contract", fr:"Contrat audio des modules", es:"Contrato de audio de módulos" },
-      x:{ en:"A central audio library for every module: a single entry point instead of per-asset wiring, plus a resampling fix covering the 108 project sources above 48 kHz.",
-          fr:"Bibliothèque audio centrale pour tous les modules : un seul point d'entrée au lieu d'un câblage par asset, plus la correction du rééchantillonnage sur les 108 sources du projet au-dessus de 48 kHz.",
-          es:"Biblioteca de audio central para todos los módulos: un único punto de entrada en lugar de un cableado por recurso, más la corrección del remuestreo en las 108 fuentes del proyecto por encima de 48 kHz." } },
-
-    { s:"done", d:"22/08",
-      t:{ en:"Fix: empty Modules menu in multiplayer", fr:"Fix : menu Modules vide en multi", es:"Corrección: menú de Módulos vacío en multijugador" },
-      x:{ en:"On a dedicated server the MODULES menu was completely empty even though module gameplay worked. On join, the player state, its replicated component and the controller link arrive on three independent channels, and the screen only tried to hook up once. Fixed with an arrival delegate plus a bounded retry.",
-          fr:"Sur serveur dédié, le menu MODULES était totalement vide alors que le gameplay des modules fonctionnait. Au join, le PlayerState, son composant répliqué et le lien du contrôleur arrivent sur 3 canaux indépendants, et l'écran ne tentait son accrochage qu'une seule fois. Corrigé par un délégué d'arrivée plus une nouvelle tentative bornée.",
-          es:"En servidor dedicado el menú MÓDULOS aparecía completamente vacío aunque la jugabilidad de los módulos funcionaba. Al entrar, el estado del jugador, su componente replicado y el enlace del controlador llegan por tres canales independientes, y la pantalla solo intentaba engancharse una vez. Corregido con un delegado de llegada más un reintento acotado." },
-      r:{ en:"<b>Left:</b> the Steam client rebuild for production.",
-          fr:"<b>Reste :</b> rebuild du client Steam pour la production.",
-          es:"<b>Queda:</b> la recompilación del cliente de Steam para producción." } }
-  ]},
-
-  { a:"steel", n:{ en:"Quests & narrative", fr:"Quêtes & narration", es:"Misiones y narrativa" }, items:[
-
-    { s:"wip", d:"22/08",
-      t:{ en:"Quest sounds", fr:"Sons de quête", es:"Sonidos de misión" },
-      x:{ en:"The quest completion sound NEVER came out on a dedicated server: it was played server-side, on a machine with no audio device. Fixed by sending it to the client, with default sounds in the settings. 26 quests out of 27 were silent.",
-          fr:"Le son de fin de quête ne sortait JAMAIS en serveur dédié : il était joué côté serveur, sur une machine sans périphérique audio. Corrigé par un envoi vers le client, avec des sons par défaut dans les réglages. 26 quêtes sur 27 étaient muettes.",
-          es:"El sonido de fin de misión NUNCA sonaba en servidor dedicado: se reproducía en el servidor, en una máquina sin dispositivo de audio. Corregido enviándolo al cliente, con sonidos por defecto en los ajustes. 26 de las 27 misiones estaban mudas." },
-      r:{ en:"<b>Left:</b> the fix is written but not yet compiled, nor validated in game.",
-          fr:"<b>Reste :</b> le correctif est écrit mais pas encore compilé, ni validé en jeu.",
-          es:"<b>Queda:</b> la corrección está escrita pero aún no compilada ni validada en el juego." } },
-
-    { s:"check", d:"17/07",
-      t:{ en:"Mission radio beacons", fr:"Balises radio de mission", es:"Balizas de radio de misión" },
-      x:{ en:"Short-lived radio beacons for quests: the Ghost Signal quest makes you hunt a signal by ear, with a station registry created on the fly and a dedicated native quest action.",
-          fr:"Balises radio éphémères pour les quêtes : la quête Ghost Signal fait chasser un signal à l'oreille, avec un registre de stations créé à la volée et une action de quête native dédiée.",
-          es:"Balizas de radio efímeras para misiones: la misión Ghost Signal te hace cazar una señal de oído, con un registro de emisoras creado sobre la marcha y una acción de misión nativa dedicada." },
-      r:{ en:"<b>Left:</b> a drive test in game (audio gradient, module ground height).",
-          fr:"<b>Reste :</b> conduite en jeu (gradient audio, hauteur au sol du module).",
-          es:"<b>Queda:</b> una prueba de conducción en el juego (gradiente de audio, altura del módulo sobre el suelo)." } },
-
-    { s:"done", d:"16/07",
-      t:{ en:"Quest tooling", fr:"Outillage de quêtes", es:"Herramientas de misiones" },
-      x:{ en:"17 quest authoring tools delivered: creation, objectives with prerequisite chains, actions, conditions, trigger zones, validation and export. Verified end to end on a throwaway quest.",
-          fr:"17 outils d'édition de quête livrés : création, objectifs avec chaîne de prérequis, actions, conditions, zones déclencheuses, validation et export. Vérifiés de bout en bout sur une quête jetable.",
-          es:"17 herramientas de creación de misiones entregadas: creación, objetivos con cadena de requisitos, acciones, condiciones, zonas de activación, validación y exportación. Verificadas de principio a fin en una misión de prueba." },
-      r:{ en:"<b>Rule:</b> the 27 production quests are never touched by tooling.",
-          fr:"<b>Règle :</b> les 27 quêtes de production ne sont jamais modifiées par outil.",
-          es:"<b>Regla:</b> las 27 misiones de producción nunca se modifican con herramientas." } },
-
-    { s:"done", d:"21/08",
-      t:{ en:"Tutorial migrated to modules", fr:"Tutoriel migré vers les modules", es:"Tutorial migrado a los módulos" },
-      x:{ en:"The tutorial now installs the 4 base cyborg modules on the wall at tier 1, with an optional module choice step and an “open your wall” beat. Version corrected by RzZz, tested in game.",
-          fr:"Le tutoriel installe désormais les 4 modules cyborg de base sur le mur au palier 1, avec une étape optionnelle de choix de module et un temps fort « ouvre ton mur ». Version corrigée par RzZz, testée en jeu.",
-          es:"El tutorial ahora instala los 4 módulos ciborg básicos en el muro en el nivel 1, con un paso opcional de elección de módulo y un momento clave de « abre tu muro ». Versión corregida por RzZz, probada en el juego." } },
-
-    { s:"done", d:"22/08",
-      t:{ en:"Quest authoring method", fr:"Méthode de quête", es:"Método de creación de misiones" },
-      x:{ en:"The QANGA quest authoring method is consolidated after RzZz reworked the tutorial: 7 gaps fixed (native actions, action values in the runtime export, translation keys, pickup counting).",
-          fr:"La méthode de construction des quêtes est consolidée après la reprise du tutoriel par RzZz : 7 écarts corrigés (actions natives, valeurs d'action dans l'export runtime, clés de traduction, comptage des ramassages).",
-          es:"El método de creación de misiones queda consolidado tras la revisión del tutorial por RzZz: 7 desviaciones corregidas (acciones nativas, valores de acción en la exportación de ejecución, claves de traducción, recuento de recogidas)." } }
-  ]},
-
-  { a:"amber", n:{ en:"Interface & menus", fr:"Interface & menus", es:"Interfaz y menús" }, items:[
-
-    { s:"wip",
-      t:{ en:"HUD: less interface", fr:"HUD : moins d'interface", es:"HUD: menos interfaz" },
-      x:{ en:"Direction set by RzZz on 22/08: as little interface as possible, show only what changes. 53 HUD bricks mapped, with a proposal of one track per quantity and the surplus on an upper layer.",
-          fr:"Direction donnée par RzZz le 22/08 : le moins d'interface possible, n'afficher que ce qui change. 53 briques de HUD cartographiées, proposition d'une piste par grandeur avec le surplus en couche supérieure.",
-          es:"Dirección marcada por RzZz el 22/08: la menor interfaz posible, mostrar solo lo que cambia. 53 piezas del HUD cartografiadas, con una propuesta de una pista por magnitud y el excedente en una capa superior." },
-      r:{ en:"<b>Left:</b> a decision, then the implementation.",
-          fr:"<b>Reste :</b> arbitrage puis mise en oeuvre.",
-          es:"<b>Queda:</b> la decisión y luego la implementación." } },
-
-    { s:"wip",
-      t:{ en:"Progress bar", fr:"Barre de progression", es:"Barra de progreso" },
-      x:{ en:"The “module installing” bar is in fact THE shared progress widget of the whole game (harvesting, quests, installs): touching it changes every progress display at once.",
-          fr:"La barre « module en installation » est en réalité LE widget de progression partagé de tout le jeu (récolte, quêtes, installations) : le retoucher change toutes les progressions d'un coup.",
-          es:"La barra de « módulo instalándose » es en realidad EL widget de progreso compartido de todo el juego (recolección, misiones, instalaciones): tocarlo cambia todas las progresiones a la vez." },
-      r:{ en:"<b>Left:</b> on-screen validation of the new plate.",
-          fr:"<b>Reste :</b> validation à l'écran de la nouvelle plaque.",
-          es:"<b>Queda:</b> la validación en pantalla de la nueva placa." } },
-
-    { s:"check", d:"24/08",
-      t:{ en:"StarMap: clickable layers", fr:"StarMap : calques cliquables", es:"StarMap: capas interactivas" },
-      x:{ en:"The legend of the 7 layers (players, group, points of interest, zones, trains, buildings) becomes clickable and stays in sync with the dock panel.",
-          fr:"La légende des 7 calques (joueurs, groupe, points d'intérêt, zones, trains, constructions) devient cliquable et se synchronise avec le panneau du dock.",
-          es:"La leyenda de las 7 capas (jugadores, grupo, puntos de interés, zonas, trenes, construcciones) se vuelve interactiva y se sincroniza con el panel del dock." },
-      r:{ en:"<b>Left:</b> test in game.",
-          fr:"<b>Reste :</b> test en jeu.",
-          es:"<b>Queda:</b> prueba en el juego." } },
-
-    { s:"check", d:"25/08",
-      t:{ en:"StarMap: holographic capital", fr:"StarMap : capitale holographique", es:"StarMap: capital holográfica" },
-      x:{ en:"The 3D rendering of the map moves to a single visual language: 4 rebuilt materials, a steel and amber two-tone, city and relay towers re-skinned in one move. Direction validated live by RzZz.",
-          fr:"Le rendu 3D de la carte passe à un langage unique : 4 matériaux reconstruits, bi-ton acier et ambre, ville et tours de relais rhabillées d'un seul coup. Direction validée en direct par RzZz.",
-          es:"El renderizado 3D del mapa pasa a un lenguaje visual único: 4 materiales reconstruidos, bitono acero y ámbar, ciudad y torres de repetición revestidas de una sola vez. Dirección validada en directo por RzZz." },
-      r:{ en:"<b>Left:</b> planets, points of interest, water, and the multi-scale sweep.",
-          fr:"<b>Reste :</b> planètes, points d'intérêt, eau, et le balayage multi-échelle.",
-          es:"<b>Queda:</b> planetas, puntos de interés, agua y el barrido multiescala." } },
-
-    { s:"done", d:"17/07",
-      t:{ en:"StarMap: UI overhaul", fr:"StarMap : refonte UI", es:"StarMap: rediseño de la interfaz" },
-      x:{ en:"In-house icons replacing the generic pack and its wrong metaphors, dock regrouped into 4 sections with labels and tooltips, layer legend, mouse hints. Validated by RzZz.",
-          fr:"Icônes maison à la place du pack générique aux métaphores fausses, dock regroupé en 4 sections avec libellés et infobulles, légende des calques, hints souris. Validé par RzZz.",
-          es:"Iconos propios en lugar del pack genérico de metáforas erróneas, dock reagrupado en 4 secciones con etiquetas e información emergente, leyenda de capas, indicaciones de ratón. Validado por RzZz." } },
-
-    { s:"done", d:"31/07",
-      t:{ en:"Cyborg sheet", fr:"Fiche cyborg", es:"Ficha de ciborg" },
-      x:{ en:"The Statistics tab becomes a cyborg sheet: records built into the sheet (travel, exploration, combat, destruction), exhaustive list rebuilt across 5 full-width columns.",
-          fr:"L'onglet Statistiques devient une fiche cyborg : registres intégrés à la fiche (déplacements, exploration, combat, destructions), liste exhaustive refaite en 5 colonnes pleine largeur.",
-          es:"La pestaña de Estadísticas se convierte en una ficha de ciborg: registros integrados en la ficha (desplazamientos, exploración, combate, destrucciones), lista exhaustiva rehecha en 5 columnas a todo lo ancho." },
-      r:{ en:"<b>Left:</b> live refresh, the sheet is a snapshot. Category headers built but not wired.",
-          fr:"<b>Reste :</b> rafraîchissement en direct, la fiche est un instantané. En-têtes de catégorie construits mais non câblés.",
-          es:"<b>Queda:</b> actualización en directo, la ficha es una instantánea. Cabeceras de categoría creadas pero sin conectar." } },
-
-    { s:"done", d:"17/07",
-      t:{ en:"Social menu: phase 1", fr:"Menu Social : phase 1", es:"Menú Social: fase 1" },
-      x:{ en:"Social menu rebuilt at server scale: server banner and player counter, MY GROUP and MY CLAN on the left, online player roster paginated by 20 in the centre, MY SQUAD on the right. Zero tick, a 500-player constraint. Verified in game.",
-          fr:"Menu Social reconstruit à l'échelle serveur : bandeau serveur et compteur de joueurs, MON GROUPE et MON CLAN à gauche, roster des joueurs en ligne paginé par 20 au centre, MON ESCOUADE à droite. Zéro tick, contrainte 500 joueurs. Vérifié en jeu.",
-          es:"Menú Social reconstruido a escala de servidor: banda de servidor y contador de jugadores, MI GRUPO y MI CLAN a la izquierda, lista de jugadores conectados paginada de 20 en 20 en el centro, MI ESCUADRA a la derecha. Cero tick, una restricción de 500 jugadores. Verificado en el juego." },
-      r:{ en:"<b>Left:</b> phase 2, per-row actions, group and clan tags, restyling the clan panel.",
-          fr:"<b>Reste :</b> phase 2, actions par ligne, tags groupe et clan, restyle du panneau clan.",
-          es:"<b>Queda:</b> fase 2, acciones por fila, etiquetas de grupo y clan, rediseño del panel de clan." } },
-
-    { s:"done", d:"16/08",
-      t:{ en:"Lobby V2", fr:"Lobby V2", es:"Lobby V2" },
-      x:{ en:"Main menu rebuilt natively: 3 V2 widgets (lobby, loading screen, exit popup), intro cascade re-wired, Discord icon cut out cleanly, dynamic background kept.",
-          fr:"Menu principal refait en natif : 3 widgets V2 (lobby, écran de chargement, popup de sortie), cascade d'intro rebranchée, icône Discord détourée, fond dynamique conservé.",
-          es:"Menú principal rehecho de forma nativa: 3 widgets V2 (lobby, pantalla de carga, ventana de salida), cascada de introducción reconectada, icono de Discord recortado, fondo dinámico conservado." },
-      r:{ en:"<b>Left:</b> click punch on the button presets, card illustrations, real News content.",
-          fr:"<b>Reste :</b> punch de clic sur les presets de bouton, illustrations des cartes, contenu News réel.",
-          es:"<b>Queda:</b> respuesta táctil al clic en los presets de botón, ilustraciones de las tarjetas, contenido real de noticias." } },
-
-    { s:"done", d:"17/07",
-      t:{ en:"Inventory rebuilt", fr:"Inventaire recomposé", es:"Inventario recompuesto" },
-      x:{ en:"EQUIPMENT screen re-laid out: paper-doll slots spread around the 3D character, inventory on the right, the frame shared by every menu.",
-          fr:"Écran ÉQUIPEMENT remis en page : slots paper-doll répartis autour du personnage 3D, inventaire à droite, cadre commun à tous les menus.",
-          es:"Pantalla de EQUIPO reorganizada: ranuras de muñeco repartidas alrededor del personaje 3D, inventario a la derecha, marco común a todos los menús." },
-      r:{ en:"<b>Left:</b> re-centre and enlarge the 3D character, isolated EQUIPPED WEAPON panel at bottom left.",
-          fr:"<b>Reste :</b> recentrer et agrandir le personnage 3D, panneau ARME ÉQUIPÉE isolé en bas à gauche.",
-          es:"<b>Queda:</b> recentrar y ampliar el personaje 3D, panel de ARMA EQUIPADA aislado abajo a la izquierda." } },
-
-    { s:"check", d:"22/08",
-      t:{ en:"Inventory drop zones", fr:"Zones de dépôt d'inventaire", es:"Zonas de soltado del inventario" },
-      x:{ en:"Dropping and recycling an item are both done by dragging it. The two zones were sitting there empty and invisible: they become permanent, with their icons and their hover highlight.",
-          fr:"Lâcher et recycler un objet se font en le faisant glisser. Les deux zones étaient posées vides et invisibles : elles deviennent permanentes, avec leurs icônes et leur surbrillance au survol.",
-          es:"Soltar y reciclar un objeto se hacen arrastrándolo. Las dos zonas estaban ahí vacías e invisibles: ahora son permanentes, con sus iconos y su resaltado al pasar por encima." },
-      r:{ en:"<b>Left:</b> not yet seen in game.",
-          fr:"<b>Reste :</b> pas encore vu en jeu.",
-          es:"<b>Queda:</b> aún no se ha visto en el juego." } },
-
-    { s:"done", d:"21/08",
-      t:{ en:"Item and exit popups", fr:"Popups objet et sortie", es:"Ventanas de objeto y de salida" },
-      x:{ en:"Item action popup re-laid out, a hidden button was leaving a hole. Created an in-game variant of the exit dialog that brings back Return to lobby and Play offline, both hard-collapsed in the lobby version.",
-          fr:"Popup d'actions sur objet remis en page, le bouton masqué laissait un trou. Création d'une variante en jeu du dialogue de sortie qui rouvre Retour au lobby et Jouer hors ligne, repliés en dur dans la version lobby.",
-          es:"Ventana de acciones de objeto reorganizada, el botón oculto dejaba un hueco. Se ha creado una variante en juego del diálogo de salida que recupera Volver al lobby y Jugar sin conexión, plegados de forma fija en la versión del lobby." } },
-
-    { s:"done", d:"22/08",
-      t:{ en:"Loading plate", fr:"Plaque de chargement", es:"Placa de carga" },
-      x:{ en:"Redesign of the LOADING plate used by fast travel and the map. The level loading screen is a separate layer that cannot display UMG: the two are skinned independently.",
-          fr:"Refonte de la plaque CHARGEMENT du voyage rapide et de la carte. L'écran de chargement de niveau est un étage séparé qui ne peut pas afficher d'UMG : les deux s'habillent indépendamment.",
-          es:"Rediseño de la placa CARGANDO del viaje rápido y del mapa. La pantalla de carga de nivel es una capa aparte que no puede mostrar UMG: las dos se decoran de forma independiente." },
-      r:{ en:"<b>Left:</b> the level loading screen re-skin, delivered on 25/08, still needs an eye on screen.",
-          fr:"<b>Reste :</b> le retint de l'écran de chargement de niveau, livré le 25/08, est encore à juger à l'écran.",
-          es:"<b>Queda:</b> el revestimiento de la pantalla de carga de nivel, entregado el 25/08, aún debe verse en pantalla." } },
-
-    { s:"done", d:"21/08",
-      t:{ en:"Menu sounds", fr:"Sons de menu", es:"Sonidos de menú" },
-      x:{ en:"The Thock sound family installed across the 6 slots of the button presets, with tightened durations: click from 437 to 95 ms, confirm from 687 to 200 ms. Validated by RzZz.",
-          fr:"Famille de sons Thock installée sur les 6 emplacements des presets de bouton, avec des durées resserrées : clic de 437 à 95 ms, validation de 687 à 200 ms. Validé par RzZz.",
-          es:"Familia de sonidos Thock instalada en las 6 ranuras de los presets de botón, con duraciones más ajustadas: clic de 437 a 95 ms, confirmación de 687 a 200 ms. Validado por RzZz." } },
-
-    { s:"done", d:"18/08",
-      t:{ en:"Icon forge", fr:"Forge d'icônes", es:"Forja de iconos" },
-      x:{ en:"Interface icons are now produced by code rather than drawn by hand: the 11-family palette verified straight from the engine, glyphs redrawn as recognisable objects instead of decorative patterns.",
-          fr:"Les icônes d'interface sont produites par code plutôt que dessinées à la main : palette des 11 familles vérifiée depuis le moteur, glyphes redessinés en objets identifiables au lieu de motifs décoratifs.",
-          es:"Los iconos de interfaz se generan por código en lugar de dibujarse a mano: paleta de las 11 familias verificada desde el motor, glifos redibujados como objetos reconocibles en vez de motivos decorativos." },
-      r:{ en:"<b>Left:</b> the 20/08 redraw pass is measured but not yet seen in game.",
-          fr:"<b>Reste :</b> la passe de redessin du 20/08 est mesurée mais pas encore vue en jeu.",
-          es:"<b>Queda:</b> la pasada de redibujado del 20/08 está medida pero aún no se ha visto en el juego." } }
-  ]},
-
-  { a:"matter", n:{ en:"Audio", fr:"Audio", es:"Audio" }, items:[
-
-    { s:"bug", d:"25/08",
-      t:{ en:"NPC weapons too loud", fr:"Armes des PNJ trop fortes", es:"Armas de los PNJ demasiado altas" },
-      x:{ en:"Player report from 25/08: NPC weapons sound louder than the player's own, and stepping inside a building muffles nothing. Measured: the distance curve only loses 18 dB over 1.2 km, the distance filter has both its bounds at 20 kHz so it filters nothing, occlusion does not lower the volume, and the “indoor” state is hard-wired to false in code.",
-          fr:"Retour joueur du 25/08 : les armes des PNJ sonnent plus fort que celles du joueur, et entrer dans un bâtiment n'atténue rien. Mesuré : la courbe de distance ne perd que 18 dB sur 1,2 km, le filtre de distance a ses deux bornes à 20 kHz donc il ne filtre rien, l'occlusion ne baisse pas le volume, et l'état « intérieur » est câblé en dur à faux dans le code.",
-          es:"Informe de jugador del 25/08: las armas de los PNJ suenan más fuerte que las del propio jugador, y entrar en un edificio no amortigua nada. Medido: la curva de distancia solo pierde 18 dB en 1,2 km, el filtro de distancia tiene sus dos límites a 20 kHz así que no filtra nada, la oclusión no baja el volumen, y el estado de « interior » está fijado a falso en el código." },
-      r:{ en:"<b>To do:</b> asset fixes first, since they are reversible, then actually feed the indoor state.",
-          fr:"<b>À faire :</b> corrections d'assets d'abord, réversibles, puis alimenter réellement l'état intérieur.",
-          es:"<b>Por hacer:</b> primero las correcciones de recursos, que son reversibles, y luego alimentar de verdad el estado de interior." } },
-
-    { s:"check", d:"03/07",
-      t:{ en:"Ambient music", fr:"Musique d'ambiance", es:"Música ambiental" },
-      x:{ en:"Situational non-diegetic music: 4 moods (exploration, tension, chase, lobby), per-world profiles, automatic ducking of the radio and notifications.",
-          fr:"Musique situationnelle non-diégétique : 4 humeurs (exploration, tension, poursuite, lobby), profils par monde, atténuation automatique de la radio et des notifications.",
-          es:"Música situacional no diegética: 4 estados de ánimo (exploración, tensión, persecución, lobby), perfiles por mundo, atenuación automática de la radio y las notificaciones." },
-      r:{ en:"<b>Left:</b> test in game, removing the persistent Universe cue or the music doubles up, tagging the tension zones.",
-          fr:"<b>Reste :</b> test en jeu, retrait du cue du niveau persistant Univers sous peine de double musique, tagging des zones de tension.",
-          es:"<b>Queda:</b> prueba en el juego, retirar el cue del nivel persistente Universo o la música se duplicará, etiquetar las zonas de tensión." } },
-
-    { s:"done", d:"07/07",
-      t:{ en:"Soundtrack centralised", fr:"Centralisation de l'OST", es:"Centralización de la banda sonora" },
-      x:{ en:"The soundtrack was split between the game content and a plugin mount: 40 tracks brought back with every reference fixed. A master limiter placed on the Exploration bus, after measuring 23 dB of loudness spread between tracks.",
-          fr:"Les pistes de la bande-son étaient éclatées entre le contenu du jeu et un mount de plugin : 40 pistes rapatriées avec correction complète des références. Limiteur master posé sur le bus Exploration, 23 dB d'écart de loudness mesurés entre les pistes.",
-          es:"Las pistas de la banda sonora estaban repartidas entre el contenido del juego y un punto de montaje de plugin: 40 pistas repatriadas con todas las referencias corregidas. Limitador máster colocado en el bus de Exploración, tras medir 23 dB de diferencia de sonoridad entre pistas." },
-      r:{ en:"<b>Left:</b> 8 root tracks still to move.",
-          fr:"<b>Reste :</b> 8 pistes racine encore à déplacer.",
-          es:"<b>Queda:</b> 8 pistas raíz aún por mover." } }
-  ]},
-
-  { a:"steel", n:{ en:"World, vehicles & rendering", fr:"Monde, véhicules & rendu", es:"Mundo, vehículos y renderizado" }, items:[
-
-    { s:"check", d:"25/08",
-      t:{ en:"IRIS scan wave", fr:"Onde de scan IRIS", es:"Onda de escaneo IRIS" },
-      x:{ en:"The Scanner module visual moves from a marketplace asset to an in-house post-process, without touching a single Blueprint. RzZz's verdict: “really beautiful”. Rollback and a safety switch are in place.",
-          fr:"Le visuel du module Scanner passe d'un asset marketplace à un post-process maison, sans toucher un seul Blueprint. Retour RzZz : « super beau ». Rollback et bouton de secours prévus.",
-          es:"El efecto visual del módulo Escáner pasa de un recurso del marketplace a un posprocesado propio, sin tocar un solo Blueprint. Veredicto de RzZz: « precioso ». Hay reversión y botón de emergencia previstos." },
-      r:{ en:"<b>Left:</b> visual check in game.",
-          fr:"<b>Reste :</b> validation visuelle en jeu.",
-          es:"<b>Queda:</b> validación visual en el juego." } },
-
-    { s:"check", d:"23/08",
-      t:{ en:"Local storage chest", fr:"Coffre local", es:"Cofre local" },
-      x:{ en:"A real chest with local contents, each chest holding its own items, server-authoritative: visible in the menu, placeable, opens its own inventory. Working in game since 23/08.",
-          fr:"Un vrai coffre à contenu local, chaque coffre a ses objets, autoritaire serveur : visible au menu, se pose, ouvre son propre inventaire. Fonctionne en jeu depuis le 23/08.",
-          es:"Un cofre real con contenido local, cada cofre guarda sus propios objetos, con autoridad del servidor: visible en el menú, se coloca y abre su propio inventario. Funciona en el juego desde el 23/08." },
-      r:{ en:"<b>Left:</b> size 20 and persistence. The bench measured 10.8 ms at 1000 chests on the world save path: the contents have to leave it.",
-          fr:"<b>Reste :</b> taille 20 et persistance. Le banc de mesure donne 10,8 ms à 1000 coffres sur le chemin de sauvegarde du monde : le contenu doit en sortir.",
-          es:"<b>Queda:</b> tamaño 20 y persistencia. El banco de pruebas dio 10,8 ms con 1000 cofres en la ruta de guardado del mundo: el contenido tiene que salir de ahí." } },
-
-    { s:"todo", d:"23/08",
-      t:{ en:"Sky Refuel Tower interior", fr:"Intérieur des Sky Refuel Tower", es:"Interior de las Sky Refuel Tower" },
-      x:{ en:"The refuel tower interior has been identified: it was left out of the conversion to QLevel streaming. The Cyborg one is affected by the same oversight.",
-          fr:"L'intérieur de la tour de ravitaillement est identifié : oubli de la conversion vers le streaming QLevel. Le Cyborg est touché par le même oubli.",
-          es:"Se ha identificado el interior de la torre de repostaje: quedó fuera de la conversión al streaming de QLevel. El del Ciborg sufre el mismo olvido." } },
-
-    { s:"done", d:"19/08",
-      t:{ en:"Fall damage", fr:"Dégâts de chute", es:"Daño por caída" },
-      x:{ en:"Fixed the impact speed calculation: a player could be hurt without falling. It is now computed on the real vertical component.",
-          fr:"Correction du calcul de vitesse d'impact : un joueur pouvait être blessé sans tomber. Le calcul se fait désormais sur la composante verticale réelle.",
-          es:"Corregido el cálculo de la velocidad de impacto: un jugador podía resultar herido sin caerse. Ahora se calcula sobre la componente vertical real." } },
-
-    { s:"done", d:"22/08",
-      t:{ en:"Atmospheric friction", fr:"Friction atmosphérique", es:"Fricción atmosférica" },
-      x:{ en:"Re-tuned atmospheric re-entry damage. It was not just a threshold: the curve made any threshold lethal. Since the damage is a percentage of maximum health, hull upgrades gave no protection.",
-          fr:"Recalibrage des dégâts de rentrée atmosphérique. Ce n'était pas qu'un seuil : la courbe rendait tout seuil létal. Les dégâts étant un pourcentage de la vie maximale, les améliorations de coque ne protégeaient pas.",
-          es:"Recalibrado del daño por reentrada atmosférica. No era solo un umbral: la curva volvía letal cualquier umbral. Como el daño es un porcentaje de la vida máxima, las mejoras de casco no protegían." },
-      r:{ en:"<b>Left:</b> a per-ship profile and an authority lock.",
-          fr:"<b>Reste :</b> profil par vaisseau et verrou d'autorité.",
-          es:"<b>Queda:</b> un perfil por nave y un bloqueo de autoridad." } },
-
-    { s:"done", d:"24/08",
-      t:{ en:"Mach cone", fr:"Cône de Mach", es:"Cono de Mach" },
-      x:{ en:"Mach cone and sonic boom delivered, plus a re-tune of the ship VFX thresholds onto the real speed scale (3200 km/h normal, 6400 boosted). Systems calibrated for an older scale were returning exactly zero in normal flight.",
-          fr:"Cône de Mach et bang supersonique livrés, et recalage des seuils VFX de vaisseau sur l'échelle de vitesse réelle (3200 km/h normal, 6400 en boost). Des systèmes calibrés pour une ancienne échelle rendaient exactement zéro en vol normal.",
-          es:"Cono de Mach y estampido sónico entregados, más un reajuste de los umbrales de VFX de nave a la escala de velocidad real (3200 km/h normal, 6400 con propulsión). Sistemas calibrados para una escala antigua devolvían exactamente cero en vuelo normal." },
-      r:{ en:"<b>Left:</b> the effect still fires while you are inside the cockpit.",
-          fr:"<b>Reste :</b> l'effet se déclenche encore quand on est en cabine.",
-          es:"<b>Queda:</b> el efecto sigue activándose cuando estás en la cabina." } },
-
-    { s:"done", d:"21/08",
-      t:{ en:"Jetpack FX", fr:"FX de jetpack", es:"Efectos del jetpack" },
-      x:{ en:"The thruster FX were inheriting raw from their socket and firing in the wrong direction. Orientation fixed on all 4 sockets.",
-          fr:"Les FX de propulsion héritaient bruts de leur socket et partaient dans la mauvaise direction. Orientation corrigée sur les 4 sockets.",
-          es:"Los efectos de propulsión heredaban en bruto de su socket y salían en la dirección equivocada. Orientación corregida en los 4 sockets." } },
-
-    { s:"done", d:"19/08",
-      t:{ en:"Damage feedback", fr:"Retour de dégât", es:"Retorno de daño" },
-      x:{ en:"Visual and audio feedback when the player takes a hit: a per-player post-process hooked in the right place, plus the matching audio layer.",
-          fr:"Retour visuel et sonore quand le joueur encaisse : post-process par joueur posé au bon endroit, plus la couche audio associée.",
-          es:"Retorno visual y sonoro cuando el jugador recibe daño: un posprocesado por jugador colocado en el sitio correcto, más la capa de audio asociada." },
-      r:{ en:"<b>Left:</b> the “bullet whizzing past” layer, not done.",
-          fr:"<b>Reste :</b> la couche « balle qui siffle à côté », non faite.",
-          es:"<b>Queda:</b> la capa de « bala que silba al pasar », sin hacer." } },
-
-    { s:"done", d:"22/08",
-      t:{ en:"Volumetric clouds", fr:"Nuages volumétriques", es:"Nubes volumétricas" },
-      x:{ en:"The cloud smearing in flight came from a density fade based on camera distance. Tracing distance brought down from 150 to 90 km.",
-          fr:"La bave de nuages en vol venait d'un fondu de densité par distance caméra. Distance de tracing ramenée de 150 à 90 km.",
-          es:"El emborronamiento de las nubes en vuelo venía de un desvanecimiento de densidad según la distancia de cámara. Distancia de trazado reducida de 150 a 90 km." },
-      r:{ en:"<b>Left:</b> wire the coverage mask onto the planetary masks so both skies agree, and measure the GPU cost.",
-          fr:"<b>Reste :</b> brancher le masque de couverture sur les masques planétaires pour rendre les deux ciels cohérents, mesurer le coût GPU.",
-          es:"<b>Queda:</b> conectar la máscara de cobertura a las máscaras planetarias para que ambos cielos coincidan, y medir el coste de GPU." } }
-  ]},
-
-  { a:"slate", n:{ en:"Technical & production", fr:"Technique & production", es:"Técnica y producción" }, items:[
-
-    { s:"bug", d:"25/08",
-      t:{ en:"HOTAS axis rebinding", fr:"Rebind des axes HOTAS", es:"Reasignación de ejes HOTAS" },
-      x:{ en:"Player report from 25/08, the most blocking one: HOTAS axes are lost at every update and can no longer be reassigned, moving the stick during binding does nothing. The saved key name depends on the device enumeration order: if that shifts, the axis goes silent with no message at all.",
-          fr:"Retour joueur du 25/08, le plus bloquant : les axes HOTAS sont perdus à chaque mise à jour et ne peuvent plus être réassignés, bouger le manche pendant l'assignation ne fait rien. Le nom de touche sauvegardé dépend de l'ordre d'énumération des périphériques : s'il bouge, l'axe devient muet sans aucun message.",
-          es:"Informe de jugador del 25/08, el más bloqueante: los ejes del HOTAS se pierden en cada actualización y ya no se pueden reasignar, mover la palanca durante la asignación no hace nada. El nombre de tecla guardado depende del orden de enumeración de los dispositivos: si cambia, el eje se queda mudo sin ningún mensaje." },
-      r:{ en:"<b>To do:</b> stable naming for device axes, and repair the rebinding screen.",
-          fr:"<b>À faire :</b> nommage stable des axes de périphérique, et réparation de l'écran de réassignation.",
-          es:"<b>Por hacer:</b> nombres estables para los ejes de dispositivo, y reparar la pantalla de reasignación." } },
-
-    { s:"wip", d:"26/08",
-      t:{ en:"Blueprint to C++ migration", fr:"Migration Blueprint vers C++", es:"Migración de Blueprint a C++" },
-      x:{ en:"Blueprint paths that run at a fixed rate, or multiplied by the number of actors, are moving to native code. First worksite done: shared target registry, vehicle combat and missile lock. The global scan is gone, and 7 native tests pass in solo, listen server and dedicated server.",
-          fr:"Les chemins Blueprint exécutés à fréquence fixe ou multipliés par le nombre d'acteurs passent en natif. Premier chantier terminé : registre de cibles partagé, combat véhicule et verrou de missile. Le scan global est supprimé, 7 tests natifs verts en solo, serveur d'écoute et serveur dédié.",
-          es:"Las rutas de Blueprint que se ejecutan a frecuencia fija, o multiplicadas por el número de actores, pasan a código nativo. Primer bloque terminado: registro de objetivos compartido, combate de vehículo y fijado de misiles. El escaneo global ha desaparecido y 7 pruebas nativas pasan en solitario, servidor de escucha y servidor dedicado." },
-      r:{ en:"<b>Next:</b> player interaction (423 nodes, a trace every frame), character and gravity, camera, then weapons, inventory and combat.",
-          fr:"<b>Suite :</b> interaction joueur (423 noeuds, trace à chaque frame), personnage et gravité, caméra, puis armes, inventaire et combat.",
-          es:"<b>A continuación:</b> interacción del jugador (423 nodos, un trazado por fotograma), personaje y gravedad, cámara, y después armas, inventario y combate." } },
-
-    { s:"done", d:"22/08",
-      t:{ en:"Localisation repaired", fr:"Localisation réparée", es:"Localización reparada" },
-      x:{ en:"Translating was not enough, translations were never recompiled: two weeks of work never reached the game. The gather and compile chain is running again across 11 cultures, and the pass dropped from a projected 11 h to a few minutes.",
-          fr:"Traduire ne suffisait pas, les traductions n'étaient jamais recompilées : deux semaines de travail n'arrivaient pas en jeu. Chaîne de collecte et de compilation remise en marche sur 11 cultures, la passe tombe de 11 h projetées à quelques minutes.",
-          es:"Traducir no bastaba, las traducciones nunca se recompilaban: dos semanas de trabajo no llegaban al juego. La cadena de recopilación y compilación vuelve a funcionar en 11 idiomas, y la pasada baja de las 11 h previstas a unos minutos." } },
-
-    { s:"done", d:"29/07",
-      t:{ en:"Test harness", fr:"Harnais de tests", es:"Banco de pruebas" },
-      x:{ en:"An automated test suite for the project: regressions are measured without opening the editor, in about a minute.",
-          fr:"Suite de tests automatisés du projet : les régressions se mesurent sans ouvrir l'éditeur, en une minute.",
-          es:"Conjunto de pruebas automatizadas del proyecto: las regresiones se miden sin abrir el editor, en un minuto." } },
-
-    { s:"done", d:"12/08",
-      t:{ en:"Reflective calls hardened", fr:"Durcissement des appels réflexifs", es:"Endurecimiento de las llamadas reflexivas" },
-      x:{ en:"A pass over the C++ to Blueprint calls made through reflection: strict contracts, safe parameter construction, and a return to native APIs wherever they exist.",
-          fr:"Passe sur les appels C++ vers Blueprint faits par réflexion : contrats stricts, construction de paramètres sécurisée, retour aux API natives quand elles existent.",
-          es:"Revisión de las llamadas de C++ a Blueprint hechas por reflexión: contratos estrictos, construcción segura de parámetros y vuelta a las API nativas cuando existen." } },
-
-    { s:"done", d:"24/07",
-      t:{ en:"Build warnings audit", fr:"Audit des warnings de build", es:"Auditoría de avisos de compilación" },
-      x:{ en:"A full audit of the project's compilation warnings.",
-          fr:"Audit complet des avertissements de compilation du projet.",
-          es:"Auditoría completa de los avisos de compilación del proyecto." } }
-  ]}
-]},
-
-/* ==================== Q4 2026 ==================== */
-{ id:"q4-2026", a:"slate", state:"plan", qn:"Q4 2026",
-  when:{ en:"October / December 2026", fr:"Octobre / Décembre 2026", es:"Octubre / Diciembre 2026" },
-  groups:[
-
-  { a:"steel", n:{ en:"Content & world", fr:"Contenu & monde", es:"Contenido y mundo" }, items:[
-
-    { s:"todo",
-      t:{ en:"MARSONE faction", fr:"Faction MARSONE", es:"Facción MARSONE" },
-      x:{ en:"Woven into the story: the humans left behind on Mars.",
-          fr:"Intégration à l'histoire : les humains abandonnés sur Mars.",
-          es:"Integración en la historia: los humanos abandonados en Marte." } },
-
-    { s:"todo",
-      t:{ en:"Asteroid field", fr:"Champ d'astéroïdes", es:"Campo de asteroides" },
-      x:{ en:"A spiral ring running from the moon's former position to where it sits today.",
-          fr:"Anneau en spirale reliant l'ancienne position de la lune à sa position actuelle.",
-          es:"Un anillo en espiral que une la antigua posición de la luna con la actual." } },
-
-    { s:"todo",
-      t:{ en:"Space v2", fr:"Espace v2", es:"Espacio v2" },
-      x:{ en:"New gameplay possibilities out in space.",
-          fr:"Nouvelles possibilités de gameplay dans l'espace.",
-          es:"Nuevas posibilidades de juego en el espacio." } },
-
-    { s:"todo",
-      t:{ en:"Relay tower gameplay", fr:"Gameplay des tours de relais", es:"Jugabilidad de las torres de repetición" },
-      x:{ en:"Refuelling that changes with the state of the tower (clean, infected, held by the Voss), a codex collecting the relays, a choice of respawn point, and a hackable tax.",
-          fr:"Ravitaillement dynamique selon l'état de la tour (saine, infectée, tenue par les Voss), codex de collection des relais, choix du point de réapparition, taxe piratable.",
-          es:"Repostaje que cambia según el estado de la torre (limpia, infectada, en manos de los Voss), un códice que colecciona los repetidores, elección del punto de reaparición y una tasa pirateable." } },
-
-    { s:"todo",
-      t:{ en:"Space traffic", fr:"Trafic spatial", es:"Tráfico espacial" },
-      x:{ en:"AI ships on the warp routes and out in the void. Scoping submitted on 22/08 with the measured geometry of the network: today not a single ship is visible during a warp.",
-          fr:"Vaisseaux IA sur les routes de warp et dans le vide. Cadrage soumis le 22/08 avec la géométrie mesurée du réseau : aujourd'hui aucun vaisseau n'est visible pendant un warp.",
-          es:"Naves de IA en las rutas de warp y en el vacío. Estudio presentado el 22/08 con la geometría medida de la red: hoy no se ve ni una sola nave durante un warp." },
-      r:{ en:"<b>Blocked by:</b> the AI flight engine keeps ships high (a 500 m floor, 2 km when following a player) and dives outside the atmosphere.",
-          fr:"<b>Bloqué par :</b> le moteur de vol IA garde les vaisseaux hauts (plancher de 500 m, 2 km en suivi de joueur) et pique hors atmosphère.",
-          es:"<b>Bloqueado por:</b> el motor de vuelo de la IA mantiene las naves altas (suelo de 500 m, 2 km al seguir a un jugador) y pica fuera de la atmósfera." } },
-
-    { s:"todo",
-      t:{ en:"Mass AI", fr:"Mass AI", es:"Mass AI" },
-      x:{ en:"Life across the universe: relay-to-relay traffic and survival extras.",
-          fr:"Vie de l'univers : trafic de relais à relais et figurants de survie.",
-          es:"Vida en el universo: tráfico de repetidor a repetidor y figurantes de supervivencia." } },
-
-    { s:"todo",
-      t:{ en:"Multi-faction air traffic", fr:"Trafic aérien multi-faction", es:"Tráfico aéreo multifacción" },
-      x:{ en:"Lifting the flight engine out of the police ships and down into the AI layer, then air traffic per faction. Roughly 80% of the pieces already exist.",
-          fr:"Extraction du moteur de vol des vaisseaux de police vers la couche IA, puis trafic aérien par faction. Environ 80 % des briques existent déjà.",
-          es:"Extraer el motor de vuelo de las naves policiales hacia la capa de IA, y después tráfico aéreo por facción. Cerca del 80 % de las piezas ya existen." } },
-
-    { s:"todo",
-      t:{ en:"Companion AI", fr:"IA compagnon", es:"IA acompañante" },
-      x:{ en:"Mercenaries you can recruit for missions and to defend your buildings. The base NPC squad is already in game.",
-          fr:"Mercenaires recrutables pour les missions et la défense des constructions. L'escouade PNJ de base est déjà en jeu.",
-          es:"Mercenarios reclutables para misiones y para defender tus construcciones. La escuadra de PNJ básica ya está en el juego." } },
-
-    { s:"todo",
-      t:{ en:"Surface spawning v2", fr:"Spawn de surface v2", es:"Aparición en superficie v2" },
-      x:{ en:"Fixing the pop-in around the player that players have called out: right now three timers, a spawn ring and a cull form a conveyor belt. The anchored pieces are already in production.",
-          fr:"Corriger le pop-in autour du joueur dénoncé par les joueurs : aujourd'hui trois minuteurs, un anneau de spawn et un cull forment un tapis roulant. Les briques ancrées sont déjà en production.",
-          es:"Corregir el pop-in alrededor del jugador que los jugadores han señalado: hoy tres temporizadores, un anillo de aparición y un descarte forman una cinta transportadora. Las piezas ancladas ya están en producción." } }
-  ]},
-
-  { a:"amber", n:{ en:"Modules & weapons", fr:"Modules & armes", es:"Módulos y armas" }, items:[
-
-    { s:"todo",
-      t:{ en:"Weapon rework", fr:"Refonte des armes", es:"Rediseño de las armas" },
-      x:{ en:"Attachments, inventory interface, per-weapon module menu.",
-          fr:"Accessoires, interface d'inventaire, menu de modules par arme.",
-          es:"Accesorios, interfaz de inventario, menú de módulos por arma." } },
-
-    { s:"todo",
-      t:{ en:"Item modules", fr:"Modules d'objet", es:"Módulos de objeto" },
-      x:{ en:"Phases on items: modules for weapons and a rework of weapon attachments.",
-          fr:"Les phases sur les objets : modules pour armes et refonte des accessoires d'arme.",
-          es:"Las fases en los objetos: módulos para armas y rediseño de los accesorios de arma." } },
-
-    { s:"todo",
-      t:{ en:"Construction modules", fr:"Modules de construction", es:"Módulos de construcción" },
-      x:{ en:"Construction phases: talents, skills, dynamic stats, plus the Construction V2 system.",
-          fr:"Les phases construction : talents, compétences, stats dynamiques, plus le système de Construction V2.",
-          es:"Las fases de construcción: talentos, habilidades, estadísticas dinámicas, más el sistema de Construcción V2." } },
-
-    { s:"todo",
-      t:{ en:"Combat & support drones", fr:"Drones de combat et d'appui", es:"Drones de combate y apoyo" },
-      x:{ en:"The rest of the drone wave: combat drone, sentry turret, ghost drone, decoy.",
-          fr:"Suite de la vague drones : drone de combat, tourelle sentinelle, drone spectre, leurre.",
-          es:"El resto de la oleada de drones: dron de combate, torreta centinela, dron espectro, señuelo." } },
-
-    { s:"todo",
-      t:{ en:"Coverage of all 105 modules", fr:"Couverture des 105 modules", es:"Cobertura de los 105 módulos" },
-      x:{ en:"57 modules out of 105 have no inventory item yet: they cannot be sold, looted, or shown in the admin menu. A production pass, then loot balancing.",
-          fr:"57 modules sur 105 n'ont pas encore d'item d'inventaire : ils ne peuvent ni être vendus, ni lootés, ni apparaître au menu admin. Passe de production, puis équilibrage du loot.",
-          es:"57 módulos de 105 aún no tienen objeto de inventario: no se pueden vender, ni obtener como botín, ni aparecer en el menú de administración. Una pasada de producción y después equilibrado del botín." } }
-  ]},
-
-  { a:"notif", n:{ en:"Interface & progression", fr:"Interface & progression", es:"Interfaz y progresión" }, items:[
-
-    { s:"todo",
-      t:{ en:"Steam achievements", fr:"Succès Steam", es:"Logros de Steam" },
-      x:{ en:"99 achievement keys declared on the Steam side, 53 wired in game. The 22/08 worksite to finish: 7 orphan counters and 14 keys missing from the registry.",
-          fr:"99 clés de succès déclarées côté Steam, 53 branchées en jeu. Chantier du 22/08 à terminer : 7 compteurs orphelins et 14 clés non inscrites au registre.",
-          es:"99 claves de logro declaradas en Steam, 53 conectadas en el juego. Trabajo del 22/08 por terminar: 7 contadores huérfanos y 14 claves no inscritas en el registro." } },
-
-    { s:"todo",
-      t:{ en:"Statistics counters", fr:"Compteurs de statistiques", es:"Contadores de estadísticas" },
-      x:{ en:"34 player counters, 11 of them silenced by three proven defects. The base layer that achievements, titles and leaderboards all sit on.",
-          fr:"34 compteurs joueur, dont 11 rendus muets par trois défauts prouvés. Base indispensable aux succès, aux titres et aux classements.",
-          es:"34 contadores de jugador, 11 de ellos silenciados por tres defectos comprobados. La base indispensable para logros, títulos y clasificaciones." } },
-
-    { s:"todo",
-      t:{ en:"Social menu: phase 2", fr:"Menu Social : phase 2", es:"Menú Social: fase 2" },
-      x:{ en:"Per-row player actions, group and clan tags, level, and a restyle of the clan panel that still carries its old pale background.",
-          fr:"Actions par ligne de joueur, tags groupe et clan, niveau, et restyle du panneau clan qui garde son ancien fond clair.",
-          es:"Acciones por fila de jugador, etiquetas de grupo y clan, nivel, y rediseño del panel de clan que aún conserva su antiguo fondo claro." } },
-
-    { s:"todo",
-      t:{ en:"StarMap: phase M", fr:"StarMap : phase M", es:"StarMap: fase M" },
-      x:{ en:"A clickable breadcrumb Universe, System, Planet, Surface. A shared map view for your group, the mechanism already exists but is not exposed. A personal player marker.",
-          fr:"Fil d'Ariane cliquable Univers, Système, Planète, Surface. Vue de carte partagée en groupe, la mécanique existe déjà mais n'est pas exposée. Marqueur personnel du joueur.",
-          es:"Una ruta de navegación interactiva Universo, Sistema, Planeta, Superficie. Vista de mapa compartida en grupo, el mecanismo ya existe pero no está expuesto. Marcador personal del jugador." } },
-
-    { s:"todo",
-      t:{ en:"HUD overhaul", fr:"Refonte du HUD", es:"Rediseño del HUD" },
-      x:{ en:"Applying the “as little interface as possible” direction across the 53 mapped bricks.",
-          fr:"Mise en oeuvre de la direction « le moins d'interface possible » sur les 53 briques cartographiées.",
-          es:"Aplicación de la dirección de « la menor interfaz posible » sobre las 53 piezas cartografiadas." } }
-  ]},
-
-  { a:"slate", n:{ en:"Technical", fr:"Technique", es:"Técnica" }, items:[
+  { a:"amber", n:{"en":"Follow-up & work in progress","fr":"Suivi de la sortie & travaux en cours","es":"Seguimiento del lanzamiento y trabajos en curso"}, items:[
+    { s:"bug",
+      t:{"en":"Night visibility","fr":"Visibilité de nuit","es":"Visibilidad nocturna"},
+      x:{"en":"Nights are currently too dark. A lighting adjustment is planned shortly.","fr":"Les nuits sont actuellement trop sombres. Un ajustement de l’éclairage est prévu très prochainement.","es":"Las noches son demasiado oscuras actualmente. Se prevé un ajuste de iluminación próximamente."} },
 
     { s:"bug",
-      t:{ en:"Crash: WorldScape grid", fr:"Crash : grille WorldScape", es:"Fallo: cuadrícula WorldScape" },
-      x:{ en:"A known crash, not yet fixed: the grid's timeout drain races its worker thread on a single-consumer queue.",
-          fr:"Crash connu, non corrigé : la purge par délai de la grille WorldScape court contre son thread de travail sur une file à consommateur unique.",
-          es:"Un fallo conocido, aún sin corregir: el vaciado por tiempo de espera de la cuadrícula compite con su hilo de trabajo en una cola de consumidor único." } },
+      t:{"en":"Distant gunfire & indoor sound","fr":"Tirs lointains & son en intérieur","es":"Disparos lejanos y sonido en interiores"},
+      x:{"en":"Improve the balance of NPC gunfire and how walls and distance muffle it. This audio work remains open.","fr":"Améliorer le volume relatif des tirs des PNJ et leur atténuation par la distance et les murs. Ce travail audio reste ouvert.","es":"Mejorar el volumen relativo de los disparos de los PNJ y cómo los atenúan la distancia y las paredes. Este trabajo de audio sigue pendiente."} },
 
-    { s:"todo",
-      t:{ en:"C++ migration: batch 2", fr:"Migration C++ : lot 2", es:"Migración a C++: lote 2" },
-      x:{ en:"Player interaction, character and gravity, camera: the heaviest Blueprint paths in the game, up to 4454 nodes for a single actor, with tick allowed on a dedicated server.",
-          fr:"Interaction joueur, personnage et gravité, caméra : les chemins Blueprint les plus lourds du jeu, jusqu'à 4454 noeuds pour un seul acteur, avec tick autorisé sur serveur dédié.",
-          es:"Interacción del jugador, personaje y gravedad, cámara: las rutas de Blueprint más pesadas del juego, hasta 4454 nodos en un solo actor, con tick permitido en servidor dedicado." } },
+    { s:"wip",
+      t:{"en":"Smoother planetary exploration","fr":"Exploration planétaire plus fluide","es":"Exploración planetaria más fluida"},
+      x:{"en":"The next update aims to display landscapes more efficiently and reduce the load on your computer. The first step, moving part of the terrain calculations to the graphics card, is already live.","fr":"La prochaine mise à jour vise à afficher les paysages plus efficacement et à alléger le travail de votre ordinateur. Une première étape, le transfert d’une partie des calculs du terrain vers la carte graphique, est déjà disponible.","es":"La próxima actualización busca mostrar los paisajes de forma más eficiente y reducir la carga del ordenador. El primer paso, trasladar parte de los cálculos del terreno a la tarjeta gráfica, ya está disponible."} },
 
-    { s:"todo",
-      t:{ en:"Project audio mix", fr:"Mix audio du projet", es:"Mezcla de audio del proyecto" },
-      x:{ en:"About 89% of the game's sounds are not routed to any sound class: there is no per-family volume control at all. To be routed by families, then measured.",
-          fr:"Environ 89 % des sons du jeu ne sont routés vers aucune classe de son : aucun contrôle de volume par famille. À router par familles, puis mesurer.",
-          es:"Cerca del 89 % de los sonidos del juego no están enrutados a ninguna clase de sonido: no hay ningún control de volumen por familia. Hay que enrutarlos por familias y luego medir." } },
+    { s:"wip",
+      t:{"en":"Weapon modules & workbench","fr":"Modules d’armes & établi","es":"Módulos de armas y banco de trabajo"},
+      x:{"en":"Extend module progression to individual weapons, with installation at a workbench and an interface for their upgrades. This system is still being developed.","fr":"Étendre la progression par modules aux armes individuelles, avec installation à l’établi et interface dédiée aux améliorations. Ce système reste en développement.","es":"Ampliar la progresión por módulos a las armas individuales, con instalación en un banco de trabajo e interfaz para sus mejoras. Este sistema sigue en desarrollo."} },
 
-    { s:"todo",
-      t:{ en:"Chest persistence", fr:"Persistance des coffres", es:"Persistencia de los cofres" },
-      x:{ en:"Moving chest contents out of the world save slot: encoding and writing on a background thread, segmentation by server port, lazy loading.",
-          fr:"Sortir le contenu des coffres du slot de sauvegarde monde : encodage et écriture sur un fil de fond, segmentation par port serveur, chargement paresseux.",
-          es:"Sacar el contenido de los cofres de la ranura de guardado del mundo: codificación y escritura en un hilo de fondo, segmentación por puerto de servidor, carga perezosa." } }
+    { s:"wip",
+      t:{"en":"Vehicle modules","fr":"Modules de véhicules","es":"Módulos de vehículos"},
+      x:{"en":"Develop module upgrades for individual vehicles, their stats and their equipment interface. Cyborg modules are already available; this vehicle extension remains in development.","fr":"Développer les améliorations par modules des véhicules individuels, leurs statistiques et leur interface d’équipement. Les modules cyborg sont disponibles ; cette extension aux véhicules reste en développement.","es":"Desarrollar mejoras por módulos para vehículos individuales, sus estadísticas y su interfaz de equipamiento. Los módulos de ciborg ya están disponibles; esta ampliación a los vehículos sigue en desarrollo."} },
+
+    { s:"wip",
+      t:{"en":"Gameplay performance & reliability","fr":"Performances & fiabilité du gameplay","es":"Rendimiento y fiabilidad del juego"},
+      x:{"en":"Continue optimizing the busiest gameplay systems, including weapons, inventory transfers and storage. Several improvements are live, while the remaining work needs further integration and testing.","fr":"Poursuivre l’optimisation des systèmes de gameplay les plus sollicités, dont les armes, les transferts d’inventaire et le stockage. Plusieurs améliorations sont disponibles ; la suite demande encore de l’intégration et des tests.","es":"Seguir optimizando los sistemas más utilizados, incluidas las armas, las transferencias de inventario y el almacenamiento. Varias mejoras ya están disponibles; el trabajo restante requiere más integración y pruebas."} }
+  ]},
+
+  { a:"matter", n:{"en":"v0.0.23a · Cyborg modules","fr":"v0.0.23a · Modules cyborg","es":"v0.0.23a · Módulos de ciborg"}, items:[
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"New neural wall","fr":"Nouveau mur neuronal","es":"Nuevo muro neuronal"},
+      x:{"en":"A completely new cyborg module system. Install module items on the new wall, power them with phases and rearrange your build. Removing a module returns its item and phases.","fr":"Un tout nouveau système de modules cyborg. Installez leurs objets sur le nouveau mur, alimentez-les avec des phases et réorganisez votre équipement. Retirer un module restitue son objet et ses phases.","es":"Un sistema completamente nuevo de módulos de ciborg. Instálalos en el nuevo muro, actívalos con fases y reorganiza tu equipamiento. Al retirar un módulo recuperas su objeto y sus fases."} },
+
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"Module items & loot","fr":"Objets & loot de modules","es":"Objetos y botín de módulos"},
+      x:{"en":"Find modules in buildings and enemy loot, trade or sell them, and choose which ones to install. Bunkers, relays, ruins, warp markets and industrial sites can contain modules.","fr":"Trouvez des modules dans les bâtiments et le butin des ennemis, échangez-les ou vendez-les, puis choisissez ceux à installer. Bunkers, relais, ruines, marchés des warps et sites industriels peuvent en contenir.","es":"Encuentra módulos en edificios y en el botín de enemigos, intercámbialos o véndelos y elige cuáles instalar. Pueden aparecer en búnkeres, repetidores, ruinas, mercados de warp y zonas industriales."} },
+
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"Module wheel & targeting","fr":"Roue de modules & ciblage","es":"Rueda de módulos y apuntado"},
+      x:{"en":"Select abilities from a two-ring wheel. Clear targeting feedback shows range, cooldowns and refusals. Hold X to aim a beacon, left-click to throw it, and release X to cancel.","fr":"Sélectionnez vos capacités dans une roue à deux anneaux. Le ciblage indique portée, recharge et refus. Maintenez X pour viser avec une balise, lancez-la au clic gauche et relâchez X pour annuler.","es":"Selecciona habilidades en una rueda de dos anillos. El apuntado muestra alcance, recarga y motivos de rechazo. Mantén X para apuntar una baliza, haz clic izquierdo para lanzarla y suelta X para cancelar."} },
+
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"Missiles, grenades & orbital strikes","fr":"Missiles, grenades & frappes orbitales","es":"Misiles, granadas y ataques orbitales"},
+      x:{"en":"Wasp Nest fires guided missiles, Hornet Nest launches sticky grenades, and Strike Beacon calls an orbital barrage onto a marked area.","fr":"Le Nid de guêpes tire des missiles guidés, le Nid de frelons lance des grenades collantes et la Balise de frappe appelle un barrage orbital sur une zone désignée.","es":"Nido de avispas dispara misiles guiados, Nido de avispones lanza granadas adhesivas y la Baliza de ataque solicita un bombardeo orbital sobre una zona marcada."} },
+
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"Medical drone & supply drop","fr":"Drone médical & ravitaillement","es":"Dron médico y suministros"},
+      x:{"en":"Deploy a drone to heal nearby allies using matter, or call in an ammunition and healing supply crate for your group.","fr":"Déployez un drone pour soigner vos alliés proches en consommant de la matière, ou appelez une caisse de munitions et de soins pour votre groupe.","es":"Despliega un dron que cura a los aliados cercanos consumiendo materia, o solicita una caja de munición y suministros médicos para tu grupo."} },
+
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"Deployable sentry turret","fr":"Tourelle sentinelle déployable","es":"Torreta centinela desplegable"},
+      x:{"en":"Throw a temporary turret that unfolds on the ground. Its levels offer guns, mixed guns and missiles, then missiles.","fr":"Lancez une tourelle temporaire qui se déplie au sol. Ses niveaux proposent des mitrailleuses, un armement mixte puis des missiles.","es":"Lanza una torreta temporal que se despliega en el suelo. Sus niveles ofrecen ametralladoras, armamento mixto y finalmente misiles."} },
+
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"Fleet recall","fr":"Rappel de flotte","es":"Llamada de flota"},
+      x:{"en":"Call one of your ships to fly in and land nearby to pick you up. Fleet recall is available for ships, not hovercraft.","fr":"Appelez l’un de vos vaisseaux pour qu’il vienne se poser près de vous et vous récupérer. Le rappel concerne les vaisseaux, pas les hovercraft.","es":"Llama a una de tus naves para que vuele hasta ti y aterrice cerca para recogerte. La llamada está disponible para naves, no para vehículos de superficie."} },
+
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"Squad reinforcements","fr":"Renforts d’escouade","es":"Refuerzos de escuadra"},
+      x:{"en":"Leader Protocol unlocks recruitment and increases your companion capacity. A Lavrik can deliver your squad to the designated location.","fr":"Le Protocole de meneur débloque le recrutement et augmente votre capacité de compagnons. Un Lavrik peut déposer votre escouade à l’endroit désigné.","es":"El Protocolo de líder desbloquea el reclutamiento y aumenta el número de acompañantes. Un Lavrik puede llevar tu escuadra al lugar indicado."} },
+
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"Assistance through a module","fr":"Assistance via un module","es":"Asistencia mediante un módulo"},
+      x:{"en":"The Transit Transponder unlocks Assistance and opens its StarMap view from the module wheel.","fr":"Le Transpondeur de transit débloque l’Assistance et ouvre sa vue StarMap depuis la roue de modules.","es":"El Transpondedor de tránsito desbloquea Asistencia y abre su vista del mapa estelar desde la rueda de módulos."} },
+
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"Integrated radio","fr":"Radio intégrée","es":"Radio integrada"},
+      x:{"en":"The Long-Range Antenna lets your cyborg listen to radio stations and mission signals without carrying a portable radio. Module levels improve reception.","fr":"L’Antenne longue portée permet d’écouter les stations et les signaux de mission sans radio portable. Les niveaux du module améliorent la réception.","es":"La Antena de largo alcance permite escuchar emisoras y señales de misión sin llevar una radio portátil. Los niveles del módulo mejoran la recepción."} },
+
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"Safe-zone protection","fr":"Protection des zones sûres","es":"Protección de las zonas seguras"},
+      x:{"en":"Damage permissions and protected areas apply to gunfire, melee and area effects. Module feedback explains when an action cannot be used.","fr":"Les autorisations de dégâts et les zones protégées s’appliquent aux tirs, au corps à corps et aux effets de zone. Les modules indiquent pourquoi une action est refusée.","es":"Las reglas de daño y las zonas protegidas se aplican a disparos, ataques cuerpo a cuerpo y efectos de área. Los módulos explican por qué se rechaza una acción."} }
+  ]},
+
+  { a:"steel", n:{"en":"v0.0.23a · Quests & construction","fr":"v0.0.23a · Quêtes & construction","es":"v0.0.23a · Misiones y construcción"}, items:[
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"Construction mission","fr":"Mission de construction","es":"Misión de construcción"},
+      x:{"en":"A new mission introduces the Builder and teaches you to construct a shelter. Construction now progresses through the Construction Matrix module.","fr":"Une nouvelle mission présente le Builder et vous apprend à construire un abri. La construction progresse désormais grâce au module Matrice de construction.","es":"Una nueva misión presenta el Builder y te enseña a construir un refugio. La construcción progresa ahora mediante el módulo Matriz de construcción."} },
+
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"Tutorial & starting modules","fr":"Tutoriel & modules de départ","es":"Tutorial y módulos iniciales"},
+      x:{"en":"The tutorial introduces the neural wall, phases and your first combat-module choice. Equipment and progression carry over into the universe.","fr":"Le tutoriel présente le mur neuronal, les phases et le choix d’un premier module de combat. Votre équipement et votre progression sont conservés à l’arrivée dans l’univers.","es":"El tutorial presenta el muro neuronal, las fases y la elección del primer módulo de combate. El equipo y la progresión se conservan al entrar en el universo."} },
+
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"Quest progression & feedback","fr":"Progression & retours des quêtes","es":"Progresión y respuesta de las misiones"},
+      x:{"en":"More reliable quest saves, objective tracking and multiplayer progression. Accepting and completing quests has dedicated audio feedback for the relevant player.","fr":"Sauvegardes de quêtes, suivi des objectifs et progression multijoueur plus fiables. L’acceptation et la fin des quêtes disposent de sons dédiés pour le joueur concerné.","es":"Guardado de misiones, seguimiento de objetivos y progresión multijugador más fiables. La aceptación y finalización de misiones tienen sonidos dedicados para el jugador correspondiente."} },
+
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"Local storage chests","fr":"Coffres de stockage locaux","es":"Cofres de almacenamiento local"},
+      x:{"en":"Store items in physical chests and transfer them between the chest and your backpack using a side-by-side inventory interface.","fr":"Rangez vos objets dans des coffres physiques et transférez-les entre le coffre et votre sac grâce aux inventaires affichés côte à côte.","es":"Guarda objetos en cofres físicos y transfiérelos entre el cofre y la mochila mediante una interfaz de inventarios paralelos."} },
+
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"Builder defense turret","fr":"Tourelle de défense du Builder","es":"Torreta defensiva del Builder"},
+      x:{"en":"Build a machine-gun turret to defend against ground hostiles and ships. This defense is separate from the deployable module sentry.","fr":"Construisez une tourelle à mitrailleuses contre les ennemis au sol et les vaisseaux. Cette défense est distincte de la sentinelle déployée par module.","es":"Construye una torreta de ametralladoras contra enemigos terrestres y naves. Esta defensa es distinta de la centinela desplegada mediante un módulo."} },
+
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"SkyTower interiors","fr":"Intérieurs des SkyTowers","es":"Interiores de las SkyTowers"},
+      x:{"en":"Completed interiors and interactive elements in Yanbu, Agadez and other SkyTowers.","fr":"Intérieurs et éléments interactifs complétés dans les SkyTowers de Yanbu, d’Agadez et d’autres sites.","es":"Interiores y elementos interactivos completados en las SkyTowers de Yanbu, Agadez y otros lugares."} }
+  ]},
+
+  { a:"notif", n:{"en":"v0.0.23a · Interface & exploration","fr":"v0.0.23a · Interface & exploration","es":"v0.0.23a · Interfaz y exploración"}, items:[
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"Contextual HUD","fr":"HUD contextuel","es":"HUD contextual"},
+      x:{"en":"Health, shield and matter have distinct gauges. XP and credits appear when they change, key hints expand while F1 is held, and the minimap uses a 16:9 layout.","fr":"Vie, bouclier et matière ont leurs propres jauges. XP et crédits s’affichent lorsqu’ils changent, les aides se déplient avec F1 et la minimap adopte un format 16:9.","es":"La salud, el escudo y la materia tienen indicadores separados. La experiencia y los créditos aparecen al cambiar, F1 despliega las ayudas y el minimapa adopta el formato 16:9."} },
+
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"Completely rebuilt settings","fr":"Paramètres entièrement refaits","es":"Ajustes completamente renovados"},
+      x:{"en":"Graphics, audio, gameplay and controls menus have been rebuilt with categories, search, clearer descriptions and controls directly in each row.","fr":"Les menus graphiques, audio, gameplay et commandes sont entièrement refaits, avec catégories, recherche, descriptions plus claires et contrôles directement dans chaque ligne.","es":"Los menús de gráficos, audio, juego y controles se han renovado por completo con categorías, búsqueda, descripciones más claras y controles en cada fila."} },
+
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"Key bindings & HOTAS calibration","fr":"Assignations & calibration HOTAS","es":"Asignaciones y calibración HOTAS"},
+      x:{"en":"Multiple bindings per action, direct axis capture, guided calibration and live input readings. Device recognition has been improved across reconnects and sessions.","fr":"Plusieurs assignations par action, capture directe des axes, calibration guidée et lecture des entrées en direct. La reconnaissance des périphériques est améliorée entre connexions et sessions.","es":"Varias asignaciones por acción, detección directa de ejes, calibración guiada y lectura de entradas en tiempo real. Mejora del reconocimiento de dispositivos entre reconexiones y sesiones."} },
+
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"Holographic StarMap","fr":"StarMap holographique","es":"Mapa estelar holográfico"},
+      x:{"en":"A refreshed holographic map with clearer controls, interactive layers and more stable markers. Opening the map pauses the universe rendering to avoid drawing both views at once.","fr":"Une carte holographique renouvelée, avec commandes plus lisibles, calques interactifs et marqueurs plus stables. L’ouverture de la carte suspend le rendu de l’univers pour éviter d’afficher les deux vues simultanément.","es":"Un mapa holográfico renovado, con controles más claros, capas interactivas y marcadores más estables. Al abrirlo se pausa el renderizado del universo para evitar dibujar ambas vistas a la vez."} },
+
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"Cyborg statistics","fr":"Statistiques du cyborg","es":"Estadísticas del ciborg"},
+      x:{"en":"A character sheet with 40 attributes, module contributions, penalties and the effects of the next level. Exploration and combat records remain accessible.","fr":"Une fiche avec 40 attributs, les contributions des modules, les pénalités et les effets du niveau suivant. Les registres d’exploration et de combat restent accessibles.","es":"Una ficha con 40 atributos, aportaciones de los módulos, penalizaciones y efectos del siguiente nivel. Los registros de exploración y combate siguen disponibles."} },
+
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"Lobby, inventory & Social menu","fr":"Lobby, inventaire & menu Social","es":"Lobby, inventario y menú Social"},
+      x:{"en":"Most game screens have been reworked, including loading screens, inventory, item dialogs and the Social menu. Layouts, icons and feedback follow a shared visual style.","fr":"La plupart des écrans ont été retravaillés, dont les chargements, l’inventaire, les fenêtres d’objets et le menu Social. Mise en page, icônes et retours partagent une présentation cohérente.","es":"La mayoría de las pantallas se han renovado, incluidas las de carga, inventario, diálogos de objetos y menú Social. La distribución, los iconos y las respuestas comparten un estilo visual coherente."} },
+
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"IC Labs intranet","fr":"Intranet IC Labs","es":"Intranet de IC Labs"},
+      x:{"en":"Browse more than fifty pages on ship screens and terminals: CIVIS, missions, modules, police status, local conditions and radio controls.","fr":"Consultez plus de cinquante pages sur les écrans des vaisseaux et les terminaux : CIVIS, missions, modules, statut policier, conditions locales et commandes radio.","es":"Consulta más de cincuenta páginas en las pantallas de naves y terminales: CIVIS, misiones, módulos, estado policial, condiciones locales y controles de radio."} },
+
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"IRIS scanner","fr":"Scanner IRIS","es":"Escáner IRIS"},
+      x:{"en":"A new scan wave reveals terrain lines and silhouettes progressively. Range and detected categories follow the active module level, including in vehicles.","fr":"Une nouvelle onde de scan révèle progressivement reliefs et silhouettes. Portée et catégories détectées suivent le niveau du module actif, y compris en véhicule.","es":"Una nueva onda de escaneo revela progresivamente el relieve y las siluetas. El alcance y las categorías detectadas siguen el nivel del módulo activo, también en vehículos."} },
+
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"Caves, lighting & footprints","fr":"Caves, éclairage & traces de pas","es":"Cuevas, iluminación y huellas"},
+      x:{"en":"Reworked underground lighting, readable local lights in bunkers and laboratories, and footprints adapted to suitable planetary surfaces.","fr":"Éclairage souterrain retravaillé, lumières locales préservées dans les bunkers et laboratoires, et traces de pas adaptées aux surfaces planétaires compatibles.","es":"Iluminación subterránea renovada, luces locales conservadas en búnkeres y laboratorios y huellas adaptadas a las superficies planetarias compatibles."} },
+
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"New radio programming","fr":"Nouveaux programmes radio","es":"Nueva programación de radio"},
+      x:{"en":"HitWall, Radio Sable and Yellow Roots join the stations, with a new Chill FM show. Nearly two hours of additional programming.","fr":"HitWall, Radio Sable et Yellow Roots rejoignent les stations, avec une nouvelle émission Chill FM. Près de deux heures de programmes supplémentaires.","es":"HitWall, Radio Sable y Yellow Roots se suman a las emisoras, junto con un nuevo programa de Chill FM. Casi dos horas de programación adicional."} },
+
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"Menu & module audio","fr":"Audio des menus & modules","es":"Audio de menús y módulos"},
+      x:{"en":"Shorter menu sounds and dedicated feedback for modules, with a working interface-volume control separate from effects and gunfire.","fr":"Sons de menus plus courts et retours dédiés aux modules, avec un réglage de volume d’interface indépendant des effets et des tirs.","es":"Sonidos de menú más breves y respuestas específicas de los módulos, con un control de volumen de interfaz independiente de los efectos y disparos."} },
+
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"99 Steam achievements","fr":"99 succès Steam","es":"99 logros de Steam"},
+      x:{"en":"All 99 achievements have unlock tracking, backed by persistent exploration, combat and activity statistics.","fr":"Les 99 succès disposent d’un suivi de déblocage fondé sur les statistiques persistantes d’exploration, de combat et d’activités.","es":"Los 99 logros disponen de seguimiento de desbloqueo basado en estadísticas persistentes de exploración, combate y actividades."} },
+
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"Eleven languages","fr":"Onze langues","es":"Once idiomas"},
+      x:{"en":"Expanded translations for modules, menus, HUD, quests, notifications and the intranet across eleven languages.","fr":"Traductions étendues aux modules, menus, HUD, quêtes, notifications et intranet dans onze langues.","es":"Traducciones ampliadas para módulos, menús, HUD, misiones, notificaciones e intranet en once idiomas."} },
+
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"Performance, saves & stability","fr":"Performances, sauvegardes & stabilité","es":"Rendimiento, guardado y estabilidad"},
+      x:{"en":"Optimized terrain calculations, world loading, AI, trains and interface updates. More reliable quest and server-specific saves, alongside crash fixes.","fr":"Calculs du terrain, chargement du monde, IA, trains et mises à jour de l’interface optimisés. Sauvegardes des quêtes et par serveur plus fiables, avec plusieurs corrections de crashs.","es":"Optimizaciones del terreno, la carga del mundo, la IA, los trenes y la interfaz. Guardado de misiones y por servidor más fiable, junto con correcciones de fallos."} },
+
+    { s:"done", d:"15/09", v:["v0.0.23a"],
+      t:{"en":"Vehicles, movement & effects","fr":"Véhicules, déplacements & effets","es":"Vehículos, movimiento y efectos"},
+      x:{"en":"Improved vehicle interactions and platform support, reworked atmospheric damage and reentry effects, a sonic boom, and clearer damage feedback.","fr":"Interactions des véhicules et appui sur les plateformes améliorés, dégâts atmosphériques et effets de rentrée retravaillés, bang supersonique et retours de dégâts plus clairs.","es":"Interacciones de vehículos y apoyo en plataformas mejorados, daño atmosférico y efectos de reentrada renovados, estampido sónico y respuesta al daño más clara."} }
+  ]},
+
+  { a:"steel", n:{"en":"Already released · v0.0.22a","fr":"Déjà disponible · v0.0.22a","es":"Ya disponible · v0.0.22a"}, items:[
+    { s:"done", d:"10/07", v:["v0.0.22a"],
+      t:{"en":"Wildlife & the Voss","fr":"Faune & Voss","es":"Fauna y Voss"},
+      x:{"en":"Seventeen animal species and the Voss faction bring more encounters and faction battles to Earth.","fr":"Dix-sept espèces animales et la faction Voss enrichissent les rencontres et les affrontements sur Terre.","es":"Diecisiete especies animales y la facción Voss amplían los encuentros y enfrentamientos en la Tierra."} },
+
+    { s:"done", d:"10/07", v:["v0.0.22a"],
+      t:{"en":"Companions & civilian air traffic","fr":"Compagnons & trafic aérien civil","es":"Acompañantes y tráfico aéreo civil"},
+      x:{"en":"Recruitable cyborg companions and civilian ships traveling through the skies in solo and multiplayer.","fr":"Compagnons cyborg recrutables et vaisseaux civils circulant dans le ciel en solo et en multijoueur.","es":"Acompañantes ciborg reclutables y naves civiles que recorren los cielos en solitario y multijugador."} },
+
+    { s:"done", d:"10/07", v:["v0.0.22a"],
+      t:{"en":"Resource-based building","fr":"Construction avec ressources","es":"Construcción con recursos"},
+      x:{"en":"Deposit minerals in the Builder and spend them on structures, decorations and advanced parts.","fr":"Déposez des minerais dans le Builder pour construire structures, décorations et pièces avancées.","es":"Deposita minerales en el Builder para construir estructuras, decoraciones y piezas avanzadas."} },
+
+    { s:"done", d:"10/07", v:["v0.0.22a"],
+      t:{"en":"Vehicle radio & dynamic music","fr":"Radios des véhicules & musique dynamique","es":"Radio de vehículos y música dinámica"},
+      x:{"en":"Shared radio playback in vehicles and situational music that responds to exploration, tension and combat.","fr":"Radios partagées dans les véhicules et musique qui accompagne l’exploration, la tension et le combat.","es":"Radios compartidas en los vehículos y música que responde a la exploración, la tensión y el combate."} }
   ]}
-]},
+  ]
+},
 
-/* ==================== Q1 2027 ==================== */
+{ id:"q4-2026", a:"slate", state:"plan", qn:"Q4 2026",
+  when:{"en":"October / December 2026","fr":"Octobre / Décembre 2026","es":"Octubre / Diciembre 2026"},
+  groups:[
+  { a:"steel", n:{"en":"World, story & traffic","fr":"Monde, histoire & trafic","es":"Mundo, historia y tráfico"}, items:[
+    { s:"todo",
+      t:{"en":"MARSONE faction","fr":"Faction MARSONE","es":"Facción MARSONE"},
+      x:{"en":"Develop the role of the humans left behind on Mars in the story.","fr":"Développer la place des humains restés sur Mars dans l’histoire.","es":"Desarrollar el papel en la historia de los humanos que quedaron en Marte."} },
+
+    { s:"todo",
+      t:{"en":"Asteroid field","fr":"Champ d’astéroïdes","es":"Campo de asteroides"},
+      x:{"en":"A spiral asteroid ring linking the Moon’s former and current positions.","fr":"Un anneau d’astéroïdes en spirale reliant l’ancienne position de la Lune à sa position actuelle.","es":"Un anillo espiral de asteroides entre la antigua posición de la Luna y la actual."} },
+
+    { s:"todo",
+      t:{"en":"More activities in space","fr":"Davantage d’activités spatiales","es":"Más actividades espaciales"},
+      x:{"en":"Expand gameplay opportunities during travel and exploration in space.","fr":"Enrichir les activités pendant les voyages et l’exploration dans l’espace.","es":"Ampliar las actividades durante los viajes y la exploración espacial."} },
+
+    { s:"todo",
+      t:{"en":"Relay tower gameplay","fr":"Gameplay des tours de relais","es":"Jugabilidad de las torres de repetición"},
+      x:{"en":"Expand how tower control affects services and refueling, with relay records and further control over local taxes.","fr":"Développer l’influence du contrôle des tours sur les services et le ravitaillement, avec un registre des relais et davantage de contrôle sur les taxes locales.","es":"Ampliar cómo el control de las torres afecta a los servicios y al repostaje, con un registro de repetidores y más control sobre los impuestos locales."} },
+
+    { s:"todo",
+      t:{"en":"Space traffic","fr":"Trafic spatial","es":"Tráfico espacial"},
+      x:{"en":"Bring more life to space travel and station approaches. The exact form of traffic during warp journeys remains to be defined.","fr":"Donner davantage de vie aux voyages spatiaux et aux abords des stations. La forme exacte du trafic pendant les trajets warp reste à définir.","es":"Dar más vida a los viajes espaciales y a las aproximaciones a estaciones. La forma exacta del tráfico durante los trayectos warp sigue por definir."} },
+
+    { s:"todo",
+      t:{"en":"Life between settlements","fr":"Vie entre les implantations","es":"Vida entre asentamientos"},
+      x:{"en":"Develop traffic between relays and more ambient activity throughout the universe.","fr":"Développer les déplacements entre relais et les activités ambiantes dans l’univers.","es":"Desarrollar el tráfico entre repetidores y más actividad ambiental en el universo."} },
+
+    { s:"todo",
+      t:{"en":"More factions in air traffic","fr":"Davantage de factions dans le trafic aérien","es":"Más facciones en el tráfico aéreo"},
+      x:{"en":"Expand atmospheric traffic beyond the civilian ships already available.","fr":"Étendre le trafic atmosphérique au-delà des vaisseaux civils déjà disponibles.","es":"Ampliar el tráfico atmosférico más allá de las naves civiles ya disponibles."} },
+
+    { s:"todo",
+      t:{"en":"More companion roles","fr":"Davantage de rôles pour les compagnons","es":"Más funciones para los acompañantes"},
+      x:{"en":"Extend the existing recruitable squad with more mission and base-defense roles.","fr":"Étendre l’escouade recrutable existante avec davantage de rôles en mission et en défense de base.","es":"Ampliar la escuadra reclutable existente con más funciones en misiones y defensa de bases."} },
+
+    { s:"todo",
+      t:{"en":"Less visible spawning","fr":"Apparitions moins visibles","es":"Apariciones menos visibles"},
+      x:{"en":"Reduce noticeable pop-in when wildlife and other encounters appear around the player.","fr":"Réduire les apparitions trop visibles de la faune et des rencontres autour du joueur.","es":"Reducir las apariciones bruscas de fauna y encuentros alrededor del jugador."} },
+
+    { s:"todo",
+      t:{"en":"Further missions","fr":"Nouvelles missions","es":"Más misiones"},
+      x:{"en":"Continue expanding missions and narrative content. The new construction mission is available in v0.0.23a.","fr":"Poursuivre l’ajout de missions et de contenu narratif. La nouvelle mission de construction est disponible dans la v0.0.23a.","es":"Seguir ampliando las misiones y el contenido narrativo. La nueva misión de construcción está disponible en v0.0.23a."} }
+  ]},
+
+  { a:"amber", n:{"en":"Modules & equipment","fr":"Modules & équipement","es":"Módulos y equipamiento"}, items:[
+    { s:"todo",
+      t:{"en":"Modules for buildings","fr":"Modules pour les constructions","es":"Módulos para construcciones"},
+      x:{"en":"Develop upgrades for constructed structures and their capabilities, beyond the cyborg’s existing Construction Matrix.","fr":"Développer les améliorations des structures construites et de leurs capacités, au-delà de la Matrice de construction déjà disponible pour le cyborg.","es":"Desarrollar mejoras para las estructuras construidas y sus capacidades, más allá de la Matriz de construcción ya disponible para el ciborg."} },
+
+    { s:"todo",
+      t:{"en":"More combat & support drones","fr":"Davantage de drones de combat & d’appui","es":"Más drones de combate y apoyo"},
+      x:{"en":"Expand the drone family with combat, stealth and decoy roles. The medical drone and deployable sentry turret are already available.","fr":"Élargir la famille des drones avec des rôles de combat, de furtivité et de leurre. Le drone médical et la tourelle sentinelle déployable sont déjà disponibles.","es":"Ampliar la familia de drones con funciones de combate, sigilo y señuelo. El dron médico y la torreta centinela desplegable ya están disponibles."} },
+
+    { s:"todo",
+      t:{"en":"More modules & balancing","fr":"Davantage de modules & équilibrage","es":"Más módulos y equilibrio"},
+      x:{"en":"Expand the selection of usable modules, their equipment options and loot balance as each new ability is ready.","fr":"Élargir le choix des modules utilisables, leurs possibilités d’équipement et l’équilibrage du loot au fil des nouvelles capacités prêtes.","es":"Ampliar la selección de módulos utilizables, sus opciones de equipamiento y el equilibrio del botín a medida que estén listas nuevas habilidades."} }
+  ]},
+
+  { a:"notif", n:{"en":"Interface & audio follow-up","fr":"Suite de l’interface & de l’audio","es":"Mejoras de interfaz y audio"}, items:[
+    { s:"todo",
+      t:{"en":"Social menu follow-up","fr":"Suite du menu Social","es":"Mejoras del menú Social"},
+      x:{"en":"Add actions to player rows, show group, clan and level information, and refresh the clan panel.","fr":"Ajouter des actions sur les lignes de joueurs, afficher leurs informations de groupe, de clan et de niveau, et moderniser le panneau de clan.","es":"Añadir acciones a las filas de jugadores, mostrar información de grupo, clan y nivel, y renovar el panel de clan."} },
+
+    { s:"todo",
+      t:{"en":"Group map navigation","fr":"Navigation de groupe sur la carte","es":"Navegación de grupo en el mapa"},
+      x:{"en":"Add a clickable path between universe, system, planet and surface views, and make sharing a map view with your group accessible from the interface.","fr":"Ajouter un chemin cliquable entre les vues univers, système, planète et surface, et rendre le partage de vue avec le groupe accessible depuis l’interface.","es":"Añadir una ruta interactiva entre las vistas de universo, sistema, planeta y superficie, y hacer accesible desde la interfaz la vista compartida con el grupo."} },
+
+    { s:"todo",
+      t:{"en":"Audio mix","fr":"Mixage audio","es":"Mezcla de audio"},
+      x:{"en":"Continue balancing the game’s sound families and volume controls, beyond the menu and radio improvements already released.","fr":"Poursuivre l’équilibrage des familles de sons et des réglages de volume, au-delà des améliorations des menus et radios déjà disponibles.","es":"Seguir equilibrando las familias de sonidos y los controles de volumen, más allá de las mejoras de menús y radios ya disponibles."} }
+  ]}
+  ]
+},
+
 { id:"q1-2027", a:"slate", state:"plan", qn:"Q1 2027",
-  when:{ en:"January / March 2027", fr:"Janvier / Mars 2027", es:"Enero / Marzo 2027" },
+  when:{"en":"January / March 2027","fr":"Janvier / Mars 2027","es":"Enero / Marzo 2027"},
   groups:[
   { a:"slate", n:null, items:[
+    { s:"todo",
+      t:{"en":"Sangline biomes","fr":"Biomes Sanglines","es":"Biomas Sanglines"},
+      x:{"en":"Bringing the Sangline structures into the biomes.","fr":"Intégration des bâtiments Sanglines dans les biomes.","es":"Integración de las estructuras Sanglines en los biomas."} },
 
     { s:"todo",
-      t:{ en:"Sangline biomes", fr:"Biomes Sanglines", es:"Biomas Sanglines" },
-      x:{ en:"Bringing the Sangline structures into the biomes.",
-          fr:"Intégration des bâtiments Sanglines dans les biomes.",
-          es:"Integración de las estructuras Sanglines en los biomas." } },
+      t:{"en":"Flight combat","fr":"Combat aérien","es":"Combate aéreo"},
+      x:{"en":"Air combat missions and ambushes.","fr":"Missions de combat en vol et embuscades.","es":"Misiones de combate aéreo y emboscadas."} },
 
     { s:"todo",
-      t:{ en:"Flight combat", fr:"Combat aérien", es:"Combate aéreo" },
-      x:{ en:"Air combat missions and ambushes.",
-          fr:"Missions de combat en vol et embuscades.",
-          es:"Misiones de combate aéreo y emboscadas." } },
+      t:{"en":"Vehicle rewards","fr":"Récompenses de véhicule","es":"Recompensas de vehículo"},
+      x:{"en":"Base attachments when you buy, high-level upgrades unlocked by completing quests.","fr":"Accessoires de base à l'achat, améliorations haut niveau débloquées par la complétion de quêtes.","es":"Accesorios básicos al comprar, mejoras de alto nivel desbloqueadas al completar misiones."} },
 
     { s:"todo",
-      t:{ en:"Vehicle rewards", fr:"Récompenses de véhicule", es:"Recompensas de vehículo" },
-      x:{ en:"Base attachments when you buy, high-level upgrades unlocked by completing quests.",
-          fr:"Accessoires de base à l'achat, améliorations haut niveau débloquées par la complétion de quêtes.",
-          es:"Accesorios básicos al comprar, mejoras de alto nivel desbloqueadas al completar misiones." } },
+      t:{"en":"Lagrange points & persistent locations","fr":"Points de Lagrange & lieux persistants","es":"Puntos de Lagrange y lugares persistentes"},
+      x:{"en":"Expand space locations around Lagrange points and improve how these places persist.","fr":"Développer les lieux spatiaux autour des points de Lagrange et améliorer leur persistance.","es":"Ampliar los lugares espaciales alrededor de los puntos de Lagrange y mejorar su persistencia."} },
 
     { s:"todo",
-      t:{ en:"Persistent levels", fr:"Niveaux persistants", es:"Niveles persistentes" },
-      x:{ en:"Bringing in the Lagrange points and reworking persistence.",
-          fr:"Intégration des points de Lagrange et refonte de la persistance.",
-          es:"Integración de los puntos de Lagrange y rediseño de la persistencia." } },
+      t:{"en":"Construction rewards","fr":"Récompenses de construction","es":"Recompensas de construcción"},
+      x:{"en":"Aligning gameplay rewards with what players build.","fr":"Aligner les récompenses de gameplay sur les constructions du joueur.","es":"Alinear las recompensas de juego con lo que construyen los jugadores."} },
 
     { s:"todo",
-      t:{ en:"Construction rewards", fr:"Récompenses de construction", es:"Recompensas de construcción" },
-      x:{ en:"Aligning gameplay rewards with what players build.",
-          fr:"Aligner les récompenses de gameplay sur les constructions du joueur.",
-          es:"Alinear las recompensas de juego con lo que construyen los jugadores." } },
-
-    { s:"todo",
-      t:{ en:"Titles & leaderboards", fr:"Titres & classements", es:"Títulos y clasificaciones" },
-      x:{ en:"The layer above the statistics counters: player titles and server leaderboards.",
-          fr:"Étage au-dessus des compteurs de statistiques : titres de joueur et classements de serveur.",
-          es:"La capa por encima de los contadores de estadísticas: títulos de jugador y clasificaciones de servidor." } }
+      t:{"en":"Titles & leaderboards","fr":"Titres & classements","es":"Títulos y clasificaciones"},
+      x:{"en":"The layer above the statistics counters: player titles and server leaderboards.","fr":"Étage au-dessus des compteurs de statistiques : titres de joueur et classements de serveur.","es":"La capa por encima de los contadores de estadísticas: títulos de jugador y clasificaciones de servidor."} }
   ]}
-]},
+  ]
+},
 
-/* ==================== Q2 2027 ==================== */
 { id:"q2-2027", a:"slate", state:"plan", qn:"Q2 2027",
-  when:{ en:"April / June 2027", fr:"Avril / Juin 2027", es:"Abril / Junio 2027" },
+  when:{"en":"April / June 2027","fr":"Avril / Juin 2027","es":"Abril / Junio 2027"},
   groups:[
   { a:"slate", n:null, items:[
-
     { s:"todo",
-      t:{ en:"Dynamic modules", fr:"Modules dynamiques", es:"Módulos dinámicos" },
-      x:{ en:"Dynamic phases: letting players build their own modules and define their stats.",
-          fr:"Les phases dynamiques : permettre au joueur de créer ses propres modules et d'en définir les stats.",
-          es:"Las fases dinámicas: permitir que los jugadores creen sus propios módulos y definan sus estadísticas." } }
+      t:{"en":"Dynamic modules","fr":"Modules dynamiques","es":"Módulos dinámicos"},
+      x:{"en":"Dynamic phases: letting players build their own modules and define their stats.","fr":"Les phases dynamiques : permettre au joueur de créer ses propres modules et d'en définir les stats.","es":"Las fases dinámicas: permitir que los jugadores creen sus propios módulos y definan sus estadísticas."} }
   ]}
-]}
-
+  ]
+}
 ];
 
-/* ==================== ARCHIVE : trimestres deja livres ==================== */
 var ARCHIVE = [
-
 { id:"q2-2026", qn:"Q2 2026",
-  when:{ en:"April / June 2026", fr:"Avril / Juin 2026", es:"Abril / Junio 2026" },
+  when:{"en":"April / June 2026","fr":"Avril / Juin 2026","es":"Abril / Junio 2026"},
   items:[
-  { s:"done", v:["v0.0.21+"],
-    t:{ en:"Cyborg modules v2: the core", fr:"Modules cyborg v2 : le noyau", es:"Módulos ciborg v2: el núcleo" },
-    x:{ en:"The hexagonal module wall: 105 module entries, 8 families, phase insertion, in-house editor, a new Phases tab.",
-        fr:"Le mur de modules hexagonal : 105 fiches de module, 8 familles, insertion de phases, éditeur interne, nouvel onglet Phases.",
-        es:"El muro hexagonal de módulos: 105 fichas de módulo, 8 familias, inserción de fases, editor interno, nueva pestaña de Fases." } },
-  { s:"done", v:["v0.0.21+"],
-    t:{ en:"LE VOSS faction", fr:"Faction LE VOSS", es:"Facción LE VOSS" },
-    x:{ en:"A faction of its own: relations with the 8 factions, a dedicated roster, Nash V1 and V2 weapons, anthracite outfit.",
-        fr:"Faction distincte : relations avec les 8 factions, roster dédié, armes Nash V1 et V2, tenue anthracite.",
-        es:"Una facción propia: relaciones con las 8 facciones, plantilla dedicada, armas Nash V1 y V2, atuendo antracita." },
-    r:{ en:"<b>Left:</b> finishing the greatcoat, skirt and collar to be redone with cloth simulation.",
-        fr:"<b>Reste :</b> finition du manteau, jupe et col à reprendre en simulation de tissu.",
-        es:"<b>Queda:</b> terminar el abrigo, falda y cuello por rehacer con simulación de tela." } },
-  { s:"done", v:["v0.0.21+"],
-    t:{ en:"AI system rework", fr:"Refonte du système d'IA", es:"Rediseño del sistema de IA" },
-    x:{ en:"Data-oriented AI: array registry, SIMD, batch processing, around 1024 agents. Asymmetric client/server model, state and combat on the server, movement on the client.",
-        fr:"IA orientée données : registre en tableaux, SIMD, traitement par lots, environ 1024 agents. Modèle client/serveur asymétrique, l'état et le combat côté serveur, le mouvement côté client.",
-        es:"IA orientada a datos: registro en arrays, SIMD, procesamiento por lotes, unos 1024 agentes. Modelo cliente/servidor asimétrico, estado y combate en el servidor, movimiento en el cliente." } },
-  { s:"done", v:["v0.0.21+"],
-    t:{ en:"Planetary spawns", fr:"Spawns planétaires", es:"Apariciones planetarias" },
-    x:{ en:"Surface wildlife spawning driven by biome and day/night cycle, a roster of 29 species.",
-        fr:"Spawn de faune de surface piloté par biome et par cycle jour/nuit, roster de 29 espèces.",
-        es:"Aparición de fauna de superficie según bioma y ciclo día/noche, con un catálogo de 29 especies." },
-    r:{ en:"<b>Left:</b> reworking the distribution to kill the pop-in around the player.",
-        fr:"<b>Reste :</b> refonte de la distribution pour supprimer le pop-in autour du joueur.",
-        es:"<b>Queda:</b> rediseñar la distribución para eliminar el pop-in alrededor del jugador." } },
-  { s:"done", v:["v0.0.21+"],
-    t:{ en:"QRadio stations", fr:"Stations QRadio", es:"Emisoras QRadio" },
-    x:{ en:"Radio stations picked up by position across the universe (vehicles, trains, portable radio), a synchronised broadcast clock, rebindable station keys.",
-        fr:"Stations radio captées par position dans l'univers (véhicules, trains, radio portable), horloge de diffusion synchronisée, touches de station rebindables.",
-        es:"Emisoras de radio captadas por posición en todo el universo (vehículos, trenes, radio portátil), reloj de emisión sincronizado, teclas de emisora reasignables." } },
-  { s:"done", v:["v0.0.22+"],
-    t:{ en:"Build economy", fr:"Économie de construction", es:"Economía de construcción" },
-    x:{ en:"Building costs minerals: a builder bank, advanced per-piece pricing.",
-        fr:"La construction coûte des minéraux : banque du builder, prix avancés par pièce.",
-        es:"Construir cuesta minerales: banco del constructor, precios avanzados por pieza." },
-    r:{ en:"<b>Left:</b> Aluminium still has no harvesting source anywhere in the world.",
-        fr:"<b>Reste :</b> l'Aluminium n'a encore aucune source de récolte dans le monde.",
-        es:"<b>Queda:</b> el Aluminio aún no tiene ninguna fuente de recolección en el mundo." } },
-  { s:"wip",
-    t:{ en:"PlanetScape", fr:"PlanetScape", es:"PlanetScape" },
-    x:{ en:"An in-house planetary terrain plugin brought into the project on 11/06, gradually replacing the WorldScape chain.",
-        fr:"Plugin de terrain planétaire maison intégré au projet le 11/06, en remplacement progressif de la chaîne WorldScape.",
-        es:"Un plugin propio de terreno planetario integrado en el proyecto el 11/06, que sustituye poco a poco la cadena WorldScape." },
-    r:{ en:"<b>Left:</b> a repair worksite is open, coverage is limited to clouds.",
-        fr:"<b>Reste :</b> chantier de réparation ouvert, la couverture se limite aux nuages.",
-        es:"<b>Queda:</b> hay un trabajo de reparación abierto, la cobertura se limita a las nubes." } },
-  { s:"wip",
-    t:{ en:"Fauna animation", fr:"Animation de la faune", es:"Animación de la fauna" },
-    x:{ en:"Normalising the animal animation Blueprints onto the Sangline pattern.",
-        fr:"Normalisation des Blueprints d'animation animaux sur le patron Sangline.",
-        es:"Normalización de los Blueprints de animación de animales según el patrón Sangline." },
-    r:{ en:"<b>Left:</b> Lion, Zebra and Crow still on raw marketplace assets.",
-        fr:"<b>Reste :</b> Lion, Zèbre et Corbeau encore sur des assets marketplace bruts.",
-        es:"<b>Queda:</b> León, Cebra y Cuervo siguen con recursos del marketplace sin adaptar." } },
-  { s:"done",
-    t:{ en:"Architecture documentation", fr:"Documentation d'architecture", es:"Documentación de arquitectura" },
-    x:{ en:"More than 30 architecture documents written across the project's plugins: every system's lifeline is documented before anyone modifies it.",
-        fr:"Plus de 30 documents d'architecture écrits sur les plugins du projet : la ligne de vie de chaque système est documentée avant modification.",
-        es:"Más de 30 documentos de arquitectura escritos sobre los plugins del proyecto: el ciclo de vida de cada sistema queda documentado antes de modificarlo." } }
-]},
+    { s:"done", d:"03/06", v:["v0.0.21a"],
+      t:{"en":"Unreal Engine 5.7","fr":"Unreal Engine 5.7","es":"Unreal Engine 5.7"},
+      x:{"en":"The engine upgrade released in June, alongside rendering, performance and stability improvements.","fr":"La mise à niveau du moteur est sortie en juin, accompagnée d’améliorations du rendu, des performances et de la stabilité.","es":"La actualización del motor se publicó en junio, junto con mejoras de renderizado, rendimiento y estabilidad."} },
+
+    { s:"done", d:"03/06", v:["v0.0.21a"],
+      t:{"en":"AI system rebuild","fr":"Reconstruction du système d’IA","es":"Reconstrucción del sistema de IA"},
+      x:{"en":"A rebuilt foundation for AI behavior and larger encounters, expanded by July’s wildlife and faction update.","fr":"Une base d’IA reconstruite pour les comportements et les affrontements, enrichie en juillet par la faune et les factions.","es":"Una base de IA reconstruida para comportamientos y enfrentamientos, ampliada en julio con fauna y facciones."} }
+  ]
+},
 
 { id:"q1-2026", qn:"Q1 2026",
-  when:{ en:"January / March 2026", fr:"Janvier / Mars 2026", es:"Enero / Marzo 2026" },
+  when:{"en":"January / March 2026","fr":"Janvier / Mars 2026","es":"Enero / Marzo 2026"},
   items:[
-  { s:"done", v:["v0.0.20a"],
-    t:{ en:"Main story introduction", fr:"Introduction de l'histoire principale", es:"Introducción de la historia principal" },
-    x:{ en:"In-game introduction, tutorial and universe in solo, narration, mission interface.",
-        fr:"Introduction en jeu, tutoriel et univers en solo, narration, interface de mission.",
-        es:"Introducción en el juego, tutorial y universo en solitario, narración, interfaz de misión." } },
-  { s:"done", v:["v0.0.20a"],
-    t:{ en:"Main story extended", fr:"Histoire principale étendue", es:"Historia principal ampliada" },
-    x:{ en:"Full rework of the story quests: logic, dialogue, coordinates, prerequisites.",
-        fr:"Refonte complète des quêtes d'histoire : logique, dialogues, coordonnées, prérequis.",
-        es:"Rediseño completo de las misiones de historia: lógica, diálogos, coordenadas, requisitos." } },
-  { s:"done", v:["v0.0.20a"],
-    t:{ en:"Character rework", fr:"Refonte du personnage", es:"Rediseño del personaje" },
-    x:{ en:"FPS and TPS animation: ready stance for hip fire, one-handed pistols, zero-drift aiming, weapon grip.",
-        fr:"Animation FPS et TPS : posture prête au tir à la hanche, pistolets à une main, visée sans dérive, prise d'arme.",
-        es:"Animación en primera y tercera persona: postura lista para disparar desde la cadera, pistolas a una mano, apuntado sin deriva, agarre del arma." } },
-  { s:"done", v:["v0.0.20a"],
-    t:{ en:"Quest tracker", fr:"Suivi de quête", es:"Seguimiento de misión" },
-    x:{ en:"Rework: edge-of-screen tracking, directional arrow, new visuals, mining and timer objectives.",
-        fr:"Refonte : suivi en bord d'écran, flèche directionnelle, nouveaux visuels, objectifs de minage et de minuterie.",
-        es:"Rediseño: seguimiento en el borde de la pantalla, flecha direccional, nuevos gráficos, objetivos de minería y de temporizador." } },
-  { s:"done", v:["v0.0.19"],
-    t:{ en:"Graphics pipeline", fr:"Pipeline graphique", es:"Pipeline gráfico" },
-    x:{ en:"Rework: standalone FSR frame generation, DLAA as anti-aliasing, settings persistence.",
-        fr:"Refonte : génération d'images FSR en autonome, DLAA en anticrénelage, persistance des réglages.",
-        es:"Rediseño: generación de fotogramas FSR autónoma, DLAA como antialiasing, persistencia de los ajustes." } },
-  { s:"done", v:["v0.0.20a"],
-    t:{ en:"Content & polish", fr:"Contenu & finitions", es:"Contenido y acabados" },
-    x:{ en:"Rusty Orizaune variant, detailed death screen, spatialised NPC dialogue, equipment slot rework.",
-        fr:"Variante rouillée de l'Orizaune, écran de mort détaillé, dialogues PNJ spatialisés, refonte des emplacements d'équipement.",
-        es:"Variante oxidada del Orizaune, pantalla de muerte detallada, diálogos de PNJ espacializados, rediseño de las ranuras de equipo." } },
-  { s:"done",
-    t:{ en:"Unreal Engine 5.7.3", fr:"Unreal Engine 5.7.3", es:"Unreal Engine 5.7.3" },
-    x:{ en:"Engine update from 5.3.2 and render artifact fixes. C++20 enforced on every target.",
-        fr:"Mise à jour du moteur depuis la 5.3.2 et correction des artefacts de rendu. C++20 imposé sur toutes les cibles.",
-        es:"Actualización del motor desde la 5.3.2 y corrección de artefactos de renderizado. C++20 obligatorio en todos los objetivos." } },
-  { s:"wip", v:["v0.0.19"],
-    t:{ en:"GPU WorldScape", fr:"GPU WorldScape", es:"GPU WorldScape" },
-    x:{ en:"First steps of the WorldScape GPU conversion, plus vertex and foliage optimisation.",
-        fr:"Prémices de la conversion GPU de WorldScape et optimisation des sommets et du feuillage.",
-        es:"Primeros pasos de la conversión a GPU de WorldScape y optimización de vértices y follaje." },
-    r:{ en:"<b>Left:</b> the GPU conversion is unfinished, the work continues through PlanetScape.",
-        fr:"<b>Reste :</b> conversion GPU non terminée, chantier repris via PlanetScape.",
-        es:"<b>Queda:</b> la conversión a GPU no está terminada, el trabajo continúa mediante PlanetScape." } },
-  { s:"wip", v:["v0.0.20a"],
-    t:{ en:"Procedural missions", fr:"Missions procédurales", es:"Misiones procedurales" },
-    x:{ en:"5 archetypes in progress (extermination, infiltration, mining, investigation, defence), generated dynamically from points of interest.",
-        fr:"5 archétypes en chantier (extermination, infiltration, minage, investigation, défense), générés dynamiquement depuis les points d'intérêt.",
-        es:"5 arquetipos en curso (exterminio, infiltración, minería, investigación, defensa), generados dinámicamente desde los puntos de interés." } }
-]},
+    { s:"done", v:["v0.0.20a"],
+      t:{"en":"Updated introduction","fr":"Introduction retravaillée","es":"Introducción renovada"},
+      x:{"en":"In-game introduction, tutorial and universe in solo, narration, mission interface.","fr":"Introduction en jeu, tutoriel et univers en solo, narration, interface de mission.","es":"Introducción en el juego, tutorial y universo en solitario, narración, interfaz de misión."} },
+
+    { s:"done", v:["v0.0.20a"],
+      t:{"en":"Main story extended","fr":"Histoire principale étendue","es":"Historia principal ampliada"},
+      x:{"en":"Full rework of the story quests: logic, dialogue, coordinates, prerequisites.","fr":"Refonte complète des quêtes d'histoire : logique, dialogues, coordonnées, prérequis.","es":"Rediseño completo de las misiones de historia: lógica, diálogos, coordenadas, requisitos."} },
+
+    { s:"done", v:["v0.0.20a"],
+      t:{"en":"Character rework","fr":"Refonte du personnage","es":"Rediseño del personaje"},
+      x:{"en":"FPS and TPS animation: ready stance for hip fire, one-handed pistols, zero-drift aiming, weapon grip.","fr":"Animation FPS et TPS : posture prête au tir à la hanche, pistolets à une main, visée sans dérive, prise d'arme.","es":"Animación en primera y tercera persona: postura lista para disparar desde la cadera, pistolas a una mano, apuntado sin deriva, agarre del arma."} },
+
+    { s:"done", v:["v0.0.20a"],
+      t:{"en":"Quest tracker","fr":"Suivi de quête","es":"Seguimiento de misión"},
+      x:{"en":"Rework: edge-of-screen tracking, directional arrow, new visuals, mining and timer objectives.","fr":"Refonte : suivi en bord d'écran, flèche directionnelle, nouveaux visuels, objectifs de minage et de minuterie.","es":"Rediseño: seguimiento en el borde de la pantalla, flecha direccional, nuevos gráficos, objetivos de minería y de temporizador."} },
+
+    { s:"done", v:["v0.0.19"],
+      t:{"en":"Graphics pipeline","fr":"Pipeline graphique","es":"Pipeline gráfico"},
+      x:{"en":"Rework: standalone FSR frame generation, DLAA as anti-aliasing, settings persistence.","fr":"Refonte : génération d'images FSR en autonome, DLAA en anticrénelage, persistance des réglages.","es":"Rediseño: generación de fotogramas FSR autónoma, DLAA como antialiasing, persistencia de los ajustes."} },
+
+    { s:"done", v:["v0.0.20a"],
+      t:{"en":"Content & polish","fr":"Contenu & finitions","es":"Contenido y acabados"},
+      x:{"en":"Rusty Orizaune variant, detailed death screen, spatialised NPC dialogue, equipment slot rework.","fr":"Variante rouillée de l'Orizaune, écran de mort détaillé, dialogues PNJ spatialisés, refonte des emplacements d'équipement.","es":"Variante oxidada del Orizaune, pantalla de muerte detallada, diálogos de PNJ espacializados, rediseño de las ranuras de equipo."} },
+
+    { s:"done", v:["v0.0.20a"],
+      t:{"en":"Terrain & foliage optimization","fr":"Optimisation du terrain & de la végétation","es":"Optimización del terreno y la vegetación"},
+      x:{"en":"Reduced terrain-loading hitches and improved vegetation processing during planetary travel.","fr":"Réduction des saccades de chargement du terrain et amélioration du traitement de la végétation pendant les déplacements planétaires.","es":"Reducción de tirones al cargar el terreno y mejora del procesamiento de la vegetación durante los viajes planetarios."} },
+
+    { s:"done", v:["v0.0.20a"],
+      t:{"en":"Procedural missions","fr":"Missions procédurales","es":"Misiones procedurales"},
+      x:{"en":"First playable procedural missions: extermination, infiltration, mining, investigation and defense, generated around points of interest.","fr":"Premières missions procédurales jouables : extermination, infiltration, minage, investigation et défense, générées autour des points d’intérêt.","es":"Primeras misiones procedurales jugables: exterminio, infiltración, minería, investigación y defensa, generadas en puntos de interés."} }
+  ]
+},
 
 { id:"q4-2025", qn:"Q4 2025",
-  when:{ en:"October / December 2025", fr:"Octobre / Décembre 2025", es:"Octubre / Diciembre 2025" },
+  when:{"en":"October / December 2025","fr":"Octobre / Décembre 2025","es":"Octubre / Diciembre 2025"},
   items:[
-  { s:"done", v:["v0.0.18"],
-    t:{ en:"A New Beginning", fr:"A New Beginning", es:"A New Beginning" },
-    x:{ en:"Tutorial rework and a narrative introduction with Tona.",
-        fr:"Refonte du tutoriel et introduction narrative avec Tona.",
-        es:"Rediseño del tutorial e introducción narrativa con Tona." } },
-  { s:"done", v:["v0.0.18"],
-    t:{ en:"Early-game quests", fr:"Quêtes de début de partie", es:"Misiones de inicio de partida" },
-    x:{ en:"First quests and the quest system running in real conditions.",
-        fr:"Premières quêtes et système de quêtes en conditions réelles.",
-        es:"Primeras misiones y el sistema de misiones funcionando en condiciones reales." } },
-  { s:"done", v:["v0.0.18"],
-    t:{ en:"Warp v2", fr:"Warp v2", es:"Warp v2" },
-    x:{ en:"Complete redesign of the space stations, outside and inside.",
-        fr:"Redesign complet des stations spatiales, extérieur et intérieur.",
-        es:"Rediseño completo de las estaciones espaciales, por fuera y por dentro." } },
-  { s:"done", v:["v0.0.18"],
-    t:{ en:"New systems", fr:"Nouveaux systèmes", es:"Nuevos sistemas" },
-    x:{ en:"Recovery terminal, no-fly zones, interaction with physical cables.",
-        fr:"Terminal de récupération, zones d'interdiction de vol, interactions avec des câbles physiques.",
-        es:"Terminal de recuperación, zonas de exclusión aérea, interacción con cables físicos." } },
-  { s:"done", v:["v0.0.18"],
-    t:{ en:"Police & wanted", fr:"Police & recherche", es:"Policía y búsqueda" },
-    x:{ en:"A live system: being hunted, pursuit levels, feedback on the crimes you commit.",
-        fr:"Système actif : traque, niveaux de poursuite, retour sur les crimes commis.",
-        es:"Un sistema activo: persecución, niveles de búsqueda, respuesta a los crímenes cometidos." } },
-  { s:"done", v:["v0.0.18"],
-    t:{ en:"Relay towers v2", fr:"Tours de relais v2", es:"Torres de repetición v2" },
-    x:{ en:"Signage, information screens, improved navigation.",
-        fr:"Signalétique, écrans d'information, navigation améliorée.",
-        es:"Señalización, pantallas de información, navegación mejorada." } },
-  { s:"done", v:["v0.0.18"],
-    t:{ en:"Rendering overhaul", fr:"Refonte du rendu", es:"Rediseño del renderizado" },
-    x:{ en:"Massive optimisations and major frame rate gains in Djibouti and the dense areas.",
-        fr:"Optimisations massives et gains d'images par seconde majeurs sur Djibouti et les zones denses.",
-        es:"Optimizaciones masivas y grandes mejoras de fotogramas por segundo en Yibuti y las zonas densas." } },
-  { s:"done", v:["v0.0.18"],
-    t:{ en:"Christmas event", fr:"Événement de Noël", es:"Evento de Navidad" },
-    x:{ en:"Decorations and collectible gifts across the relay towers and warps.",
-        fr:"Décorations et cadeaux à collecter dans les tours de relais et les warps.",
-        es:"Decoraciones y regalos coleccionables por las torres de repetición y los warps." } }
-]},
+    { s:"done", v:["v0.0.18"],
+      t:{"en":"A New Beginning","fr":"A New Beginning","es":"A New Beginning"},
+      x:{"en":"Tutorial rework and a narrative introduction with Tona.","fr":"Refonte du tutoriel et introduction narrative avec Tona.","es":"Rediseño del tutorial e introducción narrativa con Tona."} },
+
+    { s:"done", v:["v0.0.18"],
+      t:{"en":"Early-game quests","fr":"Quêtes de début de partie","es":"Misiones de inicio de partida"},
+      x:{"en":"First quests and the quest system running in real conditions.","fr":"Premières quêtes et système de quêtes en conditions réelles.","es":"Primeras misiones y el sistema de misiones funcionando en condiciones reales."} },
+
+    { s:"done", v:["v0.0.18"],
+      t:{"en":"Warp v2","fr":"Warp v2","es":"Warp v2"},
+      x:{"en":"Complete redesign of the space stations, outside and inside.","fr":"Redesign complet des stations spatiales, extérieur et intérieur.","es":"Rediseño completo de las estaciones espaciales, por fuera y por dentro."} },
+
+    { s:"done", v:["v0.0.18"],
+      t:{"en":"New systems","fr":"Nouveaux systèmes","es":"Nuevos sistemas"},
+      x:{"en":"Recovery terminal, no-fly zones, interaction with physical cables.","fr":"Terminal de récupération, zones d'interdiction de vol, interactions avec des câbles physiques.","es":"Terminal de recuperación, zonas de exclusión aérea, interacción con cables físicos."} },
+
+    { s:"done", v:["v0.0.18"],
+      t:{"en":"Police & wanted","fr":"Police & recherche","es":"Policía y búsqueda"},
+      x:{"en":"A live system: being hunted, pursuit levels, feedback on the crimes you commit.","fr":"Système actif : traque, niveaux de poursuite, retour sur les crimes commis.","es":"Un sistema activo: persecución, niveles de búsqueda, respuesta a los crímenes cometidos."} },
+
+    { s:"done", v:["v0.0.18"],
+      t:{"en":"Relay towers v2","fr":"Tours de relais v2","es":"Torres de repetición v2"},
+      x:{"en":"Signage, information screens, improved navigation.","fr":"Signalétique, écrans d'information, navigation améliorée.","es":"Señalización, pantallas de información, navegación mejorada."} },
+
+    { s:"done", v:["v0.0.18"],
+      t:{"en":"Rendering overhaul","fr":"Refonte du rendu","es":"Rediseño del renderizado"},
+      x:{"en":"Massive optimisations and major frame rate gains in Djibouti and the dense areas.","fr":"Optimisations massives et gains d'images par seconde majeurs sur Djibouti et les zones denses.","es":"Optimizaciones masivas y grandes mejoras de fotogramas por segundo en Yibuti y las zonas densas."} },
+
+    { s:"done", v:["v0.0.18"],
+      t:{"en":"Christmas event","fr":"Événement de Noël","es":"Evento de Navidad"},
+      x:{"en":"Decorations and collectible gifts across the relay towers and warps.","fr":"Décorations et cadeaux à collecter dans les tours de relais et les warps.","es":"Decoraciones y regalos coleccionables por las torres de repetición y los warps."} }
+  ]
+},
 
 { id:"q3-2025", qn:"Q3 2025",
-  when:{ en:"July / September 2025", fr:"Juillet / Septembre 2025", es:"Julio / Septiembre 2025" },
+  when:{"en":"July / September 2025","fr":"Juillet / Septembre 2025","es":"Julio / Septiembre 2025"},
   items:[
-  { s:"done", v:["v0.0.16"],
-    t:{ en:"Vehicle overhaul", fr:"Refonte des véhicules", es:"Rediseño de los vehículos" },
-    x:{ en:"Complete rework: gravitational levitation, hover, drift, boost, air control.",
-        fr:"Refonte complète : lévitation gravitationnelle, hover, drift, boost, contrôle aérien.",
-        es:"Rediseño completo: levitación gravitacional, hover, derrape, propulsión, control aéreo." } },
-  { s:"done", v:["v0.0.16"],
-    t:{ en:"New vehicles", fr:"Nouveaux véhicules", es:"Nuevos vehículos" },
-    x:{ en:"PodFury (anti-grav motorbike), Melrose Coopay and Jeelix.",
-        fr:"PodFury (moto antigravité), Melrose Coopay et Jeelix.",
-        es:"PodFury (moto antigravedad), Melrose Coopay y Jeelix." } },
-  { s:"done", v:["v0.0.16"],
-    t:{ en:"Human infected", fr:"Humains infectés", es:"Humanos infectados" },
-    x:{ en:"4 types: blue, white, yellow and boss.",
-        fr:"4 types : bleu, blanc, jaune et boss.",
-        es:"4 tipos: azul, blanco, amarillo y jefe." } },
-  { s:"done", v:["v0.0.16"],
-    t:{ en:"Gravity & speed", fr:"Gravité & vitesse", es:"Gravedad y velocidad" },
-    x:{ en:"A new gravity system, ships at 7200 km/h and unlimited speed in space.",
-        fr:"Nouveau système de gravité, vaisseaux à 7200 km/h et vitesse illimitée dans l'espace.",
-        es:"Nuevo sistema de gravedad, naves a 7200 km/h y velocidad ilimitada en el espacio." } },
-  { s:"done", v:["v0.0.17"],
-    t:{ en:"Awakening centre", fr:"Centre d'éveil", es:"Centro de despertar" },
-    x:{ en:"The new starting point for Cyborgs.",
-        fr:"Nouveau point de départ des Cyborgs.",
-        es:"El nuevo punto de partida de los Ciborgs." } },
-  { s:"done", v:["v0.0.17"],
-    t:{ en:"Djibouti city", fr:"Ville de Djibouti", es:"Ciudad de Yibuti" },
-    x:{ en:"A new starting city: shops, armoury, medical centre.",
-        fr:"Nouvelle ville de départ : commerces, armurerie, centre médical.",
-        es:"Una nueva ciudad de inicio: comercios, armería, centro médico." } },
-  { s:"done", v:["v0.0.17"],
-    t:{ en:"Ships & police", fr:"Vaisseaux & police", es:"Naves y policía" },
-    x:{ en:"Two ships, Lavrik and Orizaune, with their police variants.",
-        fr:"Deux vaisseaux, Lavrik et Orizaune, avec leurs variantes de police.",
-        es:"Dos naves, Lavrik y Orizaune, con sus variantes policiales." } },
-  { s:"done", v:["v0.0.17"],
-    t:{ en:"Construction", fr:"Construction", es:"Construcción" },
-    x:{ en:"More than 60 pieces (IronDee collection) and Zoop mode.",
-        fr:"Plus de 60 pièces (collection IronDee) et mode Zoop.",
-        es:"Más de 60 piezas (colección IronDee) y modo Zoop." } },
-  { s:"done", v:["v0.0.16","v0.0.17"],
-    t:{ en:"Upscaling tech", fr:"Technologies d'upscaling", es:"Tecnologías de escalado" },
-    x:{ en:"FSR 3 and 4, DLSS frame generation, XeSS v2 with frame generation.",
-        fr:"FSR 3 et 4, génération d'images DLSS, XeSS v2 avec génération d'images.",
-        es:"FSR 3 y 4, generación de fotogramas DLSS, XeSS v2 con generación de fotogramas." } },
-  { s:"done", v:["v0.0.16"],
-    t:{ en:"QLevel system", fr:"Système QLevel", es:"Sistema QLevel" },
-    x:{ en:"80% of the levels converted to the new modular format.",
-        fr:"80 % des niveaux convertis au nouveau format modulaire.",
-        es:"El 80 % de los niveles convertidos al nuevo formato modular." } },
-  { s:"done", v:["v0.0.17"],
-    t:{ en:"Trams & radios", fr:"Trams & radios", es:"Tranvías y radios" },
-    x:{ en:"Visual rework of the trams and radios placed out in the world.",
-        fr:"Refonte visuelle des trams et radios placées dans le monde.",
-        es:"Rediseño visual de los tranvías y radios repartidas por el mundo." } },
-  { s:"done", v:["v0.0.16","v0.0.17"],
-    t:{ en:"Audio & music", fr:"Audio & musique", es:"Audio y música" },
-    x:{ en:"Cyborg sounds (movement, headshot, body hit) and 21 music tracks.",
-        fr:"Sons Cyborg (mouvement, tir à la tête, impact corps) et 21 musiques.",
-        es:"Sonidos de Ciborg (movimiento, disparo a la cabeza, impacto en el cuerpo) y 21 temas musicales." } }
-]},
+    { s:"done", v:["v0.0.16"],
+      t:{"en":"Vehicle overhaul","fr":"Refonte des véhicules","es":"Rediseño de los vehículos"},
+      x:{"en":"Complete rework: gravitational levitation, hover, drift, boost, air control.","fr":"Refonte complète : lévitation gravitationnelle, hover, drift, boost, contrôle aérien.","es":"Rediseño completo: levitación gravitacional, hover, derrape, propulsión, control aéreo."} },
+
+    { s:"done", v:["v0.0.16"],
+      t:{"en":"New vehicles","fr":"Nouveaux véhicules","es":"Nuevos vehículos"},
+      x:{"en":"PodFury (anti-grav motorbike), Melrose Coopay and Jeelix.","fr":"PodFury (moto antigravité), Melrose Coopay et Jeelix.","es":"PodFury (moto antigravedad), Melrose Coopay y Jeelix."} },
+
+    { s:"done", v:["v0.0.16"],
+      t:{"en":"Human infected","fr":"Humains infectés","es":"Humanos infectados"},
+      x:{"en":"4 types: blue, white, yellow and boss.","fr":"4 types : bleu, blanc, jaune et boss.","es":"4 tipos: azul, blanco, amarillo y jefe."} },
+
+    { s:"done", v:["v0.0.16"],
+      t:{"en":"Gravity & speed","fr":"Gravité & vitesse","es":"Gravedad y velocidad"},
+      x:{"en":"A new gravity system, ships at 7200 km/h and unlimited speed in space.","fr":"Nouveau système de gravité, vaisseaux à 7200 km/h et vitesse illimitée dans l'espace.","es":"Nuevo sistema de gravedad, naves a 7200 km/h y velocidad ilimitada en el espacio."} },
+
+    { s:"done", v:["v0.0.17"],
+      t:{"en":"Awakening centre","fr":"Centre d'éveil","es":"Centro de despertar"},
+      x:{"en":"The new starting point for Cyborgs.","fr":"Nouveau point de départ des Cyborgs.","es":"El nuevo punto de partida de los Ciborgs."} },
+
+    { s:"done", v:["v0.0.17"],
+      t:{"en":"Djibouti city","fr":"Ville de Djibouti","es":"Ciudad de Yibuti"},
+      x:{"en":"A new starting city: shops, armoury, medical centre.","fr":"Nouvelle ville de départ : commerces, armurerie, centre médical.","es":"Una nueva ciudad de inicio: comercios, armería, centro médico."} },
+
+    { s:"done", v:["v0.0.17"],
+      t:{"en":"Ships & police","fr":"Vaisseaux & police","es":"Naves y policía"},
+      x:{"en":"Two ships, Lavrik and Orizaune, with their police variants.","fr":"Deux vaisseaux, Lavrik et Orizaune, avec leurs variantes de police.","es":"Dos naves, Lavrik y Orizaune, con sus variantes policiales."} },
+
+    { s:"done", v:["v0.0.17"],
+      t:{"en":"Construction","fr":"Construction","es":"Construcción"},
+      x:{"en":"More than 60 pieces (IronDee collection) and Zoop mode.","fr":"Plus de 60 pièces (collection IronDee) et mode Zoop.","es":"Más de 60 piezas (colección IronDee) y modo Zoop."} },
+
+    { s:"done", v:["v0.0.16","v0.0.17"],
+      t:{"en":"Upscaling tech","fr":"Technologies d'upscaling","es":"Tecnologías de escalado"},
+      x:{"en":"FSR 3 and 4, DLSS frame generation, XeSS v2 with frame generation.","fr":"FSR 3 et 4, génération d'images DLSS, XeSS v2 avec génération d'images.","es":"FSR 3 y 4, generación de fotogramas DLSS, XeSS v2 con generación de fotogramas."} },
+
+    { s:"done", v:["v0.0.16"],
+      t:{"en":"QLevel system","fr":"Système QLevel","es":"Sistema QLevel"},
+      x:{"en":"80% of the levels converted to the new modular format.","fr":"80 % des niveaux convertis au nouveau format modulaire.","es":"El 80 % de los niveles convertidos al nuevo formato modular."} },
+
+    { s:"done", v:["v0.0.17"],
+      t:{"en":"Trams & radios","fr":"Trams & radios","es":"Tranvías y radios"},
+      x:{"en":"Visual rework of the trams and radios placed out in the world.","fr":"Refonte visuelle des trams et radios placées dans le monde.","es":"Rediseño visual de los tranvías y radios repartidas por el mundo."} },
+
+    { s:"done", v:["v0.0.16","v0.0.17"],
+      t:{"en":"Audio & music","fr":"Audio & musique","es":"Audio y música"},
+      x:{"en":"Cyborg sounds (movement, headshot, body hit) and 21 music tracks.","fr":"Sons Cyborg (mouvement, tir à la tête, impact corps) et 21 musiques.","es":"Sonidos de Ciborg (movimiento, disparo a la cabeza, impacto en el cuerpo) y 21 temas musicales."} }
+  ]
+},
 
 { id:"q2-2025", qn:"Q2 2025",
-  when:{ en:"April / June 2025", fr:"Avril / Juin 2025", es:"Abril / Junio 2025" },
+  when:{"en":"April / June 2025","fr":"Avril / Juin 2025","es":"Abril / Junio 2025"},
   items:[
-  { s:"done", v:["v0.0.14"],
-    t:{ en:"3D ship HUD", fr:"HUD 3D de vaisseau", es:"HUD 3D de nave" },
-    x:{ en:"World-space rendering in first person view.",
-        fr:"Rendu dans l'espace du monde en vue à la première personne.",
-        es:"Renderizado en el espacio del mundo en vista en primera persona." } },
-  { s:"done", v:["v0.0.14"],
-    t:{ en:"DLSS & latency", fr:"DLSS & latence", es:"DLSS y latencia" },
-    x:{ en:"DLSS, AMD Anti-Lag and Nvidia Reflex support.",
-        fr:"Support DLSS, Anti-Lag AMD et Reflex Nvidia.",
-        es:"Compatibilidad con DLSS, Anti-Lag de AMD y Reflex de Nvidia." } },
-  { s:"done", v:["v0.0.14"],
-    t:{ en:"Localisation", fr:"Localisation", es:"Localización" },
-    x:{ en:"Complete rework of the English and French localisation.",
-        fr:"Refonte complète de la localisation anglais et français.",
-        es:"Rediseño completo de la localización en inglés y francés." } },
-  { s:"done", v:["v0.0.15"],
-    t:{ en:"New Sanglines", fr:"Nouvelles Sanglines", es:"Nuevas Sanglines" },
-    x:{ en:"3 new Sanglines: Gaz-Sac, Flyer, Sand Digger.",
-        fr:"3 nouvelles Sanglines : Gaz-Sac, Flyer, Sand Digger.",
-        es:"3 nuevas Sanglines: Gaz-Sac, Flyer, Sand Digger." } },
-  { s:"done", v:["v0.0.15"],
-    t:{ en:"Refinery", fr:"Raffinerie", es:"Refinería" },
-    x:{ en:"A refinery structure: material deposit and sale with a bonus.",
-        fr:"Structure de raffinerie : dépôt de matériaux et vente avec bonus.",
-        es:"Estructura de refinería: depósito de materiales y venta con bonificación." } },
-  { s:"done", v:["v0.0.15"],
-    t:{ en:"New points of interest", fr:"Nouveaux points d'intérêt", es:"Nuevos puntos de interés" },
-    x:{ en:"Explorable ruined cities: Toronto and Moscow.",
-        fr:"Villes en ruines explorables : Toronto et Moscou.",
-        es:"Ciudades en ruinas explorables: Toronto y Moscú." } },
-  { s:"done", v:["v0.0.15"],
-    t:{ en:"Dynamic market", fr:"Marché dynamique", es:"Mercado dinámico" },
-    x:{ en:"Prices move with the seller's stock.",
-        fr:"Les prix évoluent selon le stock du vendeur.",
-        es:"Los precios varían según el stock del vendedor." } },
-  { s:"done", v:["v0.0.15"],
-    t:{ en:"Hovercraft", fr:"Aéroglisseur", es:"Aerodeslizador" },
-    x:{ en:"Stability improvements and a partly reworked vehicle interface.",
-        fr:"Améliorations de stabilité et interface véhicule partiellement refaite.",
-        es:"Mejoras de estabilidad e interfaz de vehículo parcialmente rehecha." } },
-  { s:"done", v:["v0.0.15"],
-    t:{ en:"Player trading", fr:"Échange entre joueurs", es:"Intercambio entre jugadores" },
-    x:{ en:"Trading items directly between two players.",
-        fr:"Échange d'objets directement entre deux joueurs.",
-        es:"Intercambio de objetos directamente entre dos jugadores." } },
-  { s:"done", v:["v0.0.14"],
-    t:{ en:"Relay tower v2", fr:"Tour de relais v2", es:"Torre de repetición v2" },
-    x:{ en:"New layout, armoury moved to the lobby.",
-        fr:"Nouvelle disposition, armurerie déplacée au lobby.",
-        es:"Nueva disposición, armería trasladada al lobby." } },
-  { s:"done", v:["v0.0.14"],
-    t:{ en:"Moon structures", fr:"Structures lunaires", es:"Estructuras lunares" },
-    x:{ en:"Landing pads and hangars under construction.",
-        fr:"Aires d'atterrissage et hangars en construction.",
-        es:"Plataformas de aterrizaje y hangares en construcción." } }
-]},
+    { s:"done", v:["v0.0.14"],
+      t:{"en":"3D ship HUD","fr":"HUD 3D de vaisseau","es":"HUD 3D de nave"},
+      x:{"en":"World-space rendering in first person view.","fr":"Rendu dans l'espace du monde en vue à la première personne.","es":"Renderizado en el espacio del mundo en vista en primera persona."} },
+
+    { s:"done", v:["v0.0.14"],
+      t:{"en":"DLSS & latency","fr":"DLSS & latence","es":"DLSS y latencia"},
+      x:{"en":"DLSS, AMD Anti-Lag and Nvidia Reflex support.","fr":"Support DLSS, Anti-Lag AMD et Reflex Nvidia.","es":"Compatibilidad con DLSS, Anti-Lag de AMD y Reflex de Nvidia."} },
+
+    { s:"done", v:["v0.0.14"],
+      t:{"en":"Localisation","fr":"Localisation","es":"Localización"},
+      x:{"en":"Complete rework of the English and French localisation.","fr":"Refonte complète de la localisation anglais et français.","es":"Rediseño completo de la localización en inglés y francés."} },
+
+    { s:"done", v:["v0.0.15"],
+      t:{"en":"New Sanglines","fr":"Nouvelles Sanglines","es":"Nuevas Sanglines"},
+      x:{"en":"3 new Sanglines: Gaz-Sac, Flyer, Sand Digger.","fr":"3 nouvelles Sanglines : Gaz-Sac, Flyer, Sand Digger.","es":"3 nuevas Sanglines: Gaz-Sac, Flyer, Sand Digger."} },
+
+    { s:"done", v:["v0.0.15"],
+      t:{"en":"Refinery","fr":"Raffinerie","es":"Refinería"},
+      x:{"en":"A refinery structure: material deposit and sale with a bonus.","fr":"Structure de raffinerie : dépôt de matériaux et vente avec bonus.","es":"Estructura de refinería: depósito de materiales y venta con bonificación."} },
+
+    { s:"done", v:["v0.0.15"],
+      t:{"en":"New points of interest","fr":"Nouveaux points d'intérêt","es":"Nuevos puntos de interés"},
+      x:{"en":"Explorable ruined cities: Toronto and Moscow.","fr":"Villes en ruines explorables : Toronto et Moscou.","es":"Ciudades en ruinas explorables: Toronto y Moscú."} },
+
+    { s:"done", v:["v0.0.15"],
+      t:{"en":"Dynamic market","fr":"Marché dynamique","es":"Mercado dinámico"},
+      x:{"en":"Prices move with the seller's stock.","fr":"Les prix évoluent selon le stock du vendeur.","es":"Los precios varían según el stock del vendedor."} },
+
+    { s:"done", v:["v0.0.15"],
+      t:{"en":"Hovercraft","fr":"Aéroglisseur","es":"Aerodeslizador"},
+      x:{"en":"Stability improvements and a partly reworked vehicle interface.","fr":"Améliorations de stabilité et interface véhicule partiellement refaite.","es":"Mejoras de estabilidad e interfaz de vehículo parcialmente rehecha."} },
+
+    { s:"done", v:["v0.0.15"],
+      t:{"en":"Player-supplied shop stock","fr":"Stocks de marchands alimentés par les joueurs","es":"Existencias de tiendas aportadas por jugadores"},
+      x:{"en":"Buy and resell items through vendors, including items that are not part of their default stock.","fr":"Acheter et revendre des objets auprès des marchands, y compris des objets absents de leur stock par défaut.","es":"Comprar y revender objetos a través de comerciantes, incluidos objetos que no forman parte de sus existencias habituales."} },
+
+    { s:"done", v:["v0.0.14"],
+      t:{"en":"Relay tower v2","fr":"Tour de relais v2","es":"Torre de repetición v2"},
+      x:{"en":"New layout, armoury moved to the lobby.","fr":"Nouvelle disposition, armurerie déplacée au lobby.","es":"Nueva disposición, armería trasladada al lobby."} },
+
+    { s:"done", v:["v0.0.14"],
+      t:{"en":"Moon structures","fr":"Structures lunaires","es":"Estructuras lunares"},
+      x:{"en":"New landing pads, visible airlocks and hangar structures on the Moon; these additions were still under construction at release.","fr":"Nouvelles plateformes d’atterrissage, sas visibles et structures de hangars sur la Lune ; ces ajouts étaient encore en construction à leur sortie.","es":"Nuevas plataformas de aterrizaje, esclusas visibles y estructuras de hangares en la Luna; seguían en construcción cuando se publicaron."} }
+  ]
+},
 
 { id:"q1-2025", qn:"Q1 2025",
-  when:{ en:"January / March 2025", fr:"Janvier / Mars 2025", es:"Enero / Marzo 2025" },
+  when:{"en":"January / March 2025","fr":"Janvier / Mars 2025","es":"Enero / Marzo 2025"},
   items:[
-  { s:"done", v:["v0.0.12"],
-    t:{ en:"Mining system", fr:"Système de minage", es:"Sistema de minería" },
-    x:{ en:"Mining system and the Multitool: iron, lithium, copper.",
-        fr:"Système de minage et outil Multitool : fer, lithium, cuivre.",
-        es:"Sistema de minería y la Multiherramienta: hierro, litio, cobre." } },
-  { s:"done", v:["v0.0.12"],
-    t:{ en:"Sanglines & missions", fr:"Sanglines & missions", es:"Sanglines y misiones" },
-    x:{ en:"New Sanglines (Gaz-sac), spawn points and missions: refinery, IC Labs.",
-        fr:"Nouvelles Sanglines (Gaz-sac), points d'apparition et missions : raffinerie, laboratoires IC.",
-        es:"Nuevas Sanglines (Gaz-sac), puntos de aparición y misiones: refinería, laboratorios IC." } },
-  { s:"done", v:["v0.0.12"],
-    t:{ en:"Ship weapons", fr:"Armes de vaisseau", es:"Armas de nave" },
-    x:{ en:"Ship weapon customisation: machine gun, missiles, mining beam.",
-        fr:"Personnalisation des armes de vaisseau : mitrailleuse, missiles, rayon de minage.",
-        es:"Personalización de las armas de nave: ametralladora, misiles, rayo de minería." } },
-  { s:"done", v:["v0.0.13a"],
-    t:{ en:"Custom pathfinding", fr:"Pathfinding maison", es:"Búsqueda de rutas propia" },
-    x:{ en:"In-house pathfinding: multithreaded, octree, spherical.",
-        fr:"Recherche de chemin maison : multithread, octree, sphérique.",
-        es:"Búsqueda de rutas propia: multihilo, octree, esférica." } },
-  { s:"done", v:["v0.0.13a"],
-    t:{ en:"HOTAS support", fr:"Support HOTAS", es:"Compatibilidad con HOTAS" },
-    x:{ en:"HOTAS support and advanced analog configuration across 24 axes.",
-        fr:"Support HOTAS et configuration analogique avancée sur 24 axes.",
-        es:"Compatibilidad con HOTAS y configuración analógica avanzada en 24 ejes." } },
-  { s:"done", v:["v0.0.13a"],
-    t:{ en:"Vehicle customisation", fr:"Personnalisation véhicule", es:"Personalización de vehículos" },
-    x:{ en:"Improved customisation, more than 28 colours.",
-        fr:"Personnalisation améliorée, plus de 28 couleurs.",
-        es:"Personalización mejorada, más de 28 colores." } },
-  { s:"done", v:["v0.0.13a"],
-    t:{ en:"Lunar base", fr:"Base lunaire", es:"Base lunar" },
-    x:{ en:"A new lunar base (Moona), mineable asteroids and the star map.",
-        fr:"Nouvelle base lunaire (Moona), astéroïdes minables et carte des étoiles.",
-        es:"Una nueva base lunar (Moona), asteroides explotables y el mapa estelar." } },
-  { s:"done", v:["v0.0.13a"],
-    t:{ en:"Player statistics", fr:"Statistiques joueur", es:"Estadísticas del jugador" },
-    x:{ en:"Character statistics system: kills, distance, exploration.",
-        fr:"Système de statistiques du personnage : éliminations, distance, exploration.",
-        es:"Sistema de estadísticas del personaje: eliminaciones, distancia, exploración." } }
-]}
+    { s:"done", v:["v0.0.12"],
+      t:{"en":"Mining system","fr":"Système de minage","es":"Sistema de minería"},
+      x:{"en":"Mining system and the Multitool: iron, lithium, copper.","fr":"Système de minage et outil Multitool : fer, lithium, cuivre.","es":"Sistema de minería y la Multiherramienta: hierro, litio, cobre."} },
 
+    { s:"done", v:["v0.0.12"],
+      t:{"en":"Sanglines & missions","fr":"Sanglines & missions","es":"Sanglines y misiones"},
+      x:{"en":"New Sanglines (Gaz-sac), spawn points and missions: refinery, IC Labs.","fr":"Nouvelles Sanglines (Gaz-sac), points d'apparition et missions : raffinerie, laboratoires IC.","es":"Nuevas Sanglines (Gaz-sac), puntos de aparición y misiones: refinería, laboratorios IC."} },
+
+    { s:"done", v:["v0.0.12"],
+      t:{"en":"Ship weapons","fr":"Armes de vaisseau","es":"Armas de nave"},
+      x:{"en":"Ship weapon customisation: machine gun, missiles, mining beam.","fr":"Personnalisation des armes de vaisseau : mitrailleuse, missiles, rayon de minage.","es":"Personalización de las armas de nave: ametralladora, misiles, rayo de minería."} },
+
+    { s:"done", v:["v0.0.13a"],
+      t:{"en":"Custom pathfinding","fr":"Pathfinding maison","es":"Búsqueda de rutas propia"},
+      x:{"en":"In-house pathfinding: multithreaded, octree, spherical.","fr":"Recherche de chemin maison : multithread, octree, sphérique.","es":"Búsqueda de rutas propia: multihilo, octree, esférica."} },
+
+    { s:"done", v:["v0.0.13a"],
+      t:{"en":"HOTAS support","fr":"Support HOTAS","es":"Compatibilidad con HOTAS"},
+      x:{"en":"HOTAS support and advanced analog configuration across 24 axes.","fr":"Support HOTAS et configuration analogique avancée sur 24 axes.","es":"Compatibilidad con HOTAS y configuración analógica avanzada en 24 ejes."} },
+
+    { s:"done", v:["v0.0.13a"],
+      t:{"en":"Vehicle customisation","fr":"Personnalisation véhicule","es":"Personalización de vehículos"},
+      x:{"en":"Improved customisation, more than 28 colours.","fr":"Personnalisation améliorée, plus de 28 couleurs.","es":"Personalización mejorada, más de 28 colores."} },
+
+    { s:"done", v:["v0.0.13a"],
+      t:{"en":"Lunar base","fr":"Base lunaire","es":"Base lunar"},
+      x:{"en":"A new lunar base (Moona), mineable asteroids and the star map.","fr":"Nouvelle base lunaire (Moona), astéroïdes minables et carte des étoiles.","es":"Una nueva base lunar (Moona), asteroides explotables y el mapa estelar."} },
+
+    { s:"done", v:["v0.0.13a"],
+      t:{"en":"Player statistics","fr":"Statistiques joueur","es":"Estadísticas del jugador"},
+      x:{"en":"Character statistics system: kills, distance, exploration.","fr":"Système de statistiques du personnage : éliminations, distance, exploration.","es":"Sistema de estadísticas del personaje: eliminaciones, distancia, exploración."} }
+  ]
+}
 ];
 
 /* =========================================================================
