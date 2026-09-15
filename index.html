@@ -33,7 +33,7 @@
   --tx-body:   #B5C5D4;
   --tx-mute:   #8FA3B5;
 
-  --amber:     #D9942F;   --amber-rgb: 217,148,47;
+  --amber:     #F5B04A;   --amber-rgb: 245,176,74;
   --steel:     #3F6E96;   --steel-rgb: 63,110,150;
   --notif:     #FF9C00;   --notif-rgb: 255,156,0;
   --matter:    #17B98F;   --matter-rgb: 23,185,143;
@@ -55,7 +55,7 @@ body{
   background-attachment: fixed;
   color: var(--tx-body);
   font-family:'BlenderPro','Rajdhani','Saira Condensed',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-  font-weight:400; font-size:12px; line-height:1.5;
+  font-weight:400; font-size:14px; line-height:1.55;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
@@ -91,8 +91,8 @@ body{
   clip-path: polygon(28% 0,100% 0,100% 72%,72% 100%,0 100%,0 28%);
 }
 .bar .lbl{
-  font-weight:700; font-size:10px; letter-spacing:0;
-  color: rgb(var(--acc-rgb)); text-transform:uppercase; white-space:nowrap;
+  font-weight:700; font-size:12px; letter-spacing:0;
+  color: rgb(var(--acc-rgb)); text-transform:uppercase;
 }
 .bar .grow{ flex:1 1 auto; min-width:12px; }
 .bar .seg{ width:16px; height:7px; flex:none; background: rgb(var(--acc-rgb)); }
@@ -138,6 +138,7 @@ body{
 /* ---------- tuiles chiffrees = filtre ---------- */
 .kpis{ display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; }
 .kpi{
+  border:0; font:inherit; text-align:left; color:inherit;
   min-width:132px; flex:1 1 132px;
   background: rgba(34,43,52,0.95);
   border-left:2px solid rgb(var(--acc-rgb));
@@ -145,8 +146,8 @@ body{
 }
 .kpi:hover{ background: rgba(var(--acc-rgb), 0.16); }
 .kpi.on{ background: rgba(var(--acc-rgb), 0.20); }
-.kpi .v{ font-weight:900; font-size:20px; color: rgb(var(--acc-rgb)); font-variant-numeric:tabular-nums; line-height:1.1; }
-.kpi .k{ font-weight:400; font-size:9px; color:var(--tx-mute); letter-spacing:.12em; text-transform:uppercase; }
+.kpi .v{ display:block; font-weight:900; font-size:20px; color: rgb(var(--acc-rgb)); font-variant-numeric:tabular-nums; line-height:1.1; }
+.kpi .k{ display:block; font-weight:400; font-size:9px; color:var(--tx-mute); letter-spacing:.12em; text-transform:uppercase; }
 .kpi[data-f="all"]{ flex:0 0 auto; min-width:150px; }
 
 /* ---------- navigation ---------- */
@@ -161,7 +162,7 @@ body{
 .chip.now{ color:var(--amber); border-color:rgba(var(--amber-rgb),0.45); }
 .chip .dot{ display:inline-block; width:6px; height:6px; background:var(--amber); margin-right:6px; vertical-align:middle; }
 .nav .sep{ width:1px; background:var(--hair); margin:2px 6px; }
-.nav .hint{ margin-left:auto; font-size:9.5px; letter-spacing:.10em; color:#4A545F; text-transform:uppercase; align-self:center; }
+.nav .hint{ margin-left:auto; font-size:9.5px; letter-spacing:.10em; color:#8FA3B5; text-transform:uppercase; align-self:center; }
 
 /* ---------- corps ---------- */
 main{ max-width:1560px; margin:0 auto; padding:26px 34px 90px; }
@@ -173,27 +174,13 @@ main{ max-width:1560px; margin:0 auto; padding:26px 34px 90px; }
   padding:12px 16px 10px; border-bottom:1px solid var(--hair);
 }
 .q-meta .when{ font-weight:400; font-size:10.5px; color:var(--tx-mute); letter-spacing:.12em; text-transform:uppercase; }
-.q-meta .tally{ font-weight:400; font-size:10.5px; color:var(--tx-mute); letter-spacing:.06em; }
+.q-meta .tally{ margin-left:auto; font-weight:400; font-size:10.5px; color:var(--tx-mute); letter-spacing:.06em; }
 .q-meta .tally b{ font-weight:700; color:var(--tx-body); }
-
-.prog{ position:relative; flex:1 1 220px; min-width:180px; height:5px; background:#232E3B; }
-.prog i{ position:absolute; inset:0 auto 0 0; background:rgb(var(--acc-rgb)); display:block; }
-.prog::after{
-  content:''; position:absolute; inset:0;
-  background-image:
-    linear-gradient(rgba(8,11,15,.90),rgba(8,11,15,.90)),
-    linear-gradient(rgba(8,11,15,.90),rgba(8,11,15,.90)),
-    linear-gradient(rgba(8,11,15,.90),rgba(8,11,15,.90));
-  background-size:1px 100%, 1px 100%, 1px 100%;
-  background-position:25% 0, 50% 0, 75% 0;
-  background-repeat:no-repeat;
-}
-.q-meta .pct{ font-weight:900; font-size:13px; color:rgb(var(--acc-rgb)); font-variant-numeric:tabular-nums; min-width:42px; text-align:right; }
 
 .group{ padding:16px 16px 0; }
 .group .bar{ margin-bottom:10px; }
 
-.cards{ display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:8px; }
+.cards{ display:grid; grid-template-columns:repeat(auto-fill,minmax(350px,1fr)); gap:8px; }
 
 .card{
   --acc-rgb: var(--slate-rgb);
@@ -217,7 +204,7 @@ main{ max-width:1560px; margin:0 auto; padding:26px 34px 90px; }
 .card[data-status="bug"]   { --acc-rgb: var(--deny-rgb); }
 
 .card-head{ display:flex; align-items:flex-start; gap:10px; margin-bottom:5px; }
-.card-title{ flex:1; font-weight:700; font-size:11.5px; letter-spacing:.04em; color:var(--tx); text-transform:uppercase; line-height:1.35; }
+.card-title{ flex:1; font-weight:700; font-size:14px; letter-spacing:.03em; color:var(--tx); text-transform:uppercase; line-height:1.35; }
 .card[data-status="done"] .card-title{ color:#DDE7EF; }
 .card[data-status="bug"]  .card-title{ color:#FFC9CB; }
 
@@ -229,7 +216,7 @@ main{ max-width:1560px; margin:0 auto; padding:26px 34px 90px; }
 }
 .tag i{ width:10px; height:6px; background:rgb(var(--acc-rgb)); opacity:.85; display:block; }
 
-.card-desc{ font-size:11.5px; line-height:1.55; color:var(--tx-body); letter-spacing:.02em; }
+.card-desc{ font-size:14px; line-height:1.55; color:var(--tx-body); letter-spacing:.02em; }
 .card-rest{
   margin-top:7px; padding:6px 0 0 9px;
   border-left:1px solid rgba(var(--steel-rgb),0.35);
@@ -243,7 +230,7 @@ main{ max-width:1560px; margin:0 auto; padding:26px 34px 90px; }
   color:rgba(var(--steel-rgb),1); background:rgba(var(--steel-rgb),0.14);
   border:1px solid rgba(var(--steel-rgb),0.28); padding:2px 6px;
 }
-.when-s{ font-weight:400; font-size:9px; letter-spacing:.12em; color:#5E6B78; text-transform:uppercase; }
+.when-s{ font-weight:400; font-size:9px; letter-spacing:.12em; color:#8FA3B5; text-transform:uppercase; }
 
 /* ---------- archive repliable ---------- */
 .archive{ margin-top:34px; }
@@ -269,17 +256,24 @@ details.q-old[open] > summary .caret{ transform:rotate(90deg); }
 details.q-old > summary .qn{ font-weight:900; font-size:12px; letter-spacing:.10em; color:var(--tx); text-transform:uppercase; }
 details.q-old > summary .qw{ font-weight:400; font-size:10px; letter-spacing:.12em; color:var(--tx-mute); text-transform:uppercase; }
 details.q-old > summary .qc{ margin-left:auto; font-weight:700; font-size:10px; letter-spacing:.08em; color:var(--matter); }
-details.q-old .cards{ padding:8px 0 14px; }
+details.q-old .cards{ padding:12px 0 18px; }
+.release-group{ margin-top:18px; }
+.release-group h3{ font-size:13px; text-transform:uppercase; color:var(--tx-mute); margin-bottom:8px; }
+.latest{ margin-bottom:28px; scroll-margin-top:170px; }
+.latest .group{ padding-top:0; padding-bottom:12px; }
+.latest > .bar{ background:rgba(var(--matter-rgb),.12); }
+button:focus-visible, summary:focus-visible{ outline:2px solid var(--amber); outline-offset:3px; }
+@media(prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} *,*::before,*::after{transition:none!important;} }
 
 .hidden{ display:none !important; }
 
 footer{
   max-width:1560px; margin:0 auto; padding:26px 34px 60px;
   border-top:1px solid var(--hair);
-  font-size:10px; letter-spacing:.12em; color:#4A545F; text-transform:uppercase;
+  font-size:10px; letter-spacing:.12em; color:#8FA3B5; text-transform:uppercase;
   display:flex; gap:16px; flex-wrap:wrap; align-items:center;
 }
-footer .note{ text-transform:none; letter-spacing:.03em; color:#5E6B78; font-size:10.5px; }
+footer .note{ text-transform:none; letter-spacing:.03em; color:#8FA3B5; font-size:10.5px; }
 
 @media (max-width: 720px){
   .topbar .row, .nav, main, footer{ padding-left:16px; padding-right:16px; }
@@ -305,12 +299,12 @@ footer .note{ text-transform:none; letter-spacing:.03em; color:#5E6B78; font-siz
     </div>
 
     <div class="kpis" id="kpis">
-      <div class="kpi" data-f="done"  style="--acc-rgb:var(--matter-rgb)"><div class="v" data-c="done">0</div><div class="k" data-k="done"></div></div>
-      <div class="kpi" data-f="check" style="--acc-rgb:var(--notif-rgb)"><div class="v" data-c="check">0</div><div class="k" data-k="check"></div></div>
-      <div class="kpi" data-f="wip"   style="--acc-rgb:var(--amber-rgb)"><div class="v" data-c="wip">0</div><div class="k" data-k="wip"></div></div>
-      <div class="kpi" data-f="todo"  style="--acc-rgb:var(--slate-rgb)"><div class="v" data-c="todo">0</div><div class="k" data-k="todo"></div></div>
-      <div class="kpi" data-f="bug"   style="--acc-rgb:var(--deny-rgb)"><div class="v" data-c="bug">0</div><div class="k" data-k="bug"></div></div>
-      <div class="kpi on" data-f="all" style="--acc-rgb:var(--steel-rgb)"><div class="v" data-c="all">0</div><div class="k" data-k="all"></div></div>
+      <button type="button" class="kpi" data-f="done"  style="--acc-rgb:var(--matter-rgb)"><span class="v" data-c="done">0</span><span class="k" data-k="done"></span></button>
+      <button type="button" class="kpi" data-f="check" style="--acc-rgb:var(--notif-rgb)"><span class="v" data-c="check">0</span><span class="k" data-k="check"></span></button>
+      <button type="button" class="kpi" data-f="wip"   style="--acc-rgb:var(--amber-rgb)"><span class="v" data-c="wip">0</span><span class="k" data-k="wip"></span></button>
+      <button type="button" class="kpi" data-f="todo"  style="--acc-rgb:var(--slate-rgb)"><span class="v" data-c="todo">0</span><span class="k" data-k="todo"></span></button>
+      <button type="button" class="kpi" data-f="bug"   style="--acc-rgb:var(--deny-rgb)"><span class="v" data-c="bug">0</span><span class="k" data-k="bug"></span></button>
+      <button type="button" class="kpi on" data-f="all" style="--acc-rgb:var(--steel-rgb)"><span class="v" data-c="all">0</span><span class="k" data-k="all"></span></button>
     </div>
   </div>
 
@@ -331,7 +325,7 @@ footer .note{ text-transform:none; letter-spacing:.03em; color:#5E6B78; font-siz
    s = etat : done | check | wip | todo | bug
    d = date (jj/mm)   v = etiquettes de version
    t = titre   x = description   r = ligne "ce qui reste" (HTML autorise)
-   Les compteurs et les pourcentages sont recalcules a l'affichage :
+   Les compteurs sont recalcules a l'affichage :
    ajouter une tache suffit, il n'y a aucun chiffre a maintenir a la main.
    ========================================================================= */
 
@@ -344,7 +338,7 @@ var UI = {
       "check": "Under review",
       "wip": "In progress",
       "todo": "Planned",
-      "bug": "Open bug",
+      "bug": "Known issues",
       "all": "Show all"
     },
     "tag": {
@@ -377,8 +371,8 @@ var UI = {
       ]
     },
     "task": [
-      "task",
-      "tasks"
+      "milestone",
+      "milestones"
     ],
     "cur": "current quarter",
     "plan": "planned",
@@ -389,7 +383,12 @@ var UI = {
     "navArchive": "Archive 2025 / 2026",
     "ea": "Early Access",
     "upd": "Updated 15 September 2026 · v0.0.23a live",
-    "note": "Released features reflect the public updates. Work in progress and planned additions are listed separately; quarterly targets may evolve."
+    "note": "Released features reflect the public updates. Work in progress and planned additions are listed separately; quarterly targets may evolve.",
+    "now": "Now & next",
+    "latest": "Latest releases",
+    "latestIntro": "Explore what is already available, including the new cyborg modules and the interface overhaul.",
+    "available": "Available now",
+    "currentIntro": "Release follow-up and development in progress"
   },
   "fr": {
     "sub": "Feuille de route",
@@ -399,7 +398,7 @@ var UI = {
       "check": "À vérifier",
       "wip": "En cours",
       "todo": "Planifié",
-      "bug": "Bug ouvert",
+      "bug": "Problèmes connus",
       "all": "Tout afficher"
     },
     "tag": {
@@ -432,8 +431,8 @@ var UI = {
       ]
     },
     "task": [
-      "tâche",
-      "tâches"
+      "jalon",
+      "jalons"
     ],
     "cur": "trimestre en cours",
     "plan": "planifié",
@@ -444,7 +443,12 @@ var UI = {
     "navArchive": "Archive 2025 / 2026",
     "ea": "Accès anticipé",
     "upd": "Mise à jour : 15 septembre 2026 · v0.0.23a disponible",
-    "note": "Les fonctionnalités livrées correspondent aux mises à jour publiques. Les travaux en cours et les ajouts prévus restent distincts ; les objectifs trimestriels peuvent évoluer."
+    "note": "Les fonctionnalités livrées correspondent aux mises à jour publiques. Les travaux en cours et les ajouts prévus restent distincts ; les objectifs trimestriels peuvent évoluer.",
+    "now": "En ce moment",
+    "latest": "Dernières mises à jour",
+    "latestIntro": "Retrouvez les nouveautés déjà disponibles, dont les modules cyborg et la refonte des interfaces.",
+    "available": "Disponible",
+    "currentIntro": "Suivi de la mise à jour et développements en cours"
   },
   "es": {
     "sub": "Hoja de ruta",
@@ -454,7 +458,7 @@ var UI = {
       "check": "Por revisar",
       "wip": "En curso",
       "todo": "Planificado",
-      "bug": "Error abierto",
+      "bug": "Problemas conocidos",
       "all": "Mostrar todo"
     },
     "tag": {
@@ -487,8 +491,8 @@ var UI = {
       ]
     },
     "task": [
-      "tarea",
-      "tareas"
+      "hito",
+      "hitos"
     ],
     "cur": "trimestre en curso",
     "plan": "planificado",
@@ -499,7 +503,12 @@ var UI = {
     "navArchive": "Archivo 2025 / 2026",
     "ea": "Acceso anticipado",
     "upd": "Actualizado: 15 de septiembre de 2026 · v0.0.23a disponible",
-    "note": "Las funciones entregadas corresponden a las actualizaciones públicas. Los trabajos en curso y las novedades previstas se distinguen de ellas; los objetivos trimestrales pueden cambiar."
+    "note": "Las funciones entregadas corresponden a las actualizaciones públicas. Los trabajos en curso y las novedades previstas se distinguen de ellas; los objetivos trimestrales pueden cambiar.",
+    "now": "Ahora y después",
+    "latest": "Últimas actualizaciones",
+    "latestIntro": "Descubre las novedades ya disponibles, incluidos los módulos de ciborg y la renovación de interfaces.",
+    "available": "Disponible",
+    "currentIntro": "Seguimiento de la actualización y desarrollo en curso"
   }
 };
 
@@ -1036,8 +1045,7 @@ var ARCHIVE = [
 /* =========================================================================
    MOTEUR D'AFFICHAGE
    La page est reconstruite depuis DATA / ARCHIVE a chaque changement de
-   langue. Aucun chiffre n'est ecrit en dur : compteurs, totaux et
-   pourcentages sont recalcules a partir du DOM.
+   langue. Aucun chiffre n'est ecrit en dur : compteurs et totaux sont recalcules a partir du DOM.
    ========================================================================= */
 (function(){
 
@@ -1110,13 +1118,10 @@ var ARCHIVE = [
     s.style.setProperty("--acc-rgb", ACC[q.a] || ACC.slate);
 
     var state = (q.state === "cur") ? UI[LANG].cur : UI[LANG].plan;
-    s.appendChild(bar(q.a, q.qn + "  /  " + state, false));
+    s.appendChild(bar(q.a, (q.state === "cur" ? UI[LANG].now : q.qn + "  /  " + state), false));
 
     var m = el("div","q-meta");
-    m.appendChild(el("span","when", q.when[LANG]));
-    var p = el("span","prog"); p.appendChild(el("i"));
-    m.appendChild(p);
-    m.appendChild(el("span","pct","0%"));
+    m.appendChild(el("span","when", q.state === "cur" ? UI[LANG].currentIntro : q.when[LANG]));
     m.appendChild(el("span","tally"));
     s.appendChild(m);
 
@@ -1163,6 +1168,35 @@ var ARCHIVE = [
     return s;
   }
 
+  function latestNode(openIds){
+    var s = el("section", "latest frame"); s.id = "latest";
+    s.appendChild(bar("matter", UI[LANG].latest, false));
+    s.appendChild(el("p", "arch-intro", UI[LANG].latestIntro));
+    var wrap = el("div", "group");
+    var versions = [];
+    DATA[0].groups.forEach(function(g){ g.items.forEach(function(it){
+      if (it.s === "done" && versions.indexOf(it.v[0]) < 0) versions.push(it.v[0]);
+    }); });
+    versions.forEach(function(version){
+      var d = el("details", "q-old release"); d.id = "release-" + version;
+      d.open = openIds.indexOf(d.id) !== -1;
+      var sm = el("summary"); sm.appendChild(el("span", "caret"));
+      sm.appendChild(el("span", "qn", version));
+      sm.appendChild(el("span", "qw", UI[LANG].available));
+      sm.appendChild(el("span", "qc")); d.appendChild(sm);
+      DATA[0].groups.forEach(function(g){
+        var items = g.items.filter(function(it){ return it.s === "done" && it.v[0] === version; });
+        if (!items.length) return;
+        var group = el("div", "release-group");
+        group.appendChild(el("h3", "", g.n[LANG]));
+        var cards = el("div", "cards"); items.forEach(function(it){ cards.appendChild(card(it)); });
+        group.appendChild(cards); d.appendChild(group);
+      });
+      wrap.appendChild(d);
+    });
+    s.appendChild(wrap); return s;
+  }
+
   function navNode(){
     var n = document.getElementById("nav");
     n.innerHTML = "";
@@ -1171,8 +1205,12 @@ var ARCHIVE = [
       var b = el("button", q.state === "cur" ? "chip now" : "chip");
       b.setAttribute("data-go", q.id);
       if (q.state === "cur") b.appendChild(el("span","dot"));
-      b.appendChild(document.createTextNode(q.qn));
+      b.appendChild(document.createTextNode(q.state === "cur" ? UI[LANG].now : q.qn));
       n.appendChild(b);
+      if (q.state === "cur") {
+        var latest = el("button", "chip", UI[LANG].latest);
+        latest.setAttribute("data-go", "latest"); n.appendChild(latest);
+      }
     });
 
     n.appendChild(el("span","sep"));
@@ -1210,6 +1248,11 @@ var ARCHIVE = [
       e.textContent = g[e.getAttribute("data-c")] || 0;
     });
 
+    document.querySelectorAll(".kpi").forEach(function(k){
+      var status = k.getAttribute("data-f");
+      k.hidden = status !== "all" && !g[status];
+      k.classList.toggle("hidden", k.hidden);
+    });
     document.querySelectorAll("section.quarter").forEach(function(q){
       var t = tallyOf(q);
       var parts = [];
@@ -1222,11 +1265,6 @@ var ARCHIVE = [
           " &nbsp;&middot;&nbsp; " + parts.join(" &nbsp;&middot;&nbsp; ");
       }
 
-      var pctVal = t.all ? Math.round((t.done / t.all) * 100) : 0;
-      var fill = q.querySelector(".prog i");
-      if (fill) fill.style.width = pctVal + "%";
-      var pct = q.querySelector(".pct");
-      if (pct) pct.textContent = pctVal + "%";
     });
 
     document.querySelectorAll("details.q-old").forEach(function(d){
@@ -1242,6 +1280,7 @@ var ARCHIVE = [
 
     document.querySelectorAll(".kpi").forEach(function(k){
       k.classList.toggle("on", k.getAttribute("data-f") === f);
+      k.setAttribute("aria-pressed", String(k.getAttribute("data-f") === f));
     });
 
     document.querySelectorAll(".card").forEach(function(c){
@@ -1264,15 +1303,17 @@ var ARCHIVE = [
       if (f !== "all") d.open = visible > 0;
     });
 
-    var arch = document.getElementById("archive");
-    if (arch) arch.classList.toggle("hidden",
-      arch.querySelectorAll(".card:not(.hidden)").length === 0);
+    ["archive", "latest"].forEach(function(id){
+      var section = document.getElementById(id);
+      section.classList.toggle("hidden", section.querySelectorAll(".card:not(.hidden)").length === 0);
+    });
   }
 
   /* ---------------- interactions ---------------- */
   function bindNav(){
     document.querySelectorAll(".chip[data-go]").forEach(function(b){
       b.addEventListener("click", function(){
+        FILTER = "all"; applyFilter();
         var t = document.getElementById(b.getAttribute("data-go"));
         if (t) t.scrollIntoView({ behavior:"smooth", block:"start" });
       });
@@ -1319,7 +1360,14 @@ var ARCHIVE = [
 
     var app = document.getElementById("app");
     app.innerHTML = "";
-    DATA.forEach(function(q){ app.appendChild(quarterNode(q)); });
+    DATA.forEach(function(q, index){
+      if (index === 0) {
+        var current = Object.assign({}, q, {groups:q.groups.map(function(g){
+          return Object.assign({}, g, {items:g.items.filter(function(it){ return it.s !== "done"; })});
+        }).filter(function(g){ return g.items.length; })});
+        app.appendChild(quarterNode(current)); app.appendChild(latestNode(openIds));
+      } else app.appendChild(quarterNode(q));
+    });
     app.appendChild(archiveNode(openIds));
 
     navNode();
